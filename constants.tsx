@@ -57,7 +57,8 @@ const LightBulbIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
-const resolveLogo = (file: string) => new URL(`logos/${file}`, import.meta.env.BASE_URL).href;
+// Build a path that respects Vite's base without requiring an absolute URL.
+const resolveLogo = (file: string) => `${import.meta.env.BASE_URL}logos/${file}`;
 
 export const services: Service[] = [
   {
