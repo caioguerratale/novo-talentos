@@ -57,6 +57,7 @@ const LightBulbIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
+const resolveLogo = (file: string) => new URL(`logos/${file}`, import.meta.env.BASE_URL).href;
 
 export const services: Service[] = [
   {
@@ -310,22 +311,22 @@ export const testimonials = [
 
 export const clients = [
     // Logos locais (pasta public/logos)
-    { name: 'Aloform', logoUrl: '/logos/Aloform-Logo.png' },
-    { name: 'Supermercados Guanabara', logoUrl: '/logos/Guanabara.jpg' },
-    { name: 'Ambev', logoUrl: '/logos/logo-ambev.jpg' },
-    { name: 'Maersk', logoUrl: '/logos/maersk-logo.png' },
-    { name: 'Club Med', logoUrl: '/logos/clubmed-logo.png' },
-    { name: 'Coltene', logoUrl: '/logos/COLTENE-NORTH-AMERICAN-TEAM-500X500.jpg' },
-    { name: 'Kongsberg', logoUrl: '/logos/kongsberg.png' },
-    { name: 'ABS', logoUrl: '/logos/abs.jpg' },
-    { name: 'Bunge', logoUrl: '/logos/Bunge-lgo.png' },
-    { name: 'Greif', logoUrl: '/logos/greif-Logo.jpg' },
-    { name: 'RP', logoUrl: '/logos/Logo_RP.jpg' },
-    { name: 'Medika', logoUrl: '/logos/Medika-Logo.png' },
-    { name: 'Mozak', logoUrl: '/logos/Mozak-logo.png' },
-    { name: 'Cartão de Todos', logoUrl: '/logos/cartao-de-todos.webp' },
-    { name: 'NIO Digital', logoUrl: '/logos/nio-digital.webp' },
-    { name: 'Princesa', logoUrl: '/logos/princesa.webp' },
+    { name: 'Aloform', logoUrl: resolveLogo('Aloform-Logo.png') },
+    { name: 'Supermercados Guanabara', logoUrl: resolveLogo('Guanabara.jpg') },
+    { name: 'Ambev', logoUrl: resolveLogo('logo-ambev.jpg') },
+    { name: 'Maersk', logoUrl: resolveLogo('maersk-logo.png') },
+    { name: 'Club Med', logoUrl: resolveLogo('clubmed-logo.png') },
+    { name: 'Coltene', logoUrl: resolveLogo('COLTENE-NORTH-AMERICAN-TEAM-500X500.jpg') },
+    { name: 'Kongsberg', logoUrl: resolveLogo('kongsberg.png') },
+    { name: 'ABS', logoUrl: resolveLogo('abs.jpg') },
+    { name: 'Bunge', logoUrl: resolveLogo('Bunge-lgo.png') },
+    { name: 'Greif', logoUrl: resolveLogo('greif-Logo.jpg') },
+    { name: 'RP', logoUrl: resolveLogo('Logo_RP.jpg') },
+    { name: 'Medika', logoUrl: resolveLogo('Medika-Logo.png') },
+    { name: 'Mozak', logoUrl: resolveLogo('Mozak-logo.png') },
+    { name: 'Cartão de Todos', logoUrl: resolveLogo('cartao-de-todos.webp') },
+    { name: 'NIO Digital', logoUrl: resolveLogo('nio-digital.webp') },
+    { name: 'Princesa', logoUrl: resolveLogo('princesa.webp') },
 ];
 
 
