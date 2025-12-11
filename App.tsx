@@ -206,16 +206,29 @@ const HomePage: React.FC = () => (
             </div>
         </section>
 
-        {/* Services Section - 3x3 Grid */}
+        {/* Services Section - 3 Featured Services */}
         <section className="py-16 bg-gradient-to-r from-red-700 to-red-800">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10">
                     <h2 className="text-2xl font-bold text-white">Serviços</h2>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-                    {services.slice(0, 9).map(service => (
-                        <ServiceGridCard key={service.id} service={service} />
-                    ))}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                    {services
+                        .filter(service => 
+                            ['recrutamento-e-selecao', 'cargos-e-salarios', 'pesquisa-de-clima-organizacional'].includes(service.slug)
+                        )
+                        .map(service => (
+                            <ServiceGridCard key={service.id} service={service} />
+                        ))
+                    }
+                </div>
+                <div className="text-center mt-10">
+                    <Link 
+                        to="/servicos" 
+                        className="inline-block bg-white text-red-700 font-bold py-3 px-8 rounded-full hover:bg-orange-100 transition-all duration-300 shadow-lg transform hover:scale-105"
+                    >
+                        Venha conhecer nossos serviços
+                    </Link>
                 </div>
             </div>
         </section>
