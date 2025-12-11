@@ -233,9 +233,17 @@ const HomePage: React.FC = () => (
             </div>
         </section>
 
-        {/* Quem Somos Section - Full width with text */}
-        <section className="py-20 bg-gray-100">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Quem Somos Section - Full width with background image */}
+        <section className="py-20 relative">
+            {/* Background Image */}
+            <div 
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${import.meta.env.BASE_URL}fundo.jpg)` }}
+            >
+                <div className="absolute inset-0 bg-white/60"></div>
+            </div>
+            
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="max-w-4xl mx-auto text-center">
                     <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-8">
                         A TALENTOS CONSULTORIA é uma empresa de consultoria de RH no Rio de Janeiro, composta por profissionais com mais de 20 anos de experiência, especializados em Recursos Humanos e com passagens em empresas nacionais e multinacionais. Conectamos a estratégia do seu negócio aos resultados, através das pessoas. Alinhamos cultura, liderança e gestão para que sua empresa tenha um time de alta performance.
