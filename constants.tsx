@@ -294,19 +294,19 @@ export const testimonials = [
         quote: "A Talentos é uma empresa que tem muito foco no cliente e aderência aos processos internos, sempre entregando resultados de forma consistente e da maneira certa. O diferencial deles está na qualidade das pessoas que eles contratam e no interesse genuíno pelos funcionários.",
         name: "Bruno Melaré",
         title: "Diretoria de Serviço ao Cliente, Ambev",
-        imageUrl: "https://talentosconsultoria.com.br/wp-content/uploads/2020/08/bruno-melare.jpg",
+        imageUrl: `${import.meta.env.BASE_URL}depoimento-bruno.png`,
     },
     {
         quote: "A equipe de profissionais da Talentos é extremamente competente e o compromisso com o cliente se mostra exemplar. A experiência tem sido a melhor possível.",
         name: "Jorge Kreimer",
         title: "Diretor Executivo, Centro da Memória da Eletricidade",
-        imageUrl: "https://talentosconsultoria.com.br/wp-content/uploads/2020/08/jorge-kreimer.jpg",
+        imageUrl: `${import.meta.env.BASE_URL}depoimento-jorge.png`,
     },
     {
         quote: "É ótimo ter a Talentos atuando no nosso negócio. A cultura de excelência no atendimento ao cliente, o foco constante no desenvolvimento, engajamento e retenção das pessoas é praticado no dia a dia.",
         name: "Márcio Ferreira",
         title: "Regional Operations Manager, Ambev",
-        imageUrl: "https://talentosconsultoria.com.br/wp-content/uploads/2020/08/marcio-ferreira.jpg",
+        imageUrl: `${import.meta.env.BASE_URL}depoimento-marcio.png`,
     }
 ];
 
