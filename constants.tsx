@@ -58,7 +58,7 @@ const LightBulbIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 // Build a path that respects Vite's base without requiring an absolute URL.
-const resolveLogo = (file: string) => `${import.meta.env.BASE_URL}logos/${file}`;
+const resolveLogo = (file: string) => `${import.meta.env.BASE_URL}logos.clientes/${file}`;
 
 export const services: Service[] = [
   {
@@ -311,23 +311,24 @@ export const testimonials = [
 ];
 
 export const clients = [
-    // Logos locais (pasta public/logos)
-    { name: 'Aloform', logoUrl: resolveLogo('Aloform-Logo.png') },
-    { name: 'Supermercados Guanabara', logoUrl: resolveLogo('Guanabara.jpg') },
-    { name: 'Ambev', logoUrl: resolveLogo('logo-ambev.jpg') },
-    { name: 'Maersk', logoUrl: resolveLogo('maersk-logo.png') },
-    { name: 'Club Med', logoUrl: resolveLogo('clubmed-logo.png') },
-    { name: 'Coltene', logoUrl: resolveLogo('COLTENE-NORTH-AMERICAN-TEAM-500X500.jpg') },
-    { name: 'Kongsberg', logoUrl: resolveLogo('kongsberg.png') },
-    { name: 'ABS', logoUrl: resolveLogo('abs.jpg') },
-    { name: 'Bunge', logoUrl: resolveLogo('Bunge-lgo.png') },
-    { name: 'Greif', logoUrl: resolveLogo('greif-Logo.jpg') },
-    { name: 'RP', logoUrl: resolveLogo('Logo_RP.jpg') },
-    { name: 'Medika', logoUrl: resolveLogo('Medika-Logo.png') },
-    { name: 'Mozak', logoUrl: resolveLogo('Mozak-logo.png') },
-    { name: 'Cartão de Todos', logoUrl: resolveLogo('cartao-de-todos.webp') },
-    { name: 'NIO Digital', logoUrl: resolveLogo('nio-digital.webp') },
-    { name: 'Princesa', logoUrl: resolveLogo('princesa.webp') },
+    // Logos locais (pasta public/logos.clientes)
+    { name: 'Ambev', logoUrl: resolveLogo('clientes-ambev.jpg') },
+    { name: 'Supermercados Guanabara', logoUrl: resolveLogo('clientes-guanabara.jpg') },
+    { name: 'Maersk', logoUrl: resolveLogo('clientes-maersk.jpg') },
+    { name: 'Greif', logoUrl: resolveLogo('greif.jpg') },
+    { name: 'Ruhrpumpen', logoUrl: resolveLogo('ruhrpumpen.jpg') },
+    { name: 'Medka Hospitalar', logoUrl: resolveLogo('medka-hospitalar.jpg') },
+    { name: 'Mozak', logoUrl: resolveLogo('mozak.jpg') },
+    { name: 'Cartão de Todos', logoUrl: resolveLogo('cartao-de-todos.jpg') },
+    { name: 'NIO Digital', logoUrl: resolveLogo('nio-digital.jpg') },
+    { name: 'Princesa', logoUrl: resolveLogo('princesa.jpg') },
+    { name: 'Delivery Center', logoUrl: resolveLogo('clientes-deliverycenter.jpg') },
+    { name: 'Doinet', logoUrl: resolveLogo('clientes-doinet.jpg') },
+    { name: 'Exterran', logoUrl: resolveLogo('clientes-exterran.jpg') },
+    { name: 'Mylan', logoUrl: resolveLogo('clientes-mylan.jpg') },
+    { name: 'Remax', logoUrl: resolveLogo('clientes-remax.jpg') },
+    { name: 'Ultracargo', logoUrl: resolveLogo('clientes-ultracargo.jpg') },
+    { name: 'Debora Aguiar', logoUrl: resolveLogo('deboraaguiar.jpg') },
 ];
 
 

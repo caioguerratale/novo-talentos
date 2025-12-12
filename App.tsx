@@ -65,52 +65,45 @@ const ClientCard: React.FC<{ client: typeof clients[0] }> = ({ client }) => (
 // Clients Carousel Component
 const ClientsCarousel: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const totalPages = Math.ceil(clients.length / 4);
+    const visibleCount = 4;
+    const maxIndex = Math.max(0, clients.length - visibleCount);
     
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % totalPages);
-        }, 4000);
+            setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+        }, 3000);
         return () => clearInterval(interval);
-    }, [totalPages]);
+    }, [maxIndex]);
 
     return (
         <div className="overflow-hidden">
             <div 
-                className="flex gap-4 transition-transform duration-700 ease-in-out"
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                className="flex transition-transform duration-700 ease-in-out"
+                style={{ transform: `translateX(-${currentIndex * (100 / visibleCount)}%)` }}
             >
-                {/* Create pages of 4 clients each */}
-                {Array.from({ length: totalPages }).map((_, pageIndex) => {
-                    const pageClients = clients.slice(pageIndex * 4, pageIndex * 4 + 4);
-                    return (
-                        <div key={pageIndex} className="flex gap-4 flex-shrink-0 w-full justify-center">
-                            {pageClients.map(client => (
-                                <div 
-                                    key={client.name}
-                                    className="flex items-center justify-center h-24 w-[calc(25%-12px)] flex-shrink-0"
-                                >
-                                    <img 
-                                        src={client.logoUrl} 
-                                        alt={client.name} 
-                                        className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    );
-                })}
+                {clients.map((client, index) => (
+                    <div 
+                        key={`${client.name}-${index}`}
+                        className="flex items-center justify-center h-24 w-1/4 flex-shrink-0 px-4"
+                    >
+                        <img 
+                            src={client.logoUrl} 
+                            alt={client.name} 
+                            className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
+                        />
+                    </div>
+                ))}
             </div>
             {/* Pagination dots */}
             <div className="flex items-center justify-center gap-2 mt-6">
-                {Array.from({ length: totalPages }).map((_, i) => (
+                {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                     <button
                         key={i}
                         onClick={() => setCurrentIndex(i)}
                         className={`w-2 h-2 rounded-full transition-all duration-300 ${
                             i === currentIndex ? 'bg-gray-700' : 'bg-gray-300 hover:bg-gray-400'
                         }`}
-                        aria-label={`Ir para página ${i + 1}`}
+                        aria-label={`Ir para posição ${i + 1}`}
                     />
                 ))}
             </div>
