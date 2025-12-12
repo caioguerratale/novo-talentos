@@ -4,7 +4,7 @@ import { HashRouter as Router, Routes, Route, Link, useParams, useLocation } fro
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { services, aboutUsText, contactInfo, whatsappLink, clients, blogArticles, testimonials } from './constants';
+import { services, aboutUsText, contactInfo, whatsappLink, clients, blogArticles, testimonials, historyTimeline } from './constants';
 import { Service } from './types';
 
 const ScrollToTop = () => {
@@ -13,6 +13,78 @@ const ScrollToTop = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
   return null;
+};
+
+// Hook for scroll animations
+const useScrollAnimation = () => {
+    const [ref, setRef] = useState<HTMLDivElement | null>(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        if (!ref) return;
+        
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
+        );
+
+        observer.observe(ref);
+        return () => observer.disconnect();
+    }, [ref]);
+
+    return { setRef, isVisible };
+};
+
+// Timeline Item Component with animations
+const TimelineItem: React.FC<{ 
+    item: typeof historyTimeline[0]; 
+    index: number;
+}> = ({ item, index }) => {
+    const { setRef, isVisible } = useScrollAnimation();
+    const isLeft = item.imagePosition === 'left';
+    
+    return (
+        <div 
+            ref={setRef}
+            className={`flex flex-col ${isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center mb-16 lg:mb-24`}
+        >
+            {/* Image */}
+            <div 
+                className={`w-full lg:w-1/2 transition-all duration-1000 ease-out ${
+                    isVisible 
+                        ? 'opacity-100 translate-x-0' 
+                        : `opacity-0 ${isLeft ? '-translate-x-20' : 'translate-x-20'}`
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+            >
+                <div className="rounded-2xl overflow-hidden shadow-xl">
+                    <img 
+                        src={item.imageUrl} 
+                        alt={`História ${item.id}`}
+                        className="w-full h-64 lg:h-80 object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                </div>
+            </div>
+            
+            {/* Content */}
+            <div 
+                className={`w-full lg:w-1/2 transition-all duration-1000 ease-out ${
+                    isVisible 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 100 + 200}ms` }}
+            >
+                <div className="text-gray-700 text-lg leading-relaxed space-y-4">
+                    {item.content}
+                </div>
+            </div>
+        </div>
+    );
 };
 
 const ServiceCard: React.FC<{ service: Service }> = ({ service }) => (
@@ -313,6 +385,21 @@ const AboutPage: React.FC = () => (
                 </div>
             </div>
         </div>
+
+        {/* Nossa História Section */}
+        <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-4">Nossa História</h2>
+                    <div className="w-24 h-1 bg-red-600 mx-auto rounded-full"></div>
+                </div>
+                <div className="max-w-5xl mx-auto">
+                    {historyTimeline.map((item, index) => (
+                        <TimelineItem key={item.id} item={item} index={index} />
+                    ))}
+                </div>
+            </div>
+        </section>
 
         <section className="bg-gray-50 py-20 sm:py-28">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">

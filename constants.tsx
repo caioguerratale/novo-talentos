@@ -265,29 +265,79 @@ export const aboutUsText = {
     title: "Sobre a Talentos Consultoria",
     content: (
         <div className="space-y-6 text-gray-700 leading-relaxed">
-            <p>Fundada com o propósito de transformar a gestão de pessoas em um diferencial competitivo para as empresas, a <strong>Talentos Consultoria</strong> se consolidou no mercado como uma parceira estratégica em Recursos Humanos.</p>
-            <p>Com uma equipe de consultores experientes e apaixonados pelo que fazem, atuamos de forma personalizada, entendendo a fundo a cultura e as necessidades de cada cliente. Nosso objetivo é ir além do tradicional, oferecendo soluções inovadoras e eficazes que impulsionam o crescimento e o desenvolvimento tanto das organizações quanto de seus colaboradores.</p>
-            <div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-2">Nossa Missão</h3>
-                <p>Promover o desenvolvimento humano e organizacional através de soluções de RH personalizadas, éticas e de alta performance, gerando valor para nossos clientes, colaboradores e para a sociedade.</p>
-            </div>
-            <div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-2">Nossa Visão</h3>
-                <p>Ser a consultoria de RH referência no mercado, reconhecida pela excelência de seus serviços, pela inovação em suas práticas e pelo impacto positivo que gera nos negócios de seus clientes.</p>
-            </div>
-            <div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-2">Nossos Valores</h3>
-                <ul className="list-disc list-inside space-y-2">
-                    <li><strong>Ética e Transparência:</strong> Conduzimos nossos negócios com integridade e clareza.</li>
-                    <li><strong>Foco no Cliente:</strong> Entendemos suas dores para entregar as melhores soluções.</li>
-                    <li><strong>Excelência:</strong> Buscamos a mais alta qualidade em tudo o que fazemos.</li>
-                    <li><strong>Inovação:</strong> Estamos em constante aprendizado e evolução.</li>
-                    <li><strong>Valorização das Pessoas:</strong> Acreditamos que as pessoas são o maior ativo das organizações.</li>
-                </ul>
-            </div>
+            <p>A TALENTOS CONSULTORIA é uma empresa especializada em <strong>gestão de pessoas</strong>, que oferece uma ampla gama de <strong>serviços em recursos humanos</strong>.</p>
+            <p>Em busca da excelência, a TALENTOS CONSULTORIA formou uma <strong>equipe de profissionais experientes e capacitados</strong> para desenvolver diversas soluções em recursos humanos, com amplitude de atuação que varia do operacional ao executivo.</p>
+            <p>Nosso variado portfólio de serviços em RH proporciona aos clientes <strong>otimização de tempo e recursos</strong>, estimulando que os mesmos concentrem esforços em suas atividades estratégicas (core business) e aumentem a produtividade global dos seus negócios.</p>
         </div>
     )
 };
+
+export const historyTimeline = [
+    {
+        id: 1,
+        imageUrl: `${import.meta.env.BASE_URL}nossa hist/patricia-ayres-fundadora.jpg`,
+        imagePosition: 'left',
+        content: (
+            <>
+                <p>A história da Talentos Consultoria começa em <strong>2011</strong>.</p>
+                <p><strong>Patrícia Ayres</strong>, então Gerente Comercial em uma renomada Consultoria de Terceirização de Mão de Obra, recebeu de um de seus clientes mais importantes a demanda de fornecer equipamentos, além de mão de obra.</p>
+            </>
+        ),
+    },
+    {
+        id: 2,
+        imageUrl: `${import.meta.env.BASE_URL}nossa hist/processo-de-gente-planejamento-de-rh.jpg`,
+        imagePosition: 'right',
+        content: (
+            <>
+                <p>No entanto, <span className="text-red-600">fornecer equipamentos não fazia parte do portfólio da Consultoria</span>, que também não tinha interesse em atender a demanda específica do cliente.</p>
+                <p>Diante da oportunidade, <strong>Patrícia Ayres funda a Talentos Consultoria</strong> para suprir a necessidade do cliente, numa decisão estratégica e em comum acordo com a empresa em que trabalhava por mais de 20 anos.</p>
+            </>
+        ),
+    },
+    {
+        id: 3,
+        imageUrl: `${import.meta.env.BASE_URL}nossa hist/treinamentos-rh.jpg`,
+        imagePosition: 'left',
+        content: (
+            <>
+                <p>Assim, a Talentos Consultoria nasce prestando serviços para uma grande multinacional de bebidas, operando o armazém do centro de distribuição de uma de suas unidades no Rio de Janeiro, fornecendo mão de obra e empilhadeiras.</p>
+                <p><span className="text-red-600">Desde então, a Talentos Consultoria não parou mais de crescer.</span></p>
+            </>
+        ),
+    },
+    {
+        id: 4,
+        imageUrl: `${import.meta.env.BASE_URL}nossa hist/consultores-da-talentos.jpg`,
+        imagePosition: 'right',
+        content: (
+            <>
+                <p><strong>Profissionais experientes</strong> em diferentes áreas de RH se juntaram ao time ao longo dos anos, ampliando cada vez mais o <span className="text-red-600">portfólio de serviços de RH</span> em linha com as necessidades do mercado.</p>
+                <p>Reconhecendo a qualidade dos serviços prestados, <strong>novos clientes foram conquistados</strong> ano após ano.</p>
+            </>
+        ),
+    },
+    {
+        id: 5,
+        imageUrl: `${import.meta.env.BASE_URL}nossa hist/escritorio-talentos-consultoria-01.jpg`,
+        imagePosition: 'left',
+        content: (
+            <>
+                <p>Em <strong>2018</strong>, nos mudamos para um escritório amplo e moderno, para atrair novos talentos e manter o nosso crescimento contínuo, sem perder a qualidade dos nossos serviços.</p>
+            </>
+        ),
+    },
+    {
+        id: 6,
+        imageUrl: `${import.meta.env.BASE_URL}nossa hist/diretores-talentos-consultoria.jpg`,
+        imagePosition: 'right',
+        content: (
+            <>
+                <p>Hoje em dia temos uma equipe experiente e comprometida, além de uma excelente estrutura, para atendermos bem clientes de <span className="text-red-600">diversos segmentos e diferentes portes</span>.</p>
+            </>
+        ),
+    },
+];
 
 export const testimonials = [
     {
