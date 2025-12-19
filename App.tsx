@@ -221,41 +221,51 @@ const BlogGridCard: React.FC<{ article: typeof blogArticles[0] }> = ({ article }
 // Page Components
 const HomePage: React.FC = () => (
     <>
-        {/* Hero Section - Background Image */}
-        <section className="relative min-h-[500px] md:min-h-[600px] flex items-center">
-            {/* Background Image */}
-            <div 
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(https://talentosconsultoria.com.br/wp-content/uploads/2020/01/consultores-talentos-768x322.jpg)` }}
-            >
-                <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/40"></div>
-            </div>
-            
+        {/* Hero Section - Red Background - Full Screen */}
+        <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center bg-red-700">
             {/* Content */}
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="max-w-2xl">
-                    <p className="font-bold text-orange-400 uppercase tracking-wider text-sm mb-4">Consultoria de RH</p>
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white mb-6">
-                        Conectamos a estratégia do seu negócio aos resultados, através das pessoas.
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <div className="max-w-4xl mx-auto">
+                    {/* Tag */}
+                    <span className="inline-block bg-white/20 text-white uppercase tracking-widest text-xs md:text-sm font-semibold py-2 px-6 rounded-full mb-8 backdrop-blur-sm">
+                        Consultoria de Alta Performance
+                    </span>
+                    
+                    {/* Main Title */}
+                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-black leading-tight text-white mb-6 uppercase tracking-tight">
+                        Transforme <span className="text-red-200">Pessoas</span>
+                        <br />
+                        em Resultados Reais.
                     </h1>
-                    <p className="text-lg text-gray-200 mb-8 leading-relaxed">
-                        Alinhamos cultura, liderança e gestão para que sua empresa tenha um time de alta performance. Conheça a Talentos Consultoria.
+                    
+                    {/* Subtitle */}
+                    <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed max-w-2xl mx-auto">
+                        Alinhamos cultura, liderança e gestão para construir times que não apenas trabalham, mas entregam lucro e crescimento para o seu negócio.
                     </p>
-                    <div className="flex flex-wrap gap-4">
-                        <Link 
-                            to="/servicos" 
-                            className="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-full hover:bg-red-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
-                        >
-                            Nossos Serviços
-                        </Link>
+                    
+                    {/* Buttons */}
+                    <div className="flex flex-wrap gap-4 justify-center">
                         <Link 
                             to="/contato" 
-                            className="inline-block bg-white/10 text-white font-bold py-3 px-8 rounded-full border-2 border-white/50 hover:bg-white/20 backdrop-blur-sm transition-all duration-300"
+                            className="inline-block bg-white text-red-700 font-bold py-4 px-10 rounded-md hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg uppercase tracking-wide"
                         >
-                            Fale Conosco
+                            Falar com um Consultor
+                        </Link>
+                        <Link 
+                            to="/servicos" 
+                            className="inline-block bg-gray-900 text-white font-bold py-4 px-10 rounded-md hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-lg uppercase tracking-wide"
+                        >
+                            Conhecer Soluções
                         </Link>
                     </div>
                 </div>
+            </div>
+            
+            {/* Scroll indicator */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce z-20">
+                <svg className="w-6 h-6 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
             </div>
         </section>
 
