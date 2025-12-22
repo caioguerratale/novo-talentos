@@ -183,20 +183,127 @@ const ClientsCarousel: React.FC = () => {
     );
 };
 
-// Service Card for Grid (Rounded style matching wireframe)
-const ServiceGridCard: React.FC<{ service: Service }> = ({ service }) => (
-    <Link 
-        to={`/servicos/${service.slug}`}
-        className="group bg-white/95 rounded-3xl overflow-hidden aspect-square flex flex-col items-center justify-center p-6 hover:bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
-    >
-        <div className="mb-4 text-gray-400 group-hover:text-orange-500 transition-colors duration-300">
-            {React.cloneElement(service.icon as React.ReactElement, { className: 'w-12 h-12' })}
-        </div>
-        <h3 className="text-center text-sm font-semibold text-gray-700 group-hover:text-gray-900 transition-colors duration-300 leading-tight">
-            {service.title}
-        </h3>
-    </Link>
-);
+// Services Slider Component
+const ServicesSlider: React.FC = () => {
+    const [activeIndex, setActiveIndex] = useState(0);
+    const activeService = services[activeIndex];
+
+    return (
+        <section id="servicos" className="py-8 bg-red-700 min-h-[calc(100vh-80px)] flex flex-col justify-between">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col">
+                {/* Tabs Navigation */}
+                <div className="flex flex-wrap justify-center gap-2 mb-6 border-b border-white/20 pb-3">
+                    {services.map((service, index) => (
+                        <button
+                            key={service.id}
+                            onClick={() => setActiveIndex(index)}
+                            className={`px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 ${
+                                activeIndex === index
+                                    ? 'bg-white text-red-700'
+                                    : 'text-white/70 hover:text-white hover:bg-white/10'
+                            }`}
+                        >
+                            {service.title}
+                        </button>
+                    ))}
+                </div>
+
+                {/* Content Area */}
+                <div className="grid lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto flex-grow">
+                    {/* Left - Text Content */}
+                    <div className="order-2 lg:order-1">
+                        {/* Icon */}
+                        <div className="mb-4 text-white">
+                            {React.cloneElement(activeService.icon as React.ReactElement, { className: 'w-12 h-12' })}
+                        </div>
+
+                        {/* Title */}
+                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                            {activeService.title}
+                        </h2>
+
+                        {/* Description */}
+                        <p className="text-white/80 text-base leading-relaxed mb-4">
+                            {activeService.shortDescription}
+                        </p>
+
+                        {/* Features List */}
+                        <ul className="space-y-2 mb-4">
+                            <li className="flex items-start gap-2">
+                                <span className="w-2 h-2 bg-white rounded-full mt-1.5 flex-shrink-0"></span>
+                                <span className="text-white text-sm">Soluções personalizadas para sua empresa</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span className="w-2 h-2 bg-white rounded-full mt-1.5 flex-shrink-0"></span>
+                                <span className="text-white text-sm">Equipe especializada com mais de 20 anos de experiência</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span className="w-2 h-2 bg-white rounded-full mt-1.5 flex-shrink-0"></span>
+                                <span className="text-white text-sm">Resultados comprovados em empresas de diversos segmentos</span>
+                            </li>
+                        </ul>
+
+                        {/* CTA Link */}
+                        <Link
+                            to={`/servicos/${activeService.slug}`}
+                            className="inline-flex items-center text-white italic underline underline-offset-4 hover:text-white/80 transition-all duration-300 text-sm"
+                        >
+                            Saiba Mais
+                            <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </Link>
+                    </div>
+
+                    {/* Right - Visual Element */}
+                    <div className="order-1 lg:order-2 flex justify-center items-center">
+                        <div className="relative">
+                            {/* Main circle with icon */}
+                            <div className="w-48 h-48 md:w-56 md:h-56 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                                <div className="text-white">
+                                    {React.cloneElement(activeService.icon as React.ReactElement, { className: 'w-24 h-24 md:w-28 md:h-28' })}
+                                </div>
+                            </div>
+                            
+                            {/* Decorative circles */}
+                            <div className="absolute -top-2 -right-2 w-12 h-12 bg-white/10 rounded-full border border-white/20"></div>
+                            <div className="absolute -bottom-4 -left-4 w-14 h-14 bg-white/10 rounded-full border border-white/20"></div>
+                            <div className="absolute top-1/2 -right-8 w-8 h-8 bg-white/10 rounded-full border border-white/20"></div>
+                            <div className="absolute -top-6 left-1/3 w-6 h-6 bg-white/10 rounded-full border border-white/20"></div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Dots indicator */}
+                <div className="flex justify-center gap-2 mt-6">
+                    {services.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setActiveIndex(index)}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                activeIndex === index ? 'bg-white w-6' : 'bg-white/40 hover:bg-white/60'
+                            }`}
+                            aria-label={`Ir para serviço ${index + 1}`}
+                        />
+                    ))}
+                </div>
+
+                {/* CTA Button */}
+                <div className="text-center mt-6 pb-4">
+                    <Link
+                        to="/contato"
+                        className="inline-flex items-center bg-white text-red-700 font-bold py-3 px-8 rounded-md hover:bg-gray-100 transition-all duration-300 uppercase tracking-wide shadow-lg transform hover:scale-105"
+                    >
+                        Falar com um Consultor
+                        <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </Link>
+                </div>
+            </div>
+        </section>
+    );
+};
 
 // Blog Card for new layout
 const BlogGridCard: React.FC<{ article: typeof blogArticles[0] }> = ({ article }) => (
@@ -233,7 +340,7 @@ const HomePage: React.FC = () => (
                     
                     {/* Main Title */}
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-black leading-tight text-white mb-6 uppercase tracking-tight">
-                        Transforme <span className="text-red-200">Pessoas</span>
+                        Transforme <span className="text-white">Pessoas</span>
                         <br />
                         em Resultados Reais.
                     </h1>
@@ -270,43 +377,19 @@ const HomePage: React.FC = () => (
         </section>
 
         {/* Clientes Section - Carousel with rounded cards */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white clients-section">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-10">
                     <h3 className="text-2xl font-bold text-gray-800">Alguns Clientes</h3>
                 </div>
-                <div className="max-w-5xl mx-auto">
+                <div className="max-w-5xl mx-auto bg-white rounded-xl py-6 px-4 clients-logos-container">
                     <ClientsCarousel />
                 </div>
             </div>
         </section>
 
-        {/* Services Section - 3 Featured Services */}
-        <section className="py-16 bg-gradient-to-r from-red-700 to-red-800">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-10">
-                    <h2 className="text-2xl font-bold text-white">Serviços</h2>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-                    {services
-                        .filter(service => 
-                            ['recrutamento-e-selecao', 'cargos-e-salarios', 'pesquisa-de-clima-organizacional'].includes(service.slug)
-                        )
-                        .map(service => (
-                            <ServiceGridCard key={service.id} service={service} />
-                        ))
-                    }
-                </div>
-                <div className="text-center mt-10">
-                    <Link 
-                        to="/servicos" 
-                        className="inline-block bg-white text-red-700 font-bold py-3 px-8 rounded-full hover:bg-orange-100 transition-all duration-300 shadow-lg transform hover:scale-105"
-                    >
-                        Venha conhecer nossos serviços
-                    </Link>
-                </div>
-            </div>
-        </section>
+        {/* Services Section - Slider */}
+        <ServicesSlider />
 
         {/* Quem Somos Section - Full width with background image */}
         <section className="py-20 relative">

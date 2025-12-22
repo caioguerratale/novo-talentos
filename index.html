@@ -34,6 +34,105 @@
       .animate-scroll {
         animation: scroll 40s linear infinite;
       }
+      
+      /* Tema Invertido - Troca Vermelho <-> Branco */
+      /* Fundos */
+      .theme-inverted .bg-red-700,
+      .theme-inverted .bg-red-800,
+      .theme-inverted .bg-red-600 { background-color: white !important; }
+      
+      .theme-inverted .bg-white,
+      .theme-inverted .bg-gray-50,
+      .theme-inverted .bg-gray-100 { background-color: #b91c1c !important; }
+      
+      .theme-inverted .from-red-700,
+      .theme-inverted .to-red-800,
+      .theme-inverted .bg-gradient-to-r { background: white !important; }
+      
+      /* Textos - Branco para Vermelho */
+      .theme-inverted [class*="text-white"],
+      .theme-inverted .text-white,
+      .theme-inverted .text-white\/80,
+      .theme-inverted .text-white\/70,
+      .theme-inverted .text-white\/60,
+      .theme-inverted .text-white\/40 { color: #b91c1c !important; }
+      
+      /* Textos - Vermelho para Branco */
+      .theme-inverted .text-red-700,
+      .theme-inverted .text-red-600,
+      .theme-inverted .text-red-800,
+      .theme-inverted .text-red-100,
+      .theme-inverted .text-red-200 { color: white !important; }
+      
+      /* Textos - Cinza para claro (em fundos vermelhos) */
+      .theme-inverted .text-gray-900,
+      .theme-inverted .text-gray-800,
+      .theme-inverted .text-gray-700,
+      .theme-inverted .text-gray-600,
+      .theme-inverted .text-gray-500 { color: white !important; }
+      
+      /* Bordas */
+      .theme-inverted .border-red-600,
+      .theme-inverted .border-red-700 { border-color: white !important; }
+      .theme-inverted .border-gray-300,
+      .theme-inverted .border-gray-200 { border-color: #fecaca !important; }
+      .theme-inverted .border-white\/20 { border-color: rgba(185, 28, 28, 0.2) !important; }
+      
+      /* Hover states */
+      .theme-inverted .hover\:bg-gray-100:hover,
+      .theme-inverted .hover\:bg-red-700:hover { background-color: #fecaca !important; }
+      .theme-inverted .hover\:text-red-700:hover,
+      .theme-inverted .hover\:text-red-600:hover { color: white !important; }
+      
+      /* Elementos específicos com fundo branco/transparente */
+      .theme-inverted .bg-white\/20,
+      .theme-inverted .bg-white\/10 { background-color: rgba(185, 28, 28, 0.2) !important; }
+      
+      /* Header */
+      .theme-inverted header { background-color: #b91c1c !important; }
+      .theme-inverted header a,
+      .theme-inverted header button,
+      .theme-inverted header span { color: white !important; }
+      .theme-inverted header .bg-gray-100 { background-color: rgba(255,255,255,0.2) !important; }
+      
+      /* Footer */
+      .theme-inverted footer { background-color: white !important; }
+      .theme-inverted footer * { color: #b91c1c !important; }
+      
+      /* Botões */
+      .theme-inverted .bg-white.text-red-700 { 
+        background-color: #b91c1c !important; 
+        color: white !important; 
+      }
+      .theme-inverted .bg-gray-900 { background-color: white !important; }
+      .theme-inverted .bg-gray-900.text-white { color: #b91c1c !important; }
+      
+      /* Cards e seções */
+      .theme-inverted section.bg-white { background-color: #b91c1c !important; }
+      .theme-inverted section.bg-white * { color: white !important; }
+      .theme-inverted section.bg-white .text-red-600 { color: #fecaca !important; }
+      
+      /* Seção de serviços (fundo vermelho -> branco) */
+      .theme-inverted section.bg-red-700 { background-color: white !important; }
+      .theme-inverted section.bg-red-700 * { color: #b91c1c !important; }
+      .theme-inverted section.bg-red-700 .bg-white { background-color: #b91c1c !important; color: white !important; }
+      .theme-inverted section.bg-red-700 .bg-white.text-red-700 { color: white !important; }
+      
+      /* Shadow */
+      .theme-inverted .shadow-md,
+      .theme-inverted .shadow-lg { box-shadow: 0 4px 6px -1px rgba(185, 28, 28, 0.1), 0 2px 4px -1px rgba(185, 28, 28, 0.06) !important; }
+      
+      /* Ícones SVG */
+      .theme-inverted section.bg-red-700 svg { color: #b91c1c !important; stroke: #b91c1c !important; }
+      .theme-inverted section.bg-white svg { color: white !important; stroke: white !important; }
+      
+      /* Seção de Clientes - Manter faixa branca para logos no tema invertido */
+      .theme-inverted .clients-logos-container {
+        background-color: white !important;
+      }
+      .theme-inverted .clients-logos-container * {
+        color: #374151 !important;
+      }
     </style>
   </head>
   <body>
