@@ -4,6 +4,7 @@ import { HashRouter as Router, Routes, Route, Link, useParams, useLocation } fro
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import TerceirizacaoPage from './components/TerceirizacaoPage';
 import { services, aboutUsText, contactInfo, whatsappLink, clients, blogArticles, testimonials, historyTimeline } from './constants';
 import { Service } from './types';
 
@@ -392,7 +393,7 @@ const HomePage: React.FC = () => (
         <ServicesSlider />
 
         {/* Quem Somos Section - Full width with background image */}
-        <section className="py-20 relative">
+        <section id="quem-somos" className="py-20 relative">
             {/* Background Image */}
             <div 
                 className="absolute inset-0 bg-cover bg-center"
@@ -442,7 +443,7 @@ const HomePage: React.FC = () => (
         </section>
 
         {/* Oportunidades Section - Kept but simplified */}
-        <section className="py-16 bg-gradient-to-r from-red-700 to-red-800 text-white">
+        <section id="oportunidades" className="py-16 bg-gradient-to-r from-red-700 to-red-800 text-white">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 className="text-2xl md:text-3xl font-bold mb-4">Oportunidades de Trabalho</h2>
                 <p className="max-w-2xl mx-auto mb-8 text-red-100">
@@ -563,6 +564,12 @@ const ServicesListPage: React.FC = () => (
 
 const ServiceDetailPage: React.FC = () => {
     const { slug } = useParams<{ slug: string }>();
+    
+    // Usa a página customizada para Terceirização de Mão de Obra
+    if (slug === 'terceirizacao-de-mao-de-obra') {
+        return <TerceirizacaoPage />;
+    }
+    
     const service = services.find(s => s.slug === slug);
 
     if (!service) {

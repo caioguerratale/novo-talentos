@@ -36,10 +36,10 @@ const Header: React.FC = () => {
       setIsServicesOpen(false);
   };
 
-  const scrollToServices = () => {
+  const scrollToElement = (elementId: string) => {
     closeAllMenus();
-    const scrollToElement = () => {
-      const element = document.getElementById('servicos');
+    const doScroll = () => {
+      const element = document.getElementById(elementId);
       if (element) {
         const headerOffset = 80; // Altura do header fixo
         const elementPosition = element.getBoundingClientRect().top;
@@ -54,11 +54,25 @@ const Header: React.FC = () => {
 
     if (location.pathname === '/') {
       // Already on home, just scroll
-      scrollToElement();
+      doScroll();
     } else {
       // Navigate to home then scroll
       navigate('/');
-      setTimeout(scrollToElement, 100);
+      setTimeout(doScroll, 100);
+    }
+  };
+
+  const scrollToServices = () => scrollToElement('servicos');
+  const scrollToQuemSomos = () => scrollToElement('quem-somos');
+  const scrollToOportunidades = () => scrollToElement('oportunidades');
+
+  const scrollToTop = () => {
+    closeAllMenus();
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
     }
   };
 
@@ -66,7 +80,7 @@ const Header: React.FC = () => {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 relative">
-          <NavLink to="/" className="flex items-center transition-opacity duration-300 hover:opacity-75" onClick={closeAllMenus}>
+          <NavLink to="/" className="flex items-center transition-opacity duration-300 hover:opacity-75" onClick={scrollToTop}>
             <img src="https://talentosconsultoria.com.br/wp-content/uploads/2019/11/talentos-consultoria-logo.png" alt="Talentos Consultoria Logo" className="h-12" />
           </NavLink>
 
@@ -101,18 +115,29 @@ const Header: React.FC = () => {
               </NavLink>
               <div className={`absolute top-full left-0 mt-1 w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 transition-all duration-300 ${isServicesOpen ? 'opacity-100 visible transform translate-y-0' : 'opacity-0 invisible transform -translate-y-2'}`}>
                 <div className="py-1">
-                  <Link
-                    to="/"
-                    onClick={closeAllMenus}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+                  <button
+                    onClick={scrollToTop}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
                   >
                     Página Inicial
-                  </Link>
+                  </button>
                   <button
                     onClick={scrollToServices}
                     className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
                   >
                     Soluções
+                  </button>
+                  <button
+                    onClick={scrollToQuemSomos}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+                  >
+                    Quem Somos / Blog
+                  </button>
+                  <button
+                    onClick={scrollToOportunidades}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+                  >
+                    Oportunidades de Trabalho
                   </button>
                 </div>
               </div>
@@ -161,18 +186,29 @@ const Header: React.FC = () => {
               </button>
               {isServicesOpen && (
                 <div className="pl-4 mt-2 space-y-1 border-l-2 border-gray-200">
-                  <Link
-                    to="/"
-                    onClick={closeAllMenus}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+                  <button
+                    onClick={scrollToTop}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
                   >
                     Página Inicial
-                  </Link>
+                  </button>
                   <button
                     onClick={scrollToServices}
                     className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
                   >
                     Soluções
+                  </button>
+                  <button
+                    onClick={scrollToQuemSomos}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+                  >
+                    Quem Somos / Blog
+                  </button>
+                  <button
+                    onClick={scrollToOportunidades}
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+                  >
+                    Oportunidades de Trabalho
                   </button>
                 </div>
               )}
