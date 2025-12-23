@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // Icons
 const CheckCircleIcon = () => (
@@ -138,21 +138,20 @@ const FAQItem: React.FC<{ item: typeof faqItems[0]; isOpen: boolean; onClick: ()
 
 // Componente principal
 const TerceirizacaoPage: React.FC = () => {
+    const navigate = useNavigate();
     const [openFaq, setOpenFaq] = useState<number | null>(0);
-    const [formData, setFormData] = useState({ nome: '', email: '', telefone: '', empresa: '', funcionarios: '', mensagem: '' });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState('');
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
+    
+    const scrollToServices = () => {
+        navigate('/');
         setTimeout(() => {
-            console.log('Form submitted:', formData);
-            setSubmitStatus('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            setIsSubmitting(false);
-            setFormData({ nome: '', email: '', telefone: '', empresa: '', funcionarios: '', mensagem: '' });
-            setTimeout(() => setSubmitStatus(''), 5000);
-        }, 1500);
+            const element = document.getElementById('servicos');
+            if (element) {
+                const headerOffset = 80;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+            }
+        }, 100);
     };
 
     return (
@@ -406,148 +405,33 @@ const TerceirizacaoPage: React.FC = () => {
                 </div>
             </section>
 
-            {/* FORMULÁRIO DE CONTATO */}
+            {/* CTA - FALE COM UM CONSULTOR */}
             <section id="solicitar-proposta" className="py-20 bg-gradient-to-br from-red-700 via-red-800 to-red-900 relative overflow-hidden">
-                {/* Background decorativo */}
                 <div className="absolute inset-0 opacity-10">
                     <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
                     <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-400 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
                 </div>
-
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-                        <div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                                Solicite uma Proposta de Terceirização
-                            </h2>
-                            <p className="text-xl text-white/80 mb-8 leading-relaxed">
-                                Diga-nos qual é a sua necessidade de mão de obra e deixe que <strong className="text-white">a gente seleciona, contrata e administra</strong> os recursos terceirizados.
-                            </p>
-                            
-                            <div className="space-y-4 mb-8">
-                                <div className="flex items-center gap-3 text-white/90">
-                                    <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Atendemos empresas de todos os portes</span>
-                                </div>
-                                <div className="flex items-center gap-3 text-white/90">
-                                    <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Resposta em até 24 horas úteis</span>
-                                </div>
-                                <div className="flex items-center gap-3 text-white/90">
-                                    <svg className="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Proposta personalizada para sua necessidade</span>
-                                </div>
-                            </div>
-
-                            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                                <p className="text-white/80 text-sm mb-2">Se preferir, ligue para:</p>
-                                <a href="tel:+552131769500" className="text-2xl font-bold text-white hover:text-amber-300 transition-colors">
-                                    (21) 3176-9500
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="bg-white rounded-3xl shadow-2xl p-8">
-                            <form onSubmit={handleSubmit} className="space-y-5">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">Nome *</label>
-                                        <input
-                                            type="text"
-                                            required
-                                            value={formData.nome}
-                                            onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-200 outline-none"
-                                            placeholder="Seu nome"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">E-mail *</label>
-                                        <input
-                                            type="email"
-                                            required
-                                            value={formData.email}
-                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-200 outline-none"
-                                            placeholder="seu@email.com"
-                                        />
-                                    </div>
-                                </div>
-                                
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">Celular com DDD *</label>
-                                        <input
-                                            type="tel"
-                                            required
-                                            value={formData.telefone}
-                                            onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-200 outline-none"
-                                            placeholder="(00) 00000-0000"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">Empresa</label>
-                                        <input
-                                            type="text"
-                                            value={formData.empresa}
-                                            onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
-                                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-200 outline-none"
-                                            placeholder="Nome da empresa"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">Nº de Funcionários na Empresa</label>
-                                    <select
-                                        value={formData.funcionarios}
-                                        onChange={(e) => setFormData({ ...formData, funcionarios: e.target.value })}
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-200 outline-none bg-white"
-                                    >
-                                        <option value="">Selecione</option>
-                                        <option value="1-4">1 a 4</option>
-                                        <option value="5-10">5 a 10</option>
-                                        <option value="11-20">11 a 20</option>
-                                        <option value="21-50">21 a 50</option>
-                                        <option value="51-200">51 a 200</option>
-                                        <option value="201-500">201 a 500</option>
-                                        <option value="500+">Mais de 500</option>
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">Mensagem *</label>
-                                    <textarea
-                                        required
-                                        rows={4}
-                                        value={formData.mensagem}
-                                        onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
-                                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-200 transition-all duration-200 outline-none resize-none"
-                                        placeholder="Descreva sua necessidade de mão de obra..."
-                                    ></textarea>
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white font-bold py-4 px-8 rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
-                                >
-                                    {isSubmitting ? 'Enviando...' : 'Enviar Solicitação'}
-                                </button>
-
-                                {submitStatus && (
-                                    <div className="bg-emerald-50 text-emerald-700 px-4 py-3 rounded-xl text-center font-medium">
-                                        {submitStatus}
-                                    </div>
-                                )}
-                            </form>
+                    <div className="max-w-3xl mx-auto text-center">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                            Solicite uma Proposta de Terceirização
+                        </h2>
+                        <p className="text-xl text-white/80 mb-10 leading-relaxed">
+                            Diga-nos qual é a sua necessidade de mão de obra e deixe que a gente seleciona, contrata e administra os recursos terceirizados.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                            <Link
+                                to="/contato"
+                                className="inline-flex items-center gap-2 bg-white text-red-700 font-bold py-4 px-10 rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                            >
+                                Fale com um Consultor
+                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </Link>
+                            <a href="tel:+552131769500" className="text-white/80 hover:text-white transition-colors">
+                                ou ligue: <span className="font-bold text-white">(21) 3176-9500</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -562,15 +446,15 @@ const TerceirizacaoPage: React.FC = () => {
                     <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
                         Além da terceirização de mão de obra, oferecemos um portfólio completo de soluções em Recursos Humanos para sua empresa.
                     </p>
-                    <Link 
-                        to="/servicos"
-                        className="inline-flex items-center gap-2 bg-gray-900 text-white font-bold py-4 px-8 rounded-xl hover:bg-gray-800 transition-all duration-300"
+                    <button 
+                        onClick={scrollToServices}
+                        className="inline-flex items-center gap-2 bg-red-600 text-white font-bold py-4 px-8 rounded-xl hover:bg-red-700 transition-all duration-300"
                     >
                         Ver Todos os Serviços
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                    </Link>
+                    </button>
                 </div>
             </section>
         </div>

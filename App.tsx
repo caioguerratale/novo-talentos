@@ -5,6 +5,14 @@ import { HashRouter as Router, Routes, Route, Link, useParams, useLocation } fro
 import Header from './components/Header';
 import Footer from './components/Footer';
 import TerceirizacaoPage from './components/TerceirizacaoPage';
+import RecrutamentoPage from './components/RecrutamentoPage';
+import EstruturacaoRHPage from './components/EstruturacaoRHPage';
+import MapeamentoCargosPage from './components/MapeamentoCargosPage';
+import CargosSalariosPage from './components/CargosSalariosPage';
+import PesquisaClimaPage from './components/PesquisaClimaPage';
+import OutplacementPage from './components/OutplacementPage';
+import ProjetosCustomizadosPage from './components/ProjetosCustomizadosPage';
+import ConsultoriaRHPage from './components/ConsultoriaRHPage';
 import { services, aboutUsText, contactInfo, whatsappLink, clients, blogArticles, testimonials, historyTimeline } from './constants';
 import { Service } from './types';
 
@@ -565,9 +573,33 @@ const ServicesListPage: React.FC = () => (
 const ServiceDetailPage: React.FC = () => {
     const { slug } = useParams<{ slug: string }>();
     
-    // Usa a página customizada para Terceirização de Mão de Obra
+    // Páginas customizadas para cada serviço
     if (slug === 'terceirizacao-de-mao-de-obra') {
         return <TerceirizacaoPage />;
+    }
+    if (slug === 'recrutamento-e-selecao') {
+        return <RecrutamentoPage />;
+    }
+    if (slug === 'estruturacao-do-rh') {
+        return <EstruturacaoRHPage />;
+    }
+    if (slug === 'mapeamento-e-descricao-de-cargos') {
+        return <MapeamentoCargosPage />;
+    }
+    if (slug === 'cargos-e-salarios') {
+        return <CargosSalariosPage />;
+    }
+    if (slug === 'pesquisa-de-clima-organizacional') {
+        return <PesquisaClimaPage />;
+    }
+    if (slug === 'outplacement') {
+        return <OutplacementPage />;
+    }
+    if (slug === 'projetos-customizados') {
+        return <ProjetosCustomizadosPage />;
+    }
+    if (slug === 'consultoria-de-rh') {
+        return <ConsultoriaRHPage />;
     }
     
     const service = services.find(s => s.slug === slug);
