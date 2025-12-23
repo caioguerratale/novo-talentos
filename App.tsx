@@ -299,15 +299,17 @@ const ServicesSlider: React.FC = () => {
 
                 {/* CTA Button */}
                 <div className="text-center mt-6 pb-4">
-                    <Link
-                        to="/contato"
+                    <a
+                        href="https://wa.me/5521967155476"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center bg-white text-red-700 font-bold py-3 px-8 rounded-md hover:bg-gray-100 transition-all duration-300 uppercase tracking-wide shadow-lg transform hover:scale-105"
                     >
                         Falar com um Consultor
                         <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                    </Link>
+                    </a>
                 </div>
             </div>
         </section>
@@ -361,12 +363,14 @@ const HomePage: React.FC = () => (
                     
                     {/* Buttons */}
                     <div className="flex flex-wrap gap-4 justify-center">
-                        <Link 
-                            to="/contato" 
+                        <a 
+                            href="https://wa.me/5521967155476"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-block bg-white text-red-700 font-bold py-4 px-10 rounded-md hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg uppercase tracking-wide"
                         >
                             Falar com um Consultor
-                        </Link>
+                        </a>
                         <Link 
                             to="/servicos" 
                             className="inline-block bg-gray-900 text-white font-bold py-4 px-10 rounded-md hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-lg uppercase tracking-wide"
