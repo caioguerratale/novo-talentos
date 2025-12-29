@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import ConsultorButton from './ConsultorButton';
 
 // Icons
 const CheckCircleIcon = () => (
@@ -190,17 +191,7 @@ const TerceirizacaoPage: React.FC = () => {
                         </p>
 
                         <div className="flex flex-wrap gap-4 mb-12">
-                            <a 
-                                href="https://wa.me/5521967155476"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 bg-white text-red-700 font-bold py-4 px-8 rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg shadow-black/20 hover:shadow-xl hover:-translate-y-1"
-                            >
-                                Fale com um Consultor
-                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
-                            </a>
+<ConsultorButton variant="light" />
                         </div>
 
                         {/* Stats */}
@@ -422,17 +413,7 @@ const TerceirizacaoPage: React.FC = () => {
                             Diga-nos qual é a sua necessidade de mão de obra e deixe que a gente seleciona, contrata e administra os recursos terceirizados.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                            <a
-                                href="https://wa.me/5521967155476"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 bg-white text-red-700 font-bold py-4 px-10 rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
-                            >
-                                Fale com um Consultor
-                                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
-                            </a>
+                            <ConsultorButton variant="cta" />
                             <a href="tel:+552131769500" className="text-white/80 hover:text-white transition-colors">
                                 ou ligue: <span className="font-bold text-white">(21) 3176-9500</span>
                             </a>

@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import TerceirizacaoPage from './components/TerceirizacaoPage';
 import RecrutamentoPage from './components/RecrutamentoPage';
+import ConsultorButton from './components/ConsultorButton';
 import EstruturacaoRHPage from './components/EstruturacaoRHPage';
 import MapeamentoCargosPage from './components/MapeamentoCargosPage';
 import CargosSalariosPage from './components/CargosSalariosPage';
@@ -143,10 +144,28 @@ const ClientCard: React.FC<{ client: typeof clients[0] }> = ({ client }) => (
     </div>
 );
 
-// Clients Carousel Component
+// Clients Carousel Component - Responsive
 const ClientsCarousel: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const visibleCount = 4;
+    const [visibleCount, setVisibleCount] = useState(4);
+    
+    // Adjust visible count based on screen size
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 640) {
+                setVisibleCount(2); // Mobile: 2 logos
+            } else if (window.innerWidth < 1024) {
+                setVisibleCount(3); // Tablet: 3 logos
+            } else {
+                setVisibleCount(4); // Desktop: 4 logos
+            }
+        };
+        
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+    
     const maxIndex = Math.max(0, clients.length - visibleCount);
     
     useEffect(() => {
@@ -155,6 +174,13 @@ const ClientsCarousel: React.FC = () => {
         }, 3000);
         return () => clearInterval(interval);
     }, [maxIndex]);
+    
+    // Reset index if it becomes invalid after resize
+    useEffect(() => {
+        if (currentIndex > maxIndex) {
+            setCurrentIndex(0);
+        }
+    }, [maxIndex, currentIndex]);
 
     return (
         <div className="overflow-hidden">
@@ -165,7 +191,9 @@ const ClientsCarousel: React.FC = () => {
                 {clients.map((client, index) => (
                     <div 
                         key={`${client.name}-${index}`}
-                        className="flex items-center justify-center h-24 w-1/4 flex-shrink-0 px-4"
+                        className={`flex items-center justify-center h-16 sm:h-20 lg:h-24 flex-shrink-0 px-2 sm:px-4 ${
+                            visibleCount === 2 ? 'w-1/2' : visibleCount === 3 ? 'w-1/3' : 'w-1/4'
+                        }`}
                     >
                         <img 
                             src={client.logoUrl} 
@@ -176,7 +204,7 @@ const ClientsCarousel: React.FC = () => {
                 ))}
             </div>
             {/* Pagination dots */}
-            <div className="flex items-center justify-center gap-2 mt-6">
+            <div className="flex items-center justify-center gap-2 mt-4 sm:mt-6">
                 {Array.from({ length: maxIndex + 1 }).map((_, i) => (
                     <button
                         key={i}
@@ -198,23 +226,25 @@ const ServicesSlider: React.FC = () => {
     const activeService = services[activeIndex];
 
     return (
-        <section id="servicos" className="py-8 bg-red-700 min-h-[calc(100vh-80px)] flex flex-col justify-between">
+        <section id="servicos" className="py-8 bg-gray-900 min-h-[calc(100vh-80px)] flex flex-col justify-between">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col">
-                {/* Tabs Navigation */}
-                <div className="flex flex-wrap justify-center gap-2 mb-6 border-b border-white/20 pb-3">
-                    {services.map((service, index) => (
-                        <button
-                            key={service.id}
-                            onClick={() => setActiveIndex(index)}
-                            className={`px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 ${
-                                activeIndex === index
-                                    ? 'bg-white text-red-700'
-                                    : 'text-white/70 hover:text-white hover:bg-white/10'
-                            }`}
-                        >
-                            {service.title}
-                        </button>
-                    ))}
+                {/* Tabs Navigation - Scrollable on mobile */}
+                <div className="overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 mb-6 border-b border-white/20 pb-3">
+                    <div className="flex justify-start sm:justify-center gap-2 min-w-max sm:min-w-0 sm:flex-wrap">
+                        {services.map((service, index) => (
+                            <button
+                                key={service.id}
+                                onClick={() => setActiveIndex(index)}
+                                className={`px-3 py-2 text-xs sm:text-sm font-medium rounded-md transition-all duration-300 whitespace-nowrap ${
+                                    activeIndex === index
+                                        ? 'bg-white text-gray-900'
+                                        : 'text-white/70 hover:text-white hover:bg-white/10'
+                                }`}
+                            >
+                                {service.title}
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Content Area */}
@@ -265,20 +295,20 @@ const ServicesSlider: React.FC = () => {
                     </div>
 
                     {/* Right - Visual Element */}
-                    <div className="order-1 lg:order-2 flex justify-center items-center">
+                    <div className="order-1 lg:order-2 flex justify-center items-center py-4 lg:py-0">
                         <div className="relative">
                             {/* Main circle with icon */}
-                            <div className="w-48 h-48 md:w-56 md:h-56 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                            <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-56 lg:h-56 bg-orange-600 rounded-full flex items-center justify-center border-2 border-orange-400">
                                 <div className="text-white">
-                                    {React.cloneElement(activeService.icon as React.ReactElement, { className: 'w-24 h-24 md:w-28 md:h-28' })}
+                                    {React.cloneElement(activeService.icon as React.ReactElement, { className: 'w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28' })}
                                 </div>
                             </div>
                             
-                            {/* Decorative circles */}
-                            <div className="absolute -top-2 -right-2 w-12 h-12 bg-white/10 rounded-full border border-white/20"></div>
-                            <div className="absolute -bottom-4 -left-4 w-14 h-14 bg-white/10 rounded-full border border-white/20"></div>
-                            <div className="absolute top-1/2 -right-8 w-8 h-8 bg-white/10 rounded-full border border-white/20"></div>
-                            <div className="absolute -top-6 left-1/3 w-6 h-6 bg-white/10 rounded-full border border-white/20"></div>
+                            {/* Decorative circles - Hidden on very small screens */}
+                            <div className="hidden sm:block absolute -top-2 -right-2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-orange-600 rounded-full border-2 border-orange-400"></div>
+                            <div className="hidden sm:block absolute -bottom-4 -left-4 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-orange-600 rounded-full border-2 border-orange-400"></div>
+                            <div className="hidden md:block absolute top-1/2 -right-8 w-8 h-8 bg-orange-600 rounded-full border-2 border-orange-400"></div>
+                            <div className="hidden md:block absolute -top-6 left-1/3 w-6 h-6 bg-orange-600 rounded-full border-2 border-orange-400"></div>
                         </div>
                     </div>
                 </div>
@@ -299,17 +329,7 @@ const ServicesSlider: React.FC = () => {
 
                 {/* CTA Button */}
                 <div className="text-center mt-6 pb-4">
-                    <a
-                        href="https://wa.me/5521967155476"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center bg-white text-red-700 font-bold py-3 px-8 rounded-md hover:bg-gray-100 transition-all duration-300 uppercase tracking-wide shadow-lg transform hover:scale-105"
-                    >
-                        Falar com um Consultor
-                        <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
+                    <ConsultorButton variant="dark">Falar com um Consultor</ConsultorButton>
                 </div>
             </div>
         </section>
@@ -339,44 +359,45 @@ const BlogGridCard: React.FC<{ article: typeof blogArticles[0] }> = ({ article }
 // Page Components
 const HomePage: React.FC = () => (
     <>
-        {/* Hero Section - Red Background - Full Screen */}
-        <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center bg-red-700">
+        {/* Hero Section - Gradient Background - Full Screen */}
+        <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center bg-gradient-to-br from-red-800 via-red-900 to-gray-900 py-8 sm:py-12">
             {/* Content */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                 <div className="max-w-4xl mx-auto">
                     {/* Tag */}
-                    <span className="inline-block bg-white/20 text-white uppercase tracking-widest text-xs md:text-sm font-semibold py-2 px-6 rounded-full mb-8 backdrop-blur-sm">
+                    <span className="inline-block bg-white/20 text-white uppercase tracking-widest text-[10px] sm:text-xs md:text-sm font-semibold py-2 px-4 sm:px-6 rounded-full mb-6 sm:mb-8 backdrop-blur-sm">
                         Consultoria de Alta Performance
                     </span>
                     
                     {/* Main Title */}
-                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-black leading-tight text-white mb-6 uppercase tracking-tight">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight text-white mb-4 sm:mb-6 uppercase tracking-tight">
                         Transforme <span className="text-white">Pessoas</span>
                         <br />
                         em Resultados Reais.
                     </h1>
                     
                     {/* Subtitle */}
-                    <p className="text-lg md:text-xl text-white/80 mb-10 leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 leading-relaxed max-w-2xl mx-auto px-2">
                         Alinhamos cultura, liderança e gestão para construir times que não apenas trabalham, mas entregam lucro e crescimento para o seu negócio.
                     </p>
                     
-                    {/* Buttons */}
-                    <div className="flex flex-wrap gap-4 justify-center">
-                        <a 
-                            href="https://wa.me/5521967155476"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block bg-white text-red-700 font-bold py-4 px-10 rounded-md hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg uppercase tracking-wide"
-                        >
-                            Falar com um Consultor
-                        </a>
-                        <Link 
-                            to="/servicos" 
-                            className="inline-block bg-gray-900 text-white font-bold py-4 px-10 rounded-md hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-lg uppercase tracking-wide"
+                    {/* Buttons - Stack on mobile */}
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
+                        <ConsultorButton variant="hero" showIcon={false}>Falar com um Consultor</ConsultorButton>
+                        <button 
+                            onClick={() => {
+                                const element = document.getElementById('servicos');
+                                if (element) {
+                                    const headerOffset = 80;
+                                    const elementPosition = element.getBoundingClientRect().top;
+                                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                                }
+                            }}
+                            className="inline-block bg-orange-500 text-white font-bold py-3 sm:py-4 px-8 sm:px-10 rounded-md hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg uppercase tracking-wide text-sm sm:text-base w-full sm:w-auto text-center"
                         >
                             Conhecer Soluções
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </div>
