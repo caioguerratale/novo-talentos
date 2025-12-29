@@ -388,9 +388,8 @@ const HomePage: React.FC = () => (
                             onClick={() => {
                                 const element = document.getElementById('servicos');
                                 if (element) {
-                                    const headerOffset = 80;
                                     const elementPosition = element.getBoundingClientRect().top;
-                                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                                    const offsetPosition = elementPosition + window.pageYOffset;
                                     window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                                 }
                             }}

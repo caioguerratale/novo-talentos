@@ -36,12 +36,12 @@ const Header: React.FC = () => {
       setIsServicesOpen(false);
   };
 
-  const scrollToElement = (elementId: string) => {
+  const scrollToElement = (elementId: string, useOffset: boolean = true) => {
     closeAllMenus();
     const doScroll = () => {
       const element = document.getElementById(elementId);
       if (element) {
-        const headerOffset = 80; // Altura do header fixo
+        const headerOffset = useOffset ? 80 : 0; // Altura do header fixo
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         
@@ -62,7 +62,8 @@ const Header: React.FC = () => {
     }
   };
 
-  const scrollToServices = () => scrollToElement('servicos');
+  // Soluções sem offset para mostrar a seção completa
+  const scrollToServices = () => scrollToElement('servicos', false);
   const scrollToQuemSomos = () => scrollToElement('quem-somos');
   const scrollToOportunidades = () => scrollToElement('oportunidades');
 
