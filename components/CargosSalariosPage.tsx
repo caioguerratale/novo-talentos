@@ -1,6 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ConsultorButton from './ConsultorButton';
+
+// Hook for scroll animations
+const useScrollAnimation = () => {
+    const [ref, setRef] = useState<HTMLDivElement | null>(null);
+    const [isVisible, setIsVisible] = useState(false);
+    useEffect(() => {
+        if (!ref) return;
+        const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) setIsVisible(true); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        observer.observe(ref);
+        return () => observer.disconnect();
+    }, [ref]);
+    return { setRef, isVisible };
+};
+
+const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string; delay?: number }> = ({ children, className = '', delay = 0 }) => {
+    const { setRef, isVisible } = useScrollAnimation();
+    return (<div ref={setRef} className={`scroll-animate ${isVisible ? 'animate-in' : ''} ${className}`} style={{ transitionDelay: `${delay}s` }}>{children}</div>);
+};
 
 // Icons
 const CheckCircleIcon = () => (
@@ -89,27 +107,27 @@ const CargosSalariosPage: React.FC = () => {
 
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="max-w-4xl">
-                        <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/90 text-sm font-medium px-4 py-2 rounded-full mb-6 border border-white/20">
+                        <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/90 text-sm font-medium px-4 py-2 rounded-full mb-6 border border-white/20 animate-fade-in-up">
                             <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
                             Consultoria especializada
                         </span>
                         
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 animate-fade-in-up animation-delay-200">
                             Cargos e<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
                                 Salários
                             </span>
                         </h1>
                         
-                        <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed max-w-2xl">
+                        <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed max-w-2xl animate-fade-in-up animation-delay-400">
                             Analise o cenário salarial do mercado para planejar e definir o <strong className="text-white">posicionamento de remuneração ideal</strong> da sua empresa.
                         </p>
 
-                        <div className="flex flex-wrap gap-4 mb-12">
+                        <div className="flex flex-wrap gap-4 mb-12 animate-fade-in-up animation-delay-600">
                             <ConsultorButton variant="light" />
                         </div>
 
-                        <div className="flex flex-wrap gap-8">
+                        <div className="flex flex-wrap gap-8 animate-fade-in-up animation-delay-800">
                             <div className="text-center">
                                 <div className="text-3xl md:text-4xl font-black text-white">+20</div>
                                 <div className="text-white/60 text-sm">Anos de experiência</div>
@@ -135,20 +153,28 @@ const CargosSalariosPage: React.FC = () => {
             <section className="py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">O que é Cargos e Salários?</h2>
-                        <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                            O <strong className="text-red-600">plano de cargos e salários</strong> é um instrumento que estabelece as funções, qualificações necessárias e faixas salariais dentro de uma organização. Sua principal finalidade é estruturar e uniformizar os cargos disponíveis, além de assegurar que a remuneração oferecida seja compatível com as práticas do mercado.
-                        </p>
-                        <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                            A elaboração de um plano de cargos e salários permite às empresas conhecerem o seu <strong className="text-gray-800">posicionamento salarial atual em relação ao mercado</strong> e planejarem seu posicionamento ideal.
-                        </p>
+                        <AnimatedSection>
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">O que é Cargos e Salários?</h2>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.1}>
+                            <p className="text-lg text-gray-600 leading-relaxed mb-6">
+                                O <strong className="text-red-600">plano de cargos e salários</strong> é um instrumento que estabelece as funções, qualificações necessárias e faixas salariais dentro de uma organização. Sua principal finalidade é estruturar e uniformizar os cargos disponíveis, além de assegurar que a remuneração oferecida seja compatível com as práticas do mercado.
+                            </p>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.2}>
+                            <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                                A elaboração de um plano de cargos e salários permite às empresas conhecerem o seu <strong className="text-gray-800">posicionamento salarial atual em relação ao mercado</strong> e planejarem seu posicionamento ideal.
+                            </p>
+                        </AnimatedSection>
                         
-                        <div className="inline-flex items-center gap-3 bg-amber-50 text-amber-800 px-6 py-4 rounded-xl border border-amber-200">
-                            <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span className="font-medium">Promova equidade e atração de talentos com remuneração competitiva.</span>
-                        </div>
+                        <AnimatedSection delay={0.3}>
+                            <div className="inline-flex items-center gap-3 bg-amber-50 text-amber-800 px-6 py-4 rounded-xl border border-amber-200">
+                                <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span className="font-medium">Promova equidade e atração de talentos com remuneração competitiva.</span>
+                            </div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>
@@ -156,19 +182,21 @@ const CargosSalariosPage: React.FC = () => {
             {/* O QUE VOCÊ TERÁ ACESSO */}
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
+                    <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">CONSULTORIA</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Como a Sua Empresa se Compara Com os Concorrentes?</h2>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">Ao contratar a consultoria de cargos e salários, você terá acesso a:</p>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {informacoesAcesso.map((item, index) => (
-                            <div key={item.titulo} className="group bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center">
-                                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
-                                <h3 className="font-bold text-gray-800 mb-2">{item.titulo}</h3>
-                                <p className="text-gray-600 text-sm">{item.desc}</p>
-                            </div>
+                            <AnimatedSection key={item.titulo} delay={0.1 * index}>
+                                <div className="group bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center h-full">
+                                    <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+                                    <h3 className="font-bold text-gray-800 mb-2">{item.titulo}</h3>
+                                    <p className="text-gray-600 text-sm">{item.desc}</p>
+                                </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -177,18 +205,20 @@ const CargosSalariosPage: React.FC = () => {
             {/* BENEFÍCIOS */}
             <section className="py-20 bg-gray-900">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
+                    <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-white/10 text-white/90 text-sm font-semibold px-4 py-2 rounded-full mb-4">BENEFÍCIOS</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Benefícios da Consultoria de Cargos e Salários</h2>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
                         {beneficios.map((item, index) => (
-                            <div key={item.titulo} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 text-center">
-                                <div className="text-4xl mb-4">{item.icon}</div>
-                                <h3 className="text-lg font-bold text-white mb-2">{item.titulo}</h3>
-                                <p className="text-white/70 text-sm">{item.desc}</p>
-                            </div>
+                            <AnimatedSection key={item.titulo} delay={0.1 * index}>
+                                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 text-center h-full">
+                                    <div className="text-4xl mb-4">{item.icon}</div>
+                                    <h3 className="text-lg font-bold text-white mb-2">{item.titulo}</h3>
+                                    <p className="text-white/70 text-sm">{item.desc}</p>
+                                </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -198,15 +228,17 @@ const CargosSalariosPage: React.FC = () => {
             <section className="py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto">
-                        <div className="text-center mb-12">
+                        <AnimatedSection className="text-center mb-12">
                             <span className="inline-block bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">FAQ</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Perguntas Frequentes</h2>
-                        </div>
-                        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                            {faqItems.map((item, index) => (
-                                <FAQItem key={index} item={item} isOpen={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? null : index)} />
-                            ))}
-                        </div>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.2}>
+                            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                                {faqItems.map((item, index) => (
+                                    <FAQItem key={index} item={item} isOpen={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? null : index)} />
+                                ))}
+                            </div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>
@@ -214,21 +246,27 @@ const CargosSalariosPage: React.FC = () => {
             {/* CTA - FALE COM UM CONSULTOR */}
             <section id="solicitar-proposta" className="py-20 bg-gradient-to-br from-red-700 via-red-800 to-red-900 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
-                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-400 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-400 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 animate-pulse" style={{animationDelay: '1s'}}></div>
                 </div>
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="max-w-3xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Saiba Mais Sobre Cargos e Salários</h2>
-                        <p className="text-xl text-white/80 mb-10 leading-relaxed">
-                            Utilize informações precisas sobre o mercado para definir a remuneração de cada cargo da sua empresa.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                            <ConsultorButton variant="cta" />
-                            <a href="tel:+552131769500" className="text-white/80 hover:text-white transition-colors">
-                                ou ligue: <span className="font-bold text-white">(21) 3176-9500</span>
-                            </a>
-                        </div>
+                        <AnimatedSection>
+                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Saiba Mais Sobre Cargos e Salários</h2>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.15}>
+                            <p className="text-xl text-white/80 mb-10 leading-relaxed">
+                                Utilize informações precisas sobre o mercado para definir a remuneração de cada cargo da sua empresa.
+                            </p>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.3}>
+                            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                                <ConsultorButton variant="cta" />
+                                <a href="tel:+552131769500" className="text-white/80 hover:text-white transition-colors">
+                                    ou ligue: <span className="font-bold text-white">(21) 3176-9500</span>
+                                </a>
+                            </div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>
@@ -236,12 +274,18 @@ const CargosSalariosPage: React.FC = () => {
             {/* CTA FINAL */}
             <section className="py-16 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Conheça todos os nossos serviços de RH</h2>
-                    <p className="text-gray-600 mb-8 max-w-2xl mx-auto">Oferecemos um portfólio completo de soluções em Recursos Humanos.</p>
-                    <button onClick={scrollToServices} className="inline-flex items-center gap-2 bg-red-600 text-white font-bold py-4 px-8 rounded-xl hover:bg-red-700 transition-all duration-300">
-                        Ver Todos os Serviços
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                    </button>
+                    <AnimatedSection>
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Conheça todos os nossos serviços de RH</h2>
+                    </AnimatedSection>
+                    <AnimatedSection delay={0.1}>
+                        <p className="text-gray-600 mb-8 max-w-2xl mx-auto">Oferecemos um portfólio completo de soluções em Recursos Humanos.</p>
+                    </AnimatedSection>
+                    <AnimatedSection delay={0.2}>
+                        <button onClick={scrollToServices} className="inline-flex items-center gap-2 bg-red-600 text-white font-bold py-4 px-8 rounded-xl hover:bg-red-700 transition-all duration-300">
+                            Ver Todos os Serviços
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </button>
+                    </AnimatedSection>
                 </div>
             </section>
         </div>

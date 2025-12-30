@@ -1,6 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ConsultorButton from './ConsultorButton';
+
+// Hook for scroll animations
+const useScrollAnimation = () => {
+    const [ref, setRef] = useState<HTMLDivElement | null>(null);
+    const [isVisible, setIsVisible] = useState(false);
+    useEffect(() => {
+        if (!ref) return;
+        const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) setIsVisible(true); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        observer.observe(ref);
+        return () => observer.disconnect();
+    }, [ref]);
+    return { setRef, isVisible };
+};
+
+const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string; delay?: number }> = ({ children, className = '', delay = 0 }) => {
+    const { setRef, isVisible } = useScrollAnimation();
+    return (<div ref={setRef} className={`scroll-animate ${isVisible ? 'animate-in' : ''} ${className}`} style={{ transitionDelay: `${delay}s` }}>{children}</div>);
+};
 
 // Icons
 const CheckCircleIcon = () => (
@@ -165,28 +183,28 @@ const RecrutamentoPage: React.FC = () => {
 
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="max-w-4xl">
-                        <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/90 text-sm font-medium px-4 py-2 rounded-full mb-6 border border-white/20">
+                        <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/90 text-sm font-medium px-4 py-2 rounded-full mb-6 border border-white/20 animate-fade-in-up">
                             <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
                             Consultoria especializada em R&S
                         </span>
                         
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 animate-fade-in-up animation-delay-200">
                             Recrutamento e<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
                                 Seleção
                             </span>
                         </h1>
                         
-                        <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed max-w-2xl">
+                        <p className="text-xl md:text-2xl text-white/80 mb-8 leading-relaxed max-w-2xl animate-fade-in-up animation-delay-400">
                             Contrate novos talentos com <strong className="text-white">qualidade e agilidade</strong>. Somos referência em consultoria de recrutamento e seleção no Brasil.
                         </p>
 
-                        <div className="flex flex-wrap gap-4 mb-12">
-<ConsultorButton variant="light" />
+                        <div className="flex flex-wrap gap-4 mb-12 animate-fade-in-up animation-delay-600">
+                            <ConsultorButton variant="light" />
                         </div>
 
                         {/* Stats */}
-                        <div className="flex flex-wrap gap-8">
+                        <div className="flex flex-wrap gap-8 animate-fade-in-up animation-delay-800">
                             <div className="text-center">
                                 <div className="text-3xl md:text-4xl font-black text-white">+8.300</div>
                                 <div className="text-white/60 text-sm">Contratações realizadas</div>
@@ -215,22 +233,30 @@ const RecrutamentoPage: React.FC = () => {
             <section className="py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                            Referência em Recrutamento e Seleção
-                        </h2>
-                        <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                            <strong className="text-gray-800">Contratar as pessoas certas</strong> é um dos principais pilares para o crescimento e sucesso de uma empresa.
-                        </p>
-                        <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                            Desde <strong className="text-gray-800">2011</strong> no mercado, tendo realizado <strong className="text-red-600">mais de 8.300 contratações</strong>, somos referência em consultoria de recrutamento e seleção no Brasil. Temos experiência em atendimento a diversos tipos de necessidades, de <strong className="text-gray-800">pequenas e grandes empresas</strong>, incluindo posições de liderança e cargos operacionais.
-                        </p>
+                        <AnimatedSection>
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                                Referência em Recrutamento e Seleção
+                            </h2>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.1}>
+                            <p className="text-xl text-gray-600 leading-relaxed mb-8">
+                                <strong className="text-gray-800">Contratar as pessoas certas</strong> é um dos principais pilares para o crescimento e sucesso de uma empresa.
+                            </p>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.2}>
+                            <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                                Desde <strong className="text-gray-800">2011</strong> no mercado, tendo realizado <strong className="text-red-600">mais de 8.300 contratações</strong>, somos referência em consultoria de recrutamento e seleção no Brasil. Temos experiência em atendimento a diversos tipos de necessidades, de <strong className="text-gray-800">pequenas e grandes empresas</strong>, incluindo posições de liderança e cargos operacionais.
+                            </p>
+                        </AnimatedSection>
                         
-                        <div className="inline-flex items-center gap-3 bg-red-50 text-red-800 px-6 py-4 rounded-xl border border-red-200">
-                            <svg className="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span className="font-medium">Atendemos demandas simples e também com grandes volumes de vagas.</span>
-                        </div>
+                        <AnimatedSection delay={0.3}>
+                            <div className="inline-flex items-center gap-3 bg-red-50 text-red-800 px-6 py-4 rounded-xl border border-red-200">
+                                <svg className="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span className="font-medium">Atendemos demandas simples e também com grandes volumes de vagas.</span>
+                            </div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>
@@ -238,7 +264,7 @@ const RecrutamentoPage: React.FC = () => {
             {/* TIPOS DE PROFISSIONAIS */}
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
+                    <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
                             RECRUTAMOS
                         </span>
@@ -248,18 +274,19 @@ const RecrutamentoPage: React.FC = () => {
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Recrutamos e selecionamos profissionais para todos os níveis hierárquicos
                         </p>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                         {tiposProfissionais.map((tipo, index) => (
-                            <div 
-                                key={tipo.nome}
-                                className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center"
-                            >
-                                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{tipo.icon}</div>
-                                <h3 className="font-bold text-gray-800 mb-1">{tipo.nome}</h3>
-                                <p className="text-gray-500 text-sm">{tipo.desc}</p>
-                            </div>
+                            <AnimatedSection key={tipo.nome} delay={0.05 * index}>
+                                <div 
+                                    className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center h-full"
+                                >
+                                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{tipo.icon}</div>
+                                    <h3 className="font-bold text-gray-800 mb-1">{tipo.nome}</h3>
+                                    <p className="text-gray-500 text-sm">{tipo.desc}</p>
+                                </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -268,11 +295,11 @@ const RecrutamentoPage: React.FC = () => {
             {/* 7 PASSOS DO PROCESSO */}
             <section className="py-20 bg-gray-900 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
                 </div>
 
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <div className="text-center mb-16">
+                    <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-white/10 text-white/90 text-sm font-semibold px-4 py-2 rounded-full mb-4">
                             METODOLOGIA
                         </span>
@@ -282,29 +309,30 @@ const RecrutamentoPage: React.FC = () => {
                         <p className="text-lg text-white/70 max-w-2xl mx-auto">
                             Saiba como funciona a nossa consultoria de recrutamento e seleção
                         </p>
-                    </div>
+                    </AnimatedSection>
 
                     <div className="max-w-5xl mx-auto">
                         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {passos.slice(0, 6).map((passo, index) => (
-                                <div 
-                                    key={passo.numero}
-                                    className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
-                                >
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
-                                            {passo.icon}
+                                <AnimatedSection key={passo.numero} delay={0.1 * index}>
+                                    <div 
+                                        className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 h-full"
+                                    >
+                                        <div className="flex items-center gap-4 mb-4">
+                                            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
+                                                {passo.icon}
+                                            </div>
+                                            <div className="text-3xl font-black text-white/30">{passo.numero}</div>
                                         </div>
-                                        <div className="text-3xl font-black text-white/30">{passo.numero}</div>
+                                        <h3 className="text-lg font-bold text-white mb-2">{passo.titulo}</h3>
+                                        <p className="text-white/70 text-sm leading-relaxed">{passo.descricao}</p>
                                     </div>
-                                    <h3 className="text-lg font-bold text-white mb-2">{passo.titulo}</h3>
-                                    <p className="text-white/70 text-sm leading-relaxed">{passo.descricao}</p>
-                                </div>
+                                </AnimatedSection>
                             ))}
                         </div>
                         
                         {/* Último passo centralizado */}
-                        <div className="mt-6 flex justify-center">
+                        <AnimatedSection delay={0.7} className="mt-6 flex justify-center">
                             <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-6 border border-white/20 max-w-md w-full">
                                 <div className="flex items-center gap-4 mb-4">
                                     <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
@@ -315,7 +343,7 @@ const RecrutamentoPage: React.FC = () => {
                                 <h3 className="text-lg font-bold text-white mb-2">{passos[6].titulo}</h3>
                                 <p className="text-white/90 text-sm leading-relaxed">{passos[6].descricao}</p>
                             </div>
-                        </div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>
@@ -431,7 +459,7 @@ const RecrutamentoPage: React.FC = () => {
             <section className="py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto">
-                        <div className="text-center mb-12">
+                        <AnimatedSection className="text-center mb-12">
                             <span className="inline-block bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
                                 FAQ
                             </span>
@@ -441,18 +469,20 @@ const RecrutamentoPage: React.FC = () => {
                             <p className="text-lg text-gray-600">
                                 Tire suas dúvidas sobre recrutamento e seleção
                             </p>
-                        </div>
+                        </AnimatedSection>
 
-                        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                            {faqItems.map((item, index) => (
-                                <FAQItem 
-                                    key={index}
-                                    item={item}
-                                    isOpen={openFaq === index}
-                                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                                />
-                            ))}
-                        </div>
+                        <AnimatedSection delay={0.2}>
+                            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                                {faqItems.map((item, index) => (
+                                    <FAQItem 
+                                        key={index}
+                                        item={item}
+                                        isOpen={openFaq === index}
+                                        onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                                    />
+                                ))}
+                            </div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>
@@ -460,23 +490,29 @@ const RecrutamentoPage: React.FC = () => {
             {/* CTA - FALE COM UM CONSULTOR */}
             <section id="solicitar-proposta" className="py-20 bg-gradient-to-br from-red-700 via-red-800 to-red-900 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
-                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-400 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-400 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 animate-pulse" style={{animationDelay: '1s'}}></div>
                 </div>
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="max-w-3xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                            Solicite uma Proposta de Recrutamento e Seleção
-                        </h2>
-                        <p className="text-xl text-white/80 mb-10 leading-relaxed">
-                            Quer saber como a gente poderia ajudar a sua empresa? Entre em contato com nossos consultores especializados.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                            <ConsultorButton variant="cta" />
-                            <a href="tel:+552131769500" className="text-white/80 hover:text-white transition-colors">
-                                ou ligue: <span className="font-bold text-white">(21) 3176-9500</span>
-                            </a>
-                        </div>
+                        <AnimatedSection>
+                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                                Solicite uma Proposta de Recrutamento e Seleção
+                            </h2>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.15}>
+                            <p className="text-xl text-white/80 mb-10 leading-relaxed">
+                                Quer saber como a gente poderia ajudar a sua empresa? Entre em contato com nossos consultores especializados.
+                            </p>
+                        </AnimatedSection>
+                        <AnimatedSection delay={0.3}>
+                            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                                <ConsultorButton variant="cta" />
+                                <a href="tel:+552131769500" className="text-white/80 hover:text-white transition-colors">
+                                    ou ligue: <span className="font-bold text-white">(21) 3176-9500</span>
+                                </a>
+                            </div>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>
@@ -484,21 +520,27 @@ const RecrutamentoPage: React.FC = () => {
             {/* CTA FINAL */}
             <section className="py-16 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                        Conheça todos os nossos serviços de RH
-                    </h2>
-                    <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-                        Além do recrutamento e seleção, oferecemos um portfólio completo de soluções em Recursos Humanos para sua empresa.
-                    </p>
-                    <button 
-                        onClick={scrollToServices}
-                        className="inline-flex items-center gap-2 bg-red-600 text-white font-bold py-4 px-8 rounded-xl hover:bg-red-700 transition-all duration-300"
-                    >
-                        Ver Todos os Serviços
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </button>
+                    <AnimatedSection>
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                            Conheça todos os nossos serviços de RH
+                        </h2>
+                    </AnimatedSection>
+                    <AnimatedSection delay={0.1}>
+                        <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+                            Além do recrutamento e seleção, oferecemos um portfólio completo de soluções em Recursos Humanos para sua empresa.
+                        </p>
+                    </AnimatedSection>
+                    <AnimatedSection delay={0.2}>
+                        <button 
+                            onClick={scrollToServices}
+                            className="inline-flex items-center gap-2 bg-red-600 text-white font-bold py-4 px-8 rounded-xl hover:bg-red-700 transition-all duration-300"
+                        >
+                            Ver Todos os Serviços
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </button>
+                    </AnimatedSection>
                 </div>
             </section>
         </div>

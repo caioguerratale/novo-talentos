@@ -49,6 +49,61 @@ const useScrollAnimation = () => {
     return { setRef, isVisible };
 };
 
+// Animated Section Component
+interface AnimatedSectionProps {
+    children: React.ReactNode;
+    className?: string;
+    animation?: 'fade-up' | 'fade-left' | 'fade-right' | 'scale';
+    delay?: number;
+}
+
+const AnimatedSection: React.FC<AnimatedSectionProps> = ({ 
+    children, 
+    className = '', 
+    animation = 'fade-up',
+    delay = 0 
+}) => {
+    const { setRef, isVisible } = useScrollAnimation();
+    
+    const animationClasses = {
+        'fade-up': 'scroll-animate',
+        'fade-left': 'scroll-animate-left',
+        'fade-right': 'scroll-animate-right',
+        'scale': 'scroll-animate-scale'
+    };
+    
+    return (
+        <div 
+            ref={setRef}
+            className={`${animationClasses[animation]} ${isVisible ? 'animate-in' : ''} ${className}`}
+            style={{ transitionDelay: `${delay}s` }}
+        >
+            {children}
+        </div>
+    );
+};
+
+// Animated Element for individual items
+interface AnimatedElementProps {
+    children: React.ReactNode;
+    className?: string;
+    delay?: number;
+}
+
+const AnimatedElement: React.FC<AnimatedElementProps> = ({ children, className = '', delay = 0 }) => {
+    const { setRef, isVisible } = useScrollAnimation();
+    
+    return (
+        <div 
+            ref={setRef}
+            className={`scroll-animate ${isVisible ? 'animate-in' : ''} ${className}`}
+            style={{ transitionDelay: `${delay}s` }}
+        >
+            {children}
+        </div>
+    );
+};
+
 // Timeline Item Component with animations
 const TimelineItem: React.FC<{ 
     item: typeof historyTimeline[0]; 
@@ -224,12 +279,13 @@ const ClientsCarousel: React.FC = () => {
 const ServicesSlider: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const activeService = services[activeIndex];
+    const { setRef, isVisible } = useScrollAnimation();
 
     return (
         <section id="servicos" className="py-8 bg-gray-900 min-h-[calc(100vh-80px)] flex flex-col justify-between">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col">
+            <div ref={setRef} className="container mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col">
                 {/* Tabs Navigation - Scrollable on mobile */}
-                <div className="overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 mb-6 border-b border-white/20 pb-3">
+                <div className={`overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 mb-6 border-b border-white/20 pb-3 scroll-animate ${isVisible ? 'animate-in' : ''}`}>
                     <div className="flex justify-start sm:justify-center gap-2 min-w-max sm:min-w-0 sm:flex-wrap">
                         {services.map((service, index) => (
                             <button
@@ -248,9 +304,9 @@ const ServicesSlider: React.FC = () => {
                 </div>
 
                 {/* Content Area */}
-                <div className="grid lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto flex-grow">
+                <div className={`grid lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto flex-grow scroll-animate ${isVisible ? 'animate-in' : ''}`} style={{ transitionDelay: '0.2s' }}>
                     {/* Left - Text Content */}
-                    <div className="order-2 lg:order-1">
+                    <div key={activeService.id} className="order-2 lg:order-1 animate-fade-in-content">
                         {/* Icon */}
                         <div className="mb-4 text-white">
                             {React.cloneElement(activeService.icon as React.ReactElement, { className: 'w-12 h-12' })}
@@ -295,20 +351,20 @@ const ServicesSlider: React.FC = () => {
                     </div>
 
                     {/* Right - Visual Element */}
-                    <div className="order-1 lg:order-2 flex justify-center items-center py-4 lg:py-0">
-                        <div className="relative">
+                    <div key={`circle-${activeService.id}`} className="order-1 lg:order-2 flex justify-center items-center py-4 lg:py-0 animate-fade-in-content">
+                        <div className="relative animate-float">
                             {/* Main circle with icon */}
-                            <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-56 lg:h-56 bg-orange-600 rounded-full flex items-center justify-center border-2 border-orange-400">
+                            <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-56 lg:h-56 bg-orange-600 rounded-full flex items-center justify-center border-2 border-orange-400 shadow-2xl shadow-orange-500/30">
                                 <div className="text-white">
                                     {React.cloneElement(activeService.icon as React.ReactElement, { className: 'w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28' })}
                                 </div>
                             </div>
                             
                             {/* Decorative circles - Hidden on very small screens */}
-                            <div className="hidden sm:block absolute -top-2 -right-2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-orange-600 rounded-full border-2 border-orange-400"></div>
-                            <div className="hidden sm:block absolute -bottom-4 -left-4 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-orange-600 rounded-full border-2 border-orange-400"></div>
-                            <div className="hidden md:block absolute top-1/2 -right-8 w-8 h-8 bg-orange-600 rounded-full border-2 border-orange-400"></div>
-                            <div className="hidden md:block absolute -top-6 left-1/3 w-6 h-6 bg-orange-600 rounded-full border-2 border-orange-400"></div>
+                            <div className="hidden sm:block absolute -top-2 -right-2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-orange-600 rounded-full border-2 border-orange-400 animate-pulse-slow"></div>
+                            <div className="hidden sm:block absolute -bottom-4 -left-4 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-orange-600 rounded-full border-2 border-orange-400 animate-pulse-slow" style={{animationDelay: '0.5s'}}></div>
+                            <div className="hidden md:block absolute top-1/2 -right-8 w-8 h-8 bg-orange-600 rounded-full border-2 border-orange-400 animate-pulse-slow" style={{animationDelay: '1s'}}></div>
+                            <div className="hidden md:block absolute -top-6 left-1/3 w-6 h-6 bg-orange-600 rounded-full border-2 border-orange-400 animate-pulse-slow" style={{animationDelay: '1.5s'}}></div>
                         </div>
                     </div>
                 </div>
@@ -360,29 +416,36 @@ const BlogGridCard: React.FC<{ article: typeof blogArticles[0] }> = ({ article }
 const HomePage: React.FC = () => (
     <>
         {/* Hero Section - Gradient Background - Full Screen */}
-        <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center bg-gradient-to-br from-red-800 via-red-900 to-gray-900 py-8 sm:py-12">
+        <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center bg-gradient-to-br from-red-800 via-red-900 to-gray-900 py-8 sm:py-12 overflow-hidden">
+            {/* Animated Background Elements */}
+            <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+                <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-red-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+            </div>
+            
             {/* Content */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                 <div className="max-w-4xl mx-auto">
                     {/* Tag */}
-                    <span className="inline-block bg-white/20 text-white uppercase tracking-widest text-[10px] sm:text-xs md:text-sm font-semibold py-2 px-4 sm:px-6 rounded-full mb-6 sm:mb-8 backdrop-blur-sm">
+                    <span className="inline-block bg-white/20 text-white uppercase tracking-widest text-[10px] sm:text-xs md:text-sm font-semibold py-2 px-4 sm:px-6 rounded-full mb-6 sm:mb-8 backdrop-blur-sm animate-fade-in-up">
                         Consultoria de Alta Performance
                     </span>
                     
                     {/* Main Title */}
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight text-white mb-4 sm:mb-6 uppercase tracking-tight">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight text-white mb-4 sm:mb-6 uppercase tracking-tight animate-fade-in-up animation-delay-200">
                         Transforme <span className="text-white">Pessoas</span>
                         <br />
                         em Resultados Reais.
                     </h1>
                     
                     {/* Subtitle */}
-                    <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 leading-relaxed max-w-2xl mx-auto px-2">
+                    <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 leading-relaxed max-w-2xl mx-auto px-2 animate-fade-in-up animation-delay-400">
                         Alinhamos cultura, liderança e gestão para construir times que não apenas trabalham, mas entregam lucro e crescimento para o seu negócio.
                     </p>
                     
                     {/* Buttons - Stack on mobile */}
-                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0 animate-fade-in-up animation-delay-600">
                         <ConsultorButton variant="hero" showIcon={false}>Falar com um Consultor</ConsultorButton>
                         <button 
                             onClick={() => {
@@ -412,12 +475,16 @@ const HomePage: React.FC = () => (
         {/* Clientes Section - Carousel with rounded cards */}
         <section className="py-16 bg-white clients-section">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-10">
-                    <h3 className="text-2xl font-bold text-gray-800">Alguns Clientes</h3>
-                </div>
-                <div className="max-w-5xl mx-auto bg-white rounded-xl py-6 px-4 clients-logos-container">
-                    <ClientsCarousel />
-                </div>
+                <AnimatedSection animation="fade-up">
+                    <div className="text-center mb-10">
+                        <h3 className="text-2xl font-bold text-gray-800">Alguns Clientes</h3>
+                    </div>
+                </AnimatedSection>
+                <AnimatedSection animation="scale" delay={0.2}>
+                    <div className="max-w-5xl mx-auto bg-white rounded-xl py-6 px-4 clients-logos-container">
+                        <ClientsCarousel />
+                    </div>
+                </AnimatedSection>
             </div>
         </section>
 
@@ -436,15 +503,19 @@ const HomePage: React.FC = () => (
             
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="max-w-4xl mx-auto text-center">
-                    <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-8">
-                        A TALENTOS CONSULTORIA é uma empresa de consultoria de RH no Rio de Janeiro, composta por profissionais com mais de 20 anos de experiência, especializados em Recursos Humanos e com passagens em empresas nacionais e multinacionais. Conectamos a estratégia do seu negócio aos resultados, através das pessoas. Alinhamos cultura, liderança e gestão para que sua empresa tenha um time de alta performance.
-                    </p>
-                    <Link 
-                        to="/sobre" 
-                        className="inline-block bg-white text-gray-700 font-semibold py-3 px-8 rounded-full border border-gray-300 hover:border-red-600 hover:text-red-600 transition-all duration-300 shadow-sm hover:shadow-md"
-                    >
-                        Quem somos
-                    </Link>
+                    <AnimatedSection animation="fade-up">
+                        <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-8">
+                            A TALENTOS CONSULTORIA é uma empresa de consultoria de RH no Rio de Janeiro, composta por profissionais com mais de 20 anos de experiência, especializados em Recursos Humanos e com passagens em empresas nacionais e multinacionais. Conectamos a estratégia do seu negócio aos resultados, através das pessoas. Alinhamos cultura, liderança e gestão para que sua empresa tenha um time de alta performance.
+                        </p>
+                    </AnimatedSection>
+                    <AnimatedSection animation="scale" delay={0.2}>
+                        <Link 
+                            to="/sobre" 
+                            className="inline-block bg-white text-gray-700 font-semibold py-3 px-8 rounded-full border border-gray-300 hover:border-red-600 hover:text-red-600 transition-all duration-300 shadow-sm hover:shadow-md"
+                        >
+                            Quem somos
+                        </Link>
+                    </AnimatedSection>
                 </div>
             </div>
         </section>
@@ -452,43 +523,55 @@ const HomePage: React.FC = () => (
         {/* Blog Section */}
         <section className="py-16 bg-white">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-4">
-                    <h2 className="text-3xl font-bold text-gray-800">Blog</h2>
-                </div>
-                <div className="text-center mb-10">
-                    <p className="text-gray-600">Últimas Postagens</p>
-                </div>
+                <AnimatedSection animation="fade-up">
+                    <div className="text-center mb-4">
+                        <h2 className="text-3xl font-bold text-gray-800">Blog</h2>
+                    </div>
+                    <div className="text-center mb-10">
+                        <p className="text-gray-600">Últimas Postagens</p>
+                    </div>
+                </AnimatedSection>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-                    {blogArticles.map(article => (
-                        <BlogGridCard key={article.title} article={article} />
+                    {blogArticles.map((article, index) => (
+                        <AnimatedSection key={article.title} animation="scale" delay={0.1 * (index + 1)}>
+                            <BlogGridCard article={article} />
+                        </AnimatedSection>
                     ))}
                 </div>
-                <div className="text-center mt-10">
-                    <a 
-                        href="#" 
-                        className="inline-block text-red-600 font-semibold hover:text-red-700 transition-colors duration-300"
-                    >
-                        Ver todos os artigos →
-                    </a>
-                </div>
+                <AnimatedSection animation="fade-up" delay={0.4}>
+                    <div className="text-center mt-10">
+                        <a 
+                            href="#" 
+                            className="inline-block text-red-600 font-semibold hover:text-red-700 transition-colors duration-300"
+                        >
+                            Ver todos os artigos →
+                        </a>
+                    </div>
+                </AnimatedSection>
             </div>
         </section>
 
         {/* Oportunidades Section - Kept but simplified */}
         <section id="oportunidades" className="py-16 bg-gradient-to-r from-red-700 to-red-800 text-white">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">Oportunidades de Trabalho</h2>
-                <p className="max-w-2xl mx-auto mb-8 text-red-100">
-                    Confira as vagas abertas, cadastre seu currículo e encontre a oportunidade ideal para sua carreira profissional.
-                </p>
-                <a 
-                    href="https://talentosconsultoria.infojobs.com.br/empregos.aspx" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-block bg-white text-red-700 font-bold py-3 px-8 rounded-full hover:bg-orange-100 transition-all duration-300 shadow-lg transform hover:scale-105"
-                >
-                    Ver Vagas
-                </a>
+                <AnimatedSection animation="fade-up">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4">Oportunidades de Trabalho</h2>
+                </AnimatedSection>
+                <AnimatedSection animation="fade-up" delay={0.15}>
+                    <p className="max-w-2xl mx-auto mb-8 text-red-100">
+                        Confira as vagas abertas, cadastre seu currículo e encontre a oportunidade ideal para sua carreira profissional.
+                    </p>
+                </AnimatedSection>
+                <AnimatedSection animation="scale" delay={0.3}>
+                    <a 
+                        href="https://talentosconsultoria.infojobs.com.br/empregos.aspx" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-block bg-white text-red-700 font-bold py-3 px-8 rounded-full hover:bg-orange-100 transition-all duration-300 shadow-lg transform hover:scale-105"
+                    >
+                        Ver Vagas
+                    </a>
+                </AnimatedSection>
             </div>
         </section>
     </>

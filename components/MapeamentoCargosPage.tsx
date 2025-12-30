@@ -1,6 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ConsultorButton from './ConsultorButton';
+
+// Hook for scroll animations
+const useScrollAnimation = () => {
+    const [ref, setRef] = useState<HTMLDivElement | null>(null);
+    const [isVisible, setIsVisible] = useState(false);
+    useEffect(() => {
+        if (!ref) return;
+        const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) setIsVisible(true); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        observer.observe(ref);
+        return () => observer.disconnect();
+    }, [ref]);
+    return { setRef, isVisible };
+};
+
+const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string; delay?: number }> = ({ children, className = '', delay = 0 }) => {
+    const { setRef, isVisible } = useScrollAnimation();
+    return (<div ref={setRef} className={`scroll-animate ${isVisible ? 'animate-in' : ''} ${className}`} style={{ transitionDelay: `${delay}s` }}>{children}</div>);
+};
 
 // Icons
 const CheckCircleIcon = () => (
