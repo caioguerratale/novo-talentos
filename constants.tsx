@@ -218,48 +218,6 @@ export const services: Service[] = [
     icon: <ArrowPathIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/outplacement-1.jpg',
   },
-  {
-    id: 8,
-    slug: 'projetos-customizados',
-    title: 'Projetos Customizados',
-    shortDescription: 'Se a sua empresa precisa de apoio para solucionar desafios relacionados a Gestão de Pessoas, Recursos Humanos e Departamento Pessoal, entre em contato com a Talentos Consultoria. Oferecemos projetos customizados como: Palestras, Cargos e salários, Pesquisa de clima (Engagement), Workshops e Assessment.',
-    longDescription: (
-        <div className="space-y-4 text-gray-700">
-            <p>Entendemos que cada organização é única. Por isso, desenvolvemos projetos de RH totalmente personalizados para atender às suas demandas específicas. Seja qual for o seu desafio em gestão de pessoas, nós temos a solução.</p>
-            <h3 className="text-xl font-semibold text-gray-800 pt-4">Exemplos de Projetos:</h3>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Programas de avaliação de desempenho.</li>
-                <li>Desenvolvimento de lideranças.</li>
-                <li>Programas de integração de novos colaboradores (onboarding).</li>
-                <li>Planejamento de sucessão.</li>
-                <li>Mapeamento de competências.</li>
-            </ul>
-        </div>
-    ),
-    icon: <WrenchScrewdriverIcon className="w-10 h-10 text-orange-500" />,
-    imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/projetos-customizados-1.jpg',
-  },
-  {
-    id: 9,
-    slug: 'consultoria-de-rh',
-    title: 'Consultoria de RH',
-    shortDescription: 'Para a sua organização obter sucesso e resultados econômicos positivos, suas ações precisam estar alinhadas com estratégias que as tornem competitivas. Todas as atividades que tornam sua empresa mais enxuta e atraente dependem de PESSOAS. A Talentos é uma consultoria especializada em RH que oferece serviços para apoiar e otimizar processos ou solucionar problemas relacionados à gestão de pessoas.',
-    longDescription: (
-        <div className="space-y-4 text-gray-700">
-            <p>Nossa consultoria de RH atua como um parceiro estratégico, oferecendo diagnósticos, recomendações e suporte na implementação das melhores práticas de gestão de pessoas. Ajudamos a alinhar as estratégias de RH com os objetivos de negócio da sua empresa.</p>
-            <h3 className="text-xl font-semibold text-gray-800 pt-4">Áreas de Atuação:</h3>
-            <ul className="list-disc list-inside space-y-2">
-                <li>Diagnóstico organizacional e planejamento estratégico de RH.</li>
-                <li>Desenvolvimento de cultura e valores.</li>
-                <li>Gestão de mudanças organizacionais.</li>
-                <li>Políticas de remuneração e benefícios.</li>
-                <li>Otimização de processos e indicadores de RH.</li>
-            </ul>
-        </div>
-    ),
-    icon: <LightBulbIcon className="w-10 h-10 text-orange-500" />,
-    imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/consultoria-de-rh-1.jpg',
-  }
 ];
 
 export const aboutUsText = {

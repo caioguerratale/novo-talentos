@@ -491,31 +491,46 @@ const HomePage: React.FC = () => (
         {/* Services Section - Slider */}
         <ServicesSlider />
 
-        {/* Quem Somos Section - Full width with background image */}
-        <section id="quem-somos" className="py-20 relative">
-            {/* Background Image */}
-            <div 
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${import.meta.env.BASE_URL}fundo.jpg)` }}
-            >
-                <div className="absolute inset-0 bg-white/60"></div>
-            </div>
-            
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="max-w-4xl mx-auto text-center">
-                    <AnimatedSection animation="fade-up">
-                        <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-8">
-                            A TALENTOS CONSULTORIA é uma empresa de consultoria de RH no Rio de Janeiro, composta por profissionais com mais de 20 anos de experiência, especializados em Recursos Humanos e com passagens em empresas nacionais e multinacionais. Conectamos a estratégia do seu negócio aos resultados, através das pessoas. Alinhamos cultura, liderança e gestão para que sua empresa tenha um time de alta performance.
-                        </p>
-                    </AnimatedSection>
-                    <AnimatedSection animation="scale" delay={0.2}>
-                        <Link 
-                            to="/sobre" 
-                            className="inline-block bg-white text-gray-700 font-semibold py-3 px-8 rounded-full border border-gray-300 hover:border-red-600 hover:text-red-600 transition-all duration-300 shadow-sm hover:shadow-md"
-                        >
-                            Quem somos
-                        </Link>
-                    </AnimatedSection>
+        {/* Feedbacks Section */}
+        <section className="py-20 bg-gray-50">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <AnimatedSection animation="fade-up">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3">O que nossos clientes dizem</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">A satisfação dos nossos clientes é o nosso maior reconhecimento</p>
+                    </div>
+                </AnimatedSection>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    {testimonials.map((testimonial, index) => (
+                        <AnimatedSection key={index} animation="scale" delay={0.1 * (index + 1)}>
+                            <div className="bg-white rounded-2xl shadow-lg p-8 h-full flex flex-col relative">
+                                {/* Quote icon */}
+                                <svg className="w-10 h-10 text-red-100 absolute top-6 right-6" fill="currentColor" viewBox="0 0 32 32">
+                                    <path d="M9.33 8.21C7.58 9.96 6.67 12.15 6.67 14.67c0 4.14 3.36 7.5 7.5 7.5h.83v-5h-.83c-1.38 0-2.5-1.12-2.5-2.5 0-.69.28-1.32.73-1.77L15.67 4H9.33v4.21zM22.33 8.21C20.58 9.96 19.67 12.15 19.67 14.67c0 4.14 3.36 7.5 7.5 7.5h.83v-5h-.83c-1.38 0-2.5-1.12-2.5-2.5 0-.69.28-1.32.73-1.77L28.67 4H22.33v4.21z" />
+                                </svg>
+                                
+                                {/* Photo */}
+                                <div className="flex justify-center mb-6">
+                                    <img 
+                                        src={testimonial.imageUrl} 
+                                        alt={testimonial.name} 
+                                        className="w-20 h-20 rounded-full object-cover ring-4 ring-red-100"
+                                    />
+                                </div>
+                                
+                                {/* Quote */}
+                                <blockquote className="text-gray-600 text-center italic mb-6 flex-grow leading-relaxed">
+                                    "{testimonial.quote}"
+                                </blockquote>
+                                
+                                {/* Author */}
+                                <div className="text-center mt-auto pt-4 border-t border-gray-100">
+                                    <p className="font-bold text-gray-900">{testimonial.name}</p>
+                                    <p className="text-sm text-red-600">{testimonial.title}</p>
+                                </div>
+                            </div>
+                        </AnimatedSection>
+                    ))}
                 </div>
             </div>
         </section>
@@ -547,30 +562,6 @@ const HomePage: React.FC = () => (
                             Ver todos os artigos →
                         </a>
                     </div>
-                </AnimatedSection>
-            </div>
-        </section>
-
-        {/* Oportunidades Section - Kept but simplified */}
-        <section id="oportunidades" className="py-16 bg-gradient-to-r from-red-700 to-red-800 text-white">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <AnimatedSection animation="fade-up">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4">Oportunidades de Trabalho</h2>
-                </AnimatedSection>
-                <AnimatedSection animation="fade-up" delay={0.15}>
-                    <p className="max-w-2xl mx-auto mb-8 text-red-100">
-                        Confira as vagas abertas, cadastre seu currículo e encontre a oportunidade ideal para sua carreira profissional.
-                    </p>
-                </AnimatedSection>
-                <AnimatedSection animation="scale" delay={0.3}>
-                    <a 
-                        href="https://talentosconsultoria.infojobs.com.br/empregos.aspx" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="inline-block bg-white text-red-700 font-bold py-3 px-8 rounded-full hover:bg-orange-100 transition-all duration-300 shadow-lg transform hover:scale-105"
-                    >
-                        Ver Vagas
-                    </a>
                 </AnimatedSection>
             </div>
         </section>
