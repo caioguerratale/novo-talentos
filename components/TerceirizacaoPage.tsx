@@ -72,26 +72,11 @@ const profissionais = [
     { nome: 'Logística', icon: '📦', cor: 'from-blue-500 to-indigo-600' },
     { nome: 'Portaria', icon: '🚪', cor: 'from-slate-500 to-gray-600' },
     { nome: 'Manutenção e Zeladoria', icon: '🔧', cor: 'from-emerald-500 to-teal-600' },
-    { nome: 'Limpeza e Conservação', icon: '✨', cor: 'from-cyan-500 to-blue-600' },
-    { nome: 'Construção', icon: '🏗️', cor: 'from-yellow-500 to-amber-600' },
-    { nome: 'Controle de Acesso', icon: '🔐', cor: 'from-purple-500 to-violet-600' },
     { nome: 'Motoristas', icon: '🚗', cor: 'from-red-500 to-rose-600' },
     { nome: 'Profissionais de TI', icon: '💻', cor: 'from-indigo-500 to-purple-600' },
-    { nome: 'Jardinagem', icon: '🌿', cor: 'from-green-500 to-emerald-600' },
     { nome: 'Administrativos', icon: '📋', cor: 'from-sky-500 to-blue-600' },
 ];
 
-// Benefícios
-const beneficios = [
-    { titulo: 'Recrutamento e Seleção', desc: 'Dos melhores profissionais para a sua necessidade.' },
-    { titulo: 'Banco de Dados', desc: 'Com profissionais de diversas funções prontos para atuar.' },
-    { titulo: 'Cobertura Completa', desc: 'De afastamentos, faltas, férias e licenças.' },
-    { titulo: 'EPIs e Uniformes', desc: 'Equipamentos de proteção e uniformes incluídos.' },
-    { titulo: 'Rotinas de RH', desc: 'Administração completa referente aos profissionais.' },
-    { titulo: 'Supervisão Talentos', desc: 'Aumento de produtividade e qualidade nas funções.' },
-    { titulo: 'Capacitação', desc: 'Atualização das competências dos terceirizados.' },
-    { titulo: 'Satisfação Garantida', desc: 'Com os profissionais terceirizados.' },
-];
 
 // Modalidades de contrato
 const modalidades = [
@@ -105,8 +90,7 @@ const modalidades = [
             'Terceirização dos processos de contratação, administração e desligamento',
             'Diluição de custos de contratação (exames admissionais, uniformes, EPIs, etc.)',
         ],
-        cor: 'bg-gradient-to-br from-red-600 to-red-800',
-        destaque: true,
+        cor: 'bg-gradient-to-br from-amber-600 to-orange-700',
     },
     {
         titulo: 'Terceirização Efetiva por Tempo Determinado',
@@ -117,8 +101,7 @@ const modalidades = [
             'Alta previsibilidade de data para finalização',
             'Normalmente usada para projetos com mão de obra especializada',
         ],
-        cor: 'bg-gradient-to-br from-slate-700 to-slate-900',
-        destaque: false,
+        cor: 'bg-gradient-to-br from-amber-600 to-orange-700',
     },
     {
         titulo: 'Contrato Temporário',
@@ -131,8 +114,6 @@ const modalidades = [
             'Menores custos com encargos e provisões',
         ],
         cor: 'bg-gradient-to-br from-amber-600 to-orange-700',
-        destaque: false,
-        badge: 'A Talentos é habilitada!',
     },
 ];
 
@@ -156,15 +137,206 @@ const faqItems = [
     },
 ];
 
-// Vantagens principais
-const vantagensPrincipais = [
-    'Mão de obra qualificada para as funções terceirizadas',
-    'A empresa não tem vínculo empregatício com o profissional',
-    'Substituição fácil e rápida de terceirizados',
-    'Sem necessidade de administração de pessoal',
-    'Possibilidade de contratações temporárias',
-    'Ganho de produtividade nas tarefas terceirizadas',
+
+// Dados do carrossel de benefícios
+const carouselSlides = [
+    {
+        numero: '01',
+        titulo: 'Recrutamento e Seleção',
+        subtitulo: 'Encontramos os melhores profissionais',
+        descricao: 'Nossa equipe especializada identifica e seleciona os profissionais mais qualificados para cada função, garantindo que sua empresa tenha acesso aos melhores talentos do mercado.',
+        cor: 'from-red-600 to-red-800',
+        icon: (
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+        ),
+    },
+    {
+        numero: '02',
+        titulo: 'Administração Completa',
+        subtitulo: 'Cuidamos de toda a burocracia',
+        descricao: 'Gerenciamos folha de pagamento, encargos, benefícios, férias, afastamentos e toda a documentação trabalhista. Você foca no seu negócio, nós cuidamos do resto.',
+        cor: 'from-orange-500 to-amber-600',
+        icon: (
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+        ),
+    },
+    {
+        numero: '03',
+        titulo: 'Cobertura Total',
+        subtitulo: 'Sem interrupções no seu negócio',
+        descricao: 'Garantimos cobertura completa de afastamentos, faltas, férias e licenças. Temos um banco de profissionais prontos para substituições imediatas quando necessário.',
+        cor: 'from-emerald-500 to-teal-600',
+        icon: (
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+        ),
+    },
+    {
+        numero: '04',
+        titulo: 'Sem Vínculo Empregatício',
+        subtitulo: 'Segurança jurídica para sua empresa',
+        descricao: 'O vínculo empregatício e todas as responsabilidades trabalhistas são da Talentos Consultoria. Sua empresa fica livre de riscos e passivos trabalhistas.',
+        cor: 'from-blue-500 to-indigo-600',
+        icon: (
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+        ),
+    },
+    {
+        numero: '05',
+        titulo: 'Capacitação Contínua',
+        subtitulo: 'Profissionais sempre atualizados',
+        descricao: 'Investimos em treinamento e desenvolvimento dos profissionais terceirizados, garantindo que sua empresa sempre conte com uma equipe qualificada e atualizada.',
+        cor: 'from-purple-500 to-violet-600',
+        icon: (
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+        ),
+    },
+    {
+        numero: '06',
+        titulo: 'Supervisão Especializada',
+        subtitulo: 'Acompanhamento de perto',
+        descricao: 'Nossa equipe de supervisão acompanha o desempenho dos profissionais, garantindo produtividade, qualidade e satisfação em todas as funções terceirizadas.',
+        cor: 'from-rose-500 to-pink-600',
+        icon: (
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+        ),
+    },
 ];
+
+// Componente Carrossel de Benefícios
+const BeneficiosCarousel: React.FC = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+    useEffect(() => {
+        if (!isAutoPlaying) return;
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [isAutoPlaying]);
+
+    const goToSlide = (index: number) => {
+        setCurrentSlide(index);
+        setIsAutoPlaying(false);
+    };
+
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+        setIsAutoPlaying(false);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length);
+        setIsAutoPlaying(false);
+    };
+
+    const slide = carouselSlides[currentSlide];
+
+    return (
+        <section className="py-20 bg-white relative overflow-hidden">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                {/* Header */}
+                <div className="text-center mb-12">
+                    <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                        O QUE OFERECEMOS
+                    </span>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                        Benefícios da Terceirização
+                    </h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Conheça as vantagens de terceirizar com a Talentos Consultoria
+                    </p>
+                </div>
+
+                {/* Carousel Container */}
+                <div className="max-w-5xl mx-auto">
+                    <div className="relative">
+                        {/* Main Card */}
+                        <div 
+                            className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-8 md:p-12 min-h-[400px] flex flex-col justify-between transition-all duration-500 shadow-2xl`}
+                        >
+                            {/* Top Row */}
+                            <div className="flex items-center gap-4 mb-8">
+                                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white">
+                                    {slide.icon}
+                                </div>
+                                <div>
+                                    <span className="text-white/60 text-sm font-medium">Benefício</span>
+                                    <div className="text-white text-4xl font-black">{slide.numero}</div>
+                                </div>
+                            </div>
+
+                            {/* Content */}
+                            <div className="flex-grow">
+                                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3">
+                                    {slide.titulo}
+                                </h3>
+                                <p className="text-white/80 text-lg mb-4">
+                                    {slide.subtitulo}
+                                </p>
+                                <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
+                                    {slide.descricao}
+                                </p>
+                            </div>
+
+                            {/* Bottom Row - Navigation & Dots */}
+                            <div className="flex items-center justify-center gap-6 mt-8 pt-6 border-t border-white/20">
+                                {/* Prev Arrow */}
+                                <button 
+                                    onClick={prevSlide}
+                                    className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
+                                >
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </button>
+
+                                {/* Dots */}
+                                <div className="flex gap-2 items-center">
+                                    {carouselSlides.map((_, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => goToSlide(index)}
+                                            className={`h-2 rounded-full transition-all duration-300 ${
+                                                index === currentSlide 
+                                                    ? 'w-8 bg-white' 
+                                                    : 'w-2 bg-white/40 hover:bg-white/60'
+                                            }`}
+                                        />
+                                    ))}
+                                </div>
+
+                                {/* Next Arrow */}
+                                <button 
+                                    onClick={nextSlide}
+                                    className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
+                                >
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
 
 // Componente FAQ Accordion
 const FAQItem: React.FC<{ item: typeof faqItems[0]; isOpen: boolean; onClick: () => void }> = ({ item, isOpen, onClick }) => (
@@ -265,32 +437,133 @@ const TerceirizacaoPage: React.FC = () => {
                 </div>
             </section>
 
-            {/* INTRODUÇÃO */}
+            {/* DORES DOS CLIENTES */}
             <section className="py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <AnimatedSection>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                                Por que terceirizar com a Talentos?
-                            </h2>
-                        </AnimatedSection>
+                    <AnimatedSection className="text-center mb-16">
+                        <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                            PROBLEMAS QUE RESOLVEMOS
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Você se identifica com algum desses problemas?
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Nossos clientes enfrentavam esses desafios antes de terceirizar com a Talentos
+                        </p>
+                    </AnimatedSection>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                        {/* Dor 1 */}
                         <AnimatedSection delay={0.1}>
-                            <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                                <strong className="text-gray-800">Contratar profissionais terceirizados</strong> para as mais diversas áreas pode ser a solução ideal para empresas que precisam concentrar energia em seus <em>core businesses</em>.
-                            </p>
+                            <div className="bg-red-50 border-2 border-red-100 rounded-2xl p-6 h-full hover:border-red-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-gray-900 mb-2">Perda de tempo com processos de RH</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Gasto muito tempo administrando folha de pagamento, férias e questões trabalhistas."</p>
+                                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Administramos 100% dos profissionais
+                                </div>
+                            </div>
                         </AnimatedSection>
+
+                        {/* Dor 2 */}
+                        <AnimatedSection delay={0.15}>
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-gray-900 mb-2">Dificuldade em encontrar profissionais</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Não consigo contratar pessoas qualificadas rapidamente quando preciso."</p>
+                                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Banco de talentos pronto para atuar
+                                </div>
+                            </div>
+                        </AnimatedSection>
+
+                        {/* Dor 3 */}
                         <AnimatedSection delay={0.2}>
-                            <p className="text-lg text-gray-600 leading-relaxed mb-12">
-                                A Talentos Consultoria é parceira ideal para entender as suas necessidades e contratar a mão de obra do jeito que você precisa. Em todas as modalidades, nós cuidaremos da <strong className="text-gray-800">administração dos profissionais</strong>, desde sua seleção, passando pela folha de pagamento, até o seu desligamento.
-                            </p>
+                            <div className="bg-amber-50 border-2 border-amber-100 rounded-2xl p-6 h-full hover:border-amber-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-gray-900 mb-2">Riscos trabalhistas e passivos</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Tenho medo de processos trabalhistas e não domino a legislação."</p>
+                                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Vínculo e responsabilidade são nossos
+                                </div>
+                            </div>
                         </AnimatedSection>
-                        
+
+                        {/* Dor 4 */}
+                        <AnimatedSection delay={0.25}>
+                            <div className="bg-blue-50 border-2 border-blue-100 rounded-2xl p-6 h-full hover:border-blue-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-gray-900 mb-2">Alta rotatividade de funcionários</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Preciso substituir funcionários frequentemente e isso gera muito custo."</p>
+                                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Substituição rápida e sem custo extra
+                                </div>
+                            </div>
+                        </AnimatedSection>
+
+                        {/* Dor 5 */}
                         <AnimatedSection delay={0.3}>
-                            <div className="inline-flex items-center gap-3 bg-amber-50 text-amber-800 px-6 py-4 rounded-xl border border-amber-200">
-                                <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span className="font-medium">O vínculo empregatício e a responsabilidade pelo funcionário terceirizado serão da Talentos Consultoria.</span>
+                            <div className="bg-purple-50 border-2 border-purple-100 rounded-2xl p-6 h-full hover:border-purple-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-gray-900 mb-2">Custos fixos muito altos</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Minha folha de pagamento está pesada e não consigo reduzir."</p>
+                                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Transforme custos fixos em variáveis
+                                </div>
+                            </div>
+                        </AnimatedSection>
+
+                        {/* Dor 6 */}
+                        <AnimatedSection delay={0.35}>
+                            <div className="bg-teal-50 border-2 border-teal-100 rounded-2xl p-6 h-full hover:border-teal-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-gray-900 mb-2">Falta de foco no core business</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Perco energia com atividades que não são estratégicas para o negócio."</p>
+                                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Foque no que importa, terceirize o resto
+                                </div>
                             </div>
                         </AnimatedSection>
                     </div>
@@ -329,53 +602,25 @@ const TerceirizacaoPage: React.FC = () => {
                             </AnimatedSection>
                         ))}
                     </div>
+
+                    <AnimatedSection delay={0.4} className="text-center mt-12">
+                        <a 
+                            href="https://wa.me/5521967155476"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-4 px-10 rounded-full hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                        >
+                            Fale com um Consultor
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </AnimatedSection>
                 </div>
             </section>
 
-            {/* BENEFÍCIOS */}
-            <section className="py-20 bg-white">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <AnimatedSection>
-                                <span className="inline-block bg-emerald-100 text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
-                                    BENEFÍCIOS
-                                </span>
-                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                                    O que oferecemos à sua empresa
-                                </h2>
-                                <p className="text-lg text-gray-600 mb-8">
-                                    O serviço de terceirização de mão de obra da Talentos Consultoria oferece uma solução completa para sua empresa.
-                                </p>
-                            </AnimatedSection>
-                            
-                            <div className="space-y-4">
-                                {vantagensPrincipais.map((vantagem, index) => (
-                                    <AnimatedSection key={index} delay={0.1 * index}>
-                                        <div className="flex items-start gap-3">
-                                            <CheckCircleIcon />
-                                            <span className="text-gray-700">{vantagem}</span>
-                                        </div>
-                                    </AnimatedSection>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-4">
-                            {beneficios.map((beneficio, index) => (
-                                <AnimatedSection key={beneficio.titulo} delay={0.05 * index}>
-                                    <div 
-                                        className="bg-gray-50 rounded-2xl p-5 hover:bg-red-50 hover:border-red-200 border-2 border-transparent transition-all duration-300 h-full"
-                                    >
-                                        <h3 className="font-bold text-gray-800 mb-2 text-sm">{beneficio.titulo}</h3>
-                                        <p className="text-gray-600 text-sm">{beneficio.desc}</p>
-                                    </div>
-                                </AnimatedSection>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* BENEFÍCIOS - CARROSSEL */}
+            <BeneficiosCarousel />
 
             {/* MODALIDADES DE CONTRATO */}
             <section className="py-20 bg-gray-900">
@@ -394,31 +639,22 @@ const TerceirizacaoPage: React.FC = () => {
 
                     <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
                         {modalidades.map((modalidade, index) => (
-                            <AnimatedSection key={modalidade.titulo} delay={0.15 * index}>
-                                <div 
-                                    className={`relative rounded-3xl overflow-hidden ${modalidade.destaque ? 'md:-mt-4 md:mb-4' : ''} h-full`}
-                                >
-                                    {modalidade.badge && (
-                                        <div className="absolute top-4 right-4 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full z-10">
-                                            {modalidade.badge}
-                                        </div>
-                                    )}
-                                    <div className={`${modalidade.cor} p-8 h-full`}>
-                                        <h3 className="text-xl font-bold text-white mb-2">{modalidade.titulo}</h3>
-                                        <p className="text-white/70 text-sm mb-4">{modalidade.subtitulo}</p>
-                                        <p className="text-white/80 text-sm mb-6 leading-relaxed">{modalidade.descricao}</p>
-                                        
-                                        <div className="space-y-3">
-                                            <p className="text-white/90 font-semibold text-sm">Principais indicações:</p>
-                                            {modalidade.indicacoes.map((indicacao, i) => (
-                                                <div key={i} className="flex items-start gap-2">
-                                                    <svg className="w-4 h-4 text-white/60 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                                    </svg>
-                                                    <span className="text-white/80 text-sm">{indicacao}</span>
-                                                </div>
-                                            ))}
-                                        </div>
+                            <AnimatedSection key={modalidade.titulo} delay={0.15 * index} className="h-full">
+                                <div className={`${modalidade.cor} rounded-3xl p-8 h-full flex flex-col`}>
+                                    <h3 className="text-xl font-bold text-white mb-2">{modalidade.titulo}</h3>
+                                    <p className="text-white/70 text-sm mb-3">{modalidade.subtitulo}</p>
+                                    <p className="text-white/80 text-sm leading-relaxed mb-5 min-h-[80px]">{modalidade.descricao}</p>
+                                    
+                                    <div className="space-y-2 flex-grow">
+                                        <p className="text-white/90 font-semibold text-sm">Principais indicações:</p>
+                                        {modalidade.indicacoes.map((indicacao, i) => (
+                                            <div key={i} className="flex items-start gap-2">
+                                                <svg className="w-4 h-4 text-white/60 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                                </svg>
+                                                <span className="text-white/80 text-sm">{indicacao}</span>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </AnimatedSection>
@@ -478,11 +714,8 @@ const TerceirizacaoPage: React.FC = () => {
                             </p>
                         </AnimatedSection>
                         <AnimatedSection delay={0.3}>
-                            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                            <div className="flex justify-center">
                                 <ConsultorButton variant="cta" />
-                                <a href="tel:+552131769500" className="text-white/80 hover:text-white transition-colors">
-                                    ou ligue: <span className="font-bold text-white">(21) 3176-9500</span>
-                                </a>
                             </div>
                         </AnimatedSection>
                     </div>

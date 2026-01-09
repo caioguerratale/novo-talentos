@@ -563,6 +563,21 @@ const HomePage: React.FC = () => (
                         </a>
                     </div>
                 </AnimatedSection>
+                <AnimatedSection animation="scale" delay={0.5}>
+                    <div className="text-center mt-12">
+                        <a 
+                            href={whatsappLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-4 px-10 rounded-full hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                        >
+                            Fale com o Consultor
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </AnimatedSection>
             </div>
         </section>
     </>
