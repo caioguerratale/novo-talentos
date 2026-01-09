@@ -588,8 +588,17 @@ const AboutPage: React.FC = () => (
         <div className="bg-white py-16 sm:py-24">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
-                    <div className="rounded-lg overflow-hidden shadow-xl">
-                        <img src="https://talentosconsultoria.com.br/wp-content/uploads/2020/01/consultores-talentos-768x322.jpg" alt="Equipe da Talentos Consultoria" className="w-full h-full object-cover" />
+                    <div className="rounded-lg overflow-hidden shadow-xl aspect-video">
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            src="https://www.youtube.com/embed/gFP8iu-hz58" 
+                            title="Talentos Consultoria - Quem Somos"
+                            frameBorder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowFullScreen
+                            className="w-full h-full"
+                        ></iframe>
                     </div>
                     <div>
                         <h1 className="text-4xl font-extrabold text-gray-900 mb-6">{aboutUsText.title}</h1>
