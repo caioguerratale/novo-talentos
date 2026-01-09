@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ConsultorButton from './ConsultorButton';
 
 // Hook for scroll animations
@@ -21,12 +21,6 @@ const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string;
 };
 
 // Icons
-const CheckCircleIcon = () => (
-    <svg className="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-);
-
 const ChevronDownIcon = ({ isOpen }: { isOpen: boolean }) => (
     <svg 
         className={`w-5 h-5 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} 
@@ -40,70 +34,88 @@ const ChevronDownIcon = ({ isOpen }: { isOpen: boolean }) => (
 
 // Tipos de profissionais que recrutamos
 const tiposProfissionais = [
-    { nome: 'Executivos e Diretores', icon: '👔', desc: 'C-levels e alta gestão' },
-    { nome: 'Gerentes e Supervisores', icon: '📊', desc: 'Liderança e especialistas' },
-    { nome: 'Profissionais de TI', icon: '💻', desc: 'Desenvolvedores e analistas' },
-    { nome: 'Administrativos', icon: '📋', desc: 'Comercial, compras, marketing' },
-    { nome: 'Técnicos', icon: '🔧', desc: 'Jurídico, saúde e segurança' },
-    { nome: 'Operacionais', icon: '🏭', desc: 'Limpeza, segurança, logística' },
+    { nome: 'Executivos e Diretores', icon: '👔', cor: 'from-slate-500 to-gray-600' },
+    { nome: 'Gerentes e Supervisores', icon: '📊', cor: 'from-blue-500 to-indigo-600' },
+    { nome: 'Profissionais de TI', icon: '💻', cor: 'from-indigo-500 to-purple-600' },
+    { nome: 'Administrativos', icon: '📋', cor: 'from-sky-500 to-blue-600' },
+    { nome: 'Técnicos', icon: '🔧', cor: 'from-emerald-500 to-teal-600' },
+    { nome: 'Operacionais', icon: '🏭', cor: 'from-amber-500 to-orange-600' },
 ];
 
-// 7 Passos do processo
-const passos = [
+// Dados do carrossel de benefícios
+const carouselSlides = [
     {
-        numero: 1,
-        titulo: 'Definições',
-        descricao: 'Junto com o cliente, definimos os cargos, condições das ofertas, perfis ideais e prazos de contratações.',
-        icon: '🎯',
+        numero: '01',
+        titulo: 'Consultoria para Perfis',
+        subtitulo: 'Definição estratégica de vagas',
+        descricao: 'Trabalhamos junto com você para definir os perfis ideais, condições das ofertas e prazos de contratação, garantindo alinhamento com a cultura da empresa.',
+        cor: 'from-red-600 to-red-800',
+        icon: (
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+        ),
     },
     {
-        numero: 2,
-        titulo: 'Divulgação das Vagas',
-        descricao: 'A divulgação pode ser interna, externa ou mista, utilizando os melhores canais de recrutamento.',
-        icon: '📢',
+        numero: '02',
+        titulo: 'Ampla Base de Currículos',
+        subtitulo: 'Acesso aos melhores talentos',
+        descricao: 'Utilizamos os melhores canais de divulgação e nossa ampla base de currículos para atrair candidatos qualificados para sua vaga.',
+        cor: 'from-orange-500 to-amber-600',
+        icon: (
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+        ),
     },
     {
-        numero: 3,
-        titulo: 'Recepção de Currículos',
-        descricao: 'Recebemos as aplicações e analisamos os currículos individualmente – um trabalho que economiza tempo do seu RH.',
-        icon: '📥',
+        numero: '03',
+        titulo: 'Processo Ágil',
+        subtitulo: 'Velocidade sem perder qualidade',
+        descricao: 'Nosso processo é otimizado para entregar candidatos qualificados no menor tempo possível, sem abrir mão da qualidade na seleção.',
+        cor: 'from-emerald-500 to-teal-600',
+        icon: (
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+        ),
     },
     {
-        numero: 4,
-        titulo: 'Validação',
-        descricao: 'Entramos em contato com os candidatos selecionados para confirmar informações e validar competências.',
-        icon: '✅',
+        numero: '04',
+        titulo: 'Metodologia Eficaz',
+        subtitulo: 'Técnicas modernas de seleção',
+        descricao: 'Aplicamos entrevistas por competências, dinâmicas de grupo e provas de conhecimento para garantir a melhor escolha para sua empresa.',
+        cor: 'from-blue-500 to-indigo-600',
+        icon: (
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+            </svg>
+        ),
     },
     {
-        numero: 5,
-        titulo: 'Seleção',
-        descricao: 'Aplicamos entrevistas por competências, dinâmicas de grupo e provas de conhecimento específico.',
-        icon: '🔍',
+        numero: '05',
+        titulo: 'Alta Satisfação',
+        subtitulo: '99,78% de aprovação',
+        descricao: 'Nosso índice de satisfação com as contratações é de 99,78%, resultado de um processo cuidadoso e alinhado às necessidades dos clientes.',
+        cor: 'from-purple-500 to-violet-600',
+        icon: (
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+            </svg>
+        ),
     },
     {
-        numero: 6,
-        titulo: 'Contratação',
-        descricao: 'Assinatura de contrato, onboarding do candidato selecionado e feedback aos demais participantes.',
-        icon: '🤝',
+        numero: '06',
+        titulo: 'Relatório Completo',
+        subtitulo: 'Transparência total',
+        descricao: 'Ao final do processo, entregamos um relatório completo com dados importantes sobre o recrutamento realizado e feedback dos candidatos.',
+        cor: 'from-rose-500 to-pink-600',
+        icon: (
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+        ),
     },
-    {
-        numero: 7,
-        titulo: 'Relatório',
-        descricao: 'Emissão de relatório final com dados importantes sobre o processo de recrutamento realizado.',
-        icon: '📊',
-    },
-];
-
-// Vantagens
-const vantagens = [
-    { titulo: 'Consultoria para Perfis', desc: 'Definição de perfis ideais para as vagas' },
-    { titulo: 'Ampla Base de Currículos', desc: 'Divulgação nos melhores canais' },
-    { titulo: 'Processo Ágil', desc: 'Recrutamento e seleção eficiente' },
-    { titulo: 'Equipe Especializada', desc: 'Dedicada ao seu projeto' },
-    { titulo: 'Metodologia Eficaz', desc: 'Técnicas modernas de seleção' },
-    { titulo: 'Expertise em Divulgação', desc: 'Atraímos os melhores candidatos' },
-    { titulo: 'Alta Satisfação', desc: '99,78% de satisfação nas contratações' },
-    { titulo: 'Relatório Completo', desc: 'Dados importantes do processo' },
 ];
 
 // FAQ
@@ -124,10 +136,6 @@ const faqItems = [
         pergunta: 'A Talentos Consultoria atende pequenas empresas?',
         resposta: 'Sim! Oferecemos serviço de recrutamento e seleção para empresas de todos os portes: pequenas, médias e grandes. Nossa equipe está preparada para atender às necessidades específicas de cada cliente.',
     },
-    {
-        pergunta: 'Vocês trabalham com R&S em todos os níveis hierárquicos?',
-        resposta: 'Sim, fazemos recrutamento e seleção para vagas em todos os níveis: C-levels, executivos e diretores; gerentes, supervisores e especialistas; administrativos; técnicos (TI, jurídico, saúde); e operacionais (limpeza, segurança, logística).',
-    },
 ];
 
 // Componente FAQ Accordion
@@ -145,6 +153,126 @@ const FAQItem: React.FC<{ item: typeof faqItems[0]; isOpen: boolean; onClick: ()
         </div>
     </div>
 );
+
+// Componente Carrossel de Benefícios
+const BeneficiosCarousel: React.FC = () => {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+    useEffect(() => {
+        if (!isAutoPlaying) return;
+        const interval = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [isAutoPlaying]);
+
+    const goToSlide = (index: number) => {
+        setCurrentSlide(index);
+        setIsAutoPlaying(false);
+    };
+
+    const nextSlide = () => {
+        setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+        setIsAutoPlaying(false);
+    };
+
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length);
+        setIsAutoPlaying(false);
+    };
+
+    const slide = carouselSlides[currentSlide];
+
+    return (
+        <section className="py-20 bg-white relative overflow-hidden">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                {/* Header */}
+                <div className="text-center mb-12">
+                    <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                        O QUE OFERECEMOS
+                    </span>
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                        Benefícios do Recrutamento
+                    </h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Conheça as vantagens de recrutar com a Talentos Consultoria
+                    </p>
+                </div>
+
+                {/* Carousel Container */}
+                <div className="max-w-5xl mx-auto">
+                    {/* Main Card - Altura fixa */}
+                    <div 
+                        className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-8 md:p-12 h-[380px] md:h-[320px] flex flex-col transition-colors duration-500 shadow-2xl`}
+                    >
+                        {/* Top Row */}
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="w-14 h-14 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white">
+                                {slide.icon}
+                            </div>
+                            <div>
+                                <span className="text-white/60 text-sm font-medium">Benefício</span>
+                                <div className="text-white text-3xl md:text-4xl font-black">{slide.numero}</div>
+                            </div>
+                        </div>
+
+                        {/* Content */}
+                        <div className="flex-grow">
+                            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2">
+                                {slide.titulo}
+                            </h3>
+                            <p className="text-white/80 text-base md:text-lg mb-3">
+                                {slide.subtitulo}
+                            </p>
+                            <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-2xl">
+                                {slide.descricao}
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Navigation - Fixo abaixo do card */}
+                    <div className="flex items-center justify-center gap-6 mt-8">
+                        {/* Prev Arrow */}
+                        <button 
+                            onClick={prevSlide}
+                            className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-300 transition-all duration-300"
+                        >
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+
+                        {/* Dots */}
+                        <div className="flex gap-2 items-center">
+                            {carouselSlides.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => goToSlide(index)}
+                                    className={`h-2 rounded-full transition-all duration-300 ${
+                                        index === currentSlide 
+                                            ? 'w-8 bg-red-600' 
+                                            : 'w-2 bg-gray-300 hover:bg-gray-400'
+                                    }`}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Next Arrow */}
+                        <button 
+                            onClick={nextSlide}
+                            className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-300 transition-all duration-300"
+                        >
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
 
 // Componente principal
 const RecrutamentoPage: React.FC = () => {
@@ -171,8 +299,8 @@ const RecrutamentoPage: React.FC = () => {
                 {/* Background com gradiente */}
                 <div className="absolute inset-0 bg-gradient-to-br from-red-700 via-red-800 to-red-900">
                     <div className="absolute inset-0 opacity-10">
-                        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-                        <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-400 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+                        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+                        <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-400 rounded-full blur-3xl translate-x-1/2 translate-y-1/2 animate-pulse" style={{animationDelay: '1s'}}></div>
                     </div>
                     {/* Padrão de pontos */}
                     <div className="absolute inset-0" style={{
@@ -229,39 +357,140 @@ const RecrutamentoPage: React.FC = () => {
                 </div>
             </section>
 
-            {/* INTRODUÇÃO */}
+            {/* DORES DOS CLIENTES */}
             <section className="py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <AnimatedSection>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                                Referência em Recrutamento e Seleção
-                            </h2>
-                        </AnimatedSection>
+                    <AnimatedSection className="text-center mb-16">
+                        <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                            PROBLEMAS QUE RESOLVEMOS
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Você se identifica com algum desses problemas?
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Nossos clientes enfrentavam esses desafios antes de contratar nosso R&S
+                        </p>
+                    </AnimatedSection>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                        {/* Dor 1 */}
                         <AnimatedSection delay={0.1}>
-                            <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                                <strong className="text-gray-800">Contratar as pessoas certas</strong> é um dos principais pilares para o crescimento e sucesso de uma empresa.
-                            </p>
+                            <div className="bg-red-50 border-2 border-red-100 rounded-2xl p-6 h-full hover:border-red-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-gray-900 mb-2">Processos demorados</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Nossos processos seletivos demoram muito e perdemos bons candidatos."</p>
+                                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Processo ágil e eficiente
+                                </div>
+                            </div>
                         </AnimatedSection>
+
+                        {/* Dor 2 */}
+                        <AnimatedSection delay={0.15}>
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-gray-900 mb-2">Contratações erradas</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Contratamos pessoas que não se adaptam à cultura da empresa."</p>
+                                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    99,78% de satisfação
+                                </div>
+                            </div>
+                        </AnimatedSection>
+
+                        {/* Dor 3 */}
                         <AnimatedSection delay={0.2}>
-                            <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                                Desde <strong className="text-gray-800">2011</strong> no mercado, tendo realizado <strong className="text-red-600">mais de 8.300 contratações</strong>, somos referência em consultoria de recrutamento e seleção no Brasil. Temos experiência em atendimento a diversos tipos de necessidades, de <strong className="text-gray-800">pequenas e grandes empresas</strong>, incluindo posições de liderança e cargos operacionais.
-                            </p>
+                            <div className="bg-amber-50 border-2 border-amber-100 rounded-2xl p-6 h-full hover:border-amber-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-gray-900 mb-2">Poucos candidatos qualificados</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Não conseguimos atrair candidatos com o perfil que precisamos."</p>
+                                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Ampla base de currículos
+                                </div>
+                            </div>
                         </AnimatedSection>
-                        
+
+                        {/* Dor 4 */}
+                        <AnimatedSection delay={0.25}>
+                            <div className="bg-blue-50 border-2 border-blue-100 rounded-2xl p-6 h-full hover:border-blue-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-gray-900 mb-2">Alta rotatividade</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Os novos funcionários não ficam muito tempo na empresa."</p>
+                                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Seleção alinhada à cultura
+                                </div>
+                            </div>
+                        </AnimatedSection>
+
+                        {/* Dor 5 */}
                         <AnimatedSection delay={0.3}>
-                            <div className="inline-flex items-center gap-3 bg-red-50 text-red-800 px-6 py-4 rounded-xl border border-red-200">
-                                <svg className="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <span className="font-medium">Atendemos demandas simples e também com grandes volumes de vagas.</span>
+                            <div className="bg-purple-50 border-2 border-purple-100 rounded-2xl p-6 h-full hover:border-purple-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-gray-900 mb-2">RH sobrecarregado</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Nossa equipe de RH não tem tempo para fazer seleções adequadas."</p>
+                                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Equipe dedicada ao seu projeto
+                                </div>
+                            </div>
+                        </AnimatedSection>
+
+                        {/* Dor 6 */}
+                        <AnimatedSection delay={0.35}>
+                            <div className="bg-teal-50 border-2 border-teal-100 rounded-2xl p-6 h-full hover:border-teal-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                    </svg>
+                                </div>
+                                <h3 className="font-bold text-gray-900 mb-2">Falta de metodologia</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Não temos processos estruturados para avaliar candidatos."</p>
+                                <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    Metodologia comprovada
+                                </div>
                             </div>
                         </AnimatedSection>
                     </div>
                 </div>
             </section>
 
-            {/* TIPOS DE PROFISSIONAIS */}
+            {/* PROFISSIONAIS QUE RECRUTAMOS */}
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16">
@@ -269,194 +498,52 @@ const RecrutamentoPage: React.FC = () => {
                             RECRUTAMOS
                         </span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Selecionamos os Melhores Profissionais
+                            Quais Profissionais Você Precisa Contratar?
                         </h2>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Recrutamos e selecionamos profissionais para todos os níveis hierárquicos
                         </p>
                     </AnimatedSection>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                        {tiposProfissionais.map((tipo, index) => (
-                            <AnimatedSection key={tipo.nome} delay={0.05 * index}>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+                        {tiposProfissionais.map((prof, index) => (
+                            <AnimatedSection key={prof.nome} delay={0.05 * index}>
                                 <div 
-                                    className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center h-full"
+                                    className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                                 >
-                                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{tipo.icon}</div>
-                                    <h3 className="font-bold text-gray-800 mb-1">{tipo.nome}</h3>
-                                    <p className="text-gray-500 text-sm">{tipo.desc}</p>
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${prof.cor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                                    <div className="relative p-6 text-center">
+                                        <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{prof.icon}</div>
+                                        <h3 className="font-semibold text-gray-800 group-hover:text-white transition-colors duration-300 text-sm md:text-base">
+                                            {prof.nome}
+                                        </h3>
+                                    </div>
                                 </div>
                             </AnimatedSection>
                         ))}
                     </div>
-                </div>
-            </section>
 
-            {/* 7 PASSOS DO PROCESSO */}
-            <section className="py-20 bg-gray-900 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
-                </div>
-
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                    <AnimatedSection className="text-center mb-16">
-                        <span className="inline-block bg-white/10 text-white/90 text-sm font-semibold px-4 py-2 rounded-full mb-4">
-                            METODOLOGIA
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                            Nosso Processo em 7 Passos
-                        </h2>
-                        <p className="text-lg text-white/70 max-w-2xl mx-auto">
-                            Saiba como funciona a nossa consultoria de recrutamento e seleção
-                        </p>
+                    <AnimatedSection delay={0.4} className="text-center mt-12">
+                        <a 
+                            href="https://wa.me/5521967155476"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-4 px-10 rounded-full hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                        >
+                            Fale com um Consultor
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
                     </AnimatedSection>
-
-                    <div className="max-w-5xl mx-auto">
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {passos.slice(0, 6).map((passo, index) => (
-                                <AnimatedSection key={passo.numero} delay={0.1 * index}>
-                                    <div 
-                                        className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300 h-full"
-                                    >
-                                        <div className="flex items-center gap-4 mb-4">
-                                            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
-                                                {passo.icon}
-                                            </div>
-                                            <div className="text-3xl font-black text-white/30">{passo.numero}</div>
-                                        </div>
-                                        <h3 className="text-lg font-bold text-white mb-2">{passo.titulo}</h3>
-                                        <p className="text-white/70 text-sm leading-relaxed">{passo.descricao}</p>
-                                    </div>
-                                </AnimatedSection>
-                            ))}
-                        </div>
-                        
-                        {/* Último passo centralizado */}
-                        <AnimatedSection delay={0.7} className="mt-6 flex justify-center">
-                            <div className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-6 border border-white/20 max-w-md w-full">
-                                <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
-                                        {passos[6].icon}
-                                    </div>
-                                    <div className="text-3xl font-black text-white/50">{passos[6].numero}</div>
-                                </div>
-                                <h3 className="text-lg font-bold text-white mb-2">{passos[6].titulo}</h3>
-                                <p className="text-white/90 text-sm leading-relaxed">{passos[6].descricao}</p>
-                            </div>
-                        </AnimatedSection>
-                    </div>
                 </div>
             </section>
 
-            {/* VANTAGENS */}
-            <section className="py-20 bg-white">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <span className="inline-block bg-emerald-100 text-emerald-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
-                                VANTAGENS
-                            </span>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                                Por que escolher a Talentos?
-                            </h2>
-                            <p className="text-lg text-gray-600 mb-8">
-                                O serviço de recrutamento e seleção da Talentos Consultoria oferece diversas vantagens competitivas para sua empresa.
-                            </p>
-                            
-                            <div className="space-y-4 mb-8">
-                                <div className="flex items-start gap-3">
-                                    <CheckCircleIcon />
-                                    <span className="text-gray-700">Equipe sênior com mais de 20 anos de mercado</span>
-                                </div>
-                                <div className="flex items-start gap-3">
-                                    <CheckCircleIcon />
-                                    <span className="text-gray-700">Mais de 8.300 contratações efetivadas</span>
-                                </div>
-                                <div className="flex items-start gap-3">
-                                    <CheckCircleIcon />
-                                    <span className="text-gray-700">99,78% de satisfação com as contratações</span>
-                                </div>
-                            </div>
-
-                            <p className="text-sm text-gray-500 italic">*Dados apurados em janeiro de 2024</p>
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-4">
-                            {vantagens.map((vantagem, index) => (
-                                <div 
-                                    key={vantagem.titulo}
-                                    className="bg-gray-50 rounded-2xl p-5 hover:bg-red-50 hover:border-red-200 border-2 border-transparent transition-all duration-300"
-                                >
-                                    <h3 className="font-bold text-gray-800 mb-2 text-sm">{vantagem.titulo}</h3>
-                                    <p className="text-gray-600 text-sm">{vantagem.desc}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* RECRUTAMENTO PCD */}
-            <section className="py-16 bg-gradient-to-r from-emerald-600 to-teal-600">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
-                        <div className="text-6xl">♿</div>
-                        <div className="text-center md:text-left">
-                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-                                Recrutamento e Seleção de PCD
-                            </h2>
-                            <p className="text-white/90 leading-relaxed">
-                                A <strong>contratação de PCD</strong> – pessoas com deficiência – é uma obrigação legal, porém também é uma responsabilidade social que exige envolvimento do RH para garantir o cumprimento de regras e a devida inclusão. Conte com a Talentos Consultoria para recrutar e selecionar os melhores candidatos PCD para a sua empresa.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ETAPAS PRESENCIAIS */}
-            <section className="py-20 bg-gray-50">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <span className="inline-block bg-purple-100 text-purple-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
-                            ESTRUTURA
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Etapas Presenciais em Ambientes Exclusivos
-                        </h2>
-                        <p className="text-lg text-gray-600 mb-8">
-                            Na matriz da empresa, no Rio de Janeiro, oferecemos nossas salas e ambientes para as etapas presenciais dos processos de recrutamento e seleção.
-                        </p>
-                        
-                        <div className="grid md:grid-cols-2 gap-6">
-                            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <img 
-                                    src="https://talentosconsultoria.com.br/wp-content/uploads/2020/08/recepcao-talentos-768x512.jpg" 
-                                    alt="Recepção do escritório da Talentos Consultoria"
-                                    className="w-full h-48 object-cover"
-                                />
-                                <div className="p-4">
-                                    <h3 className="font-semibold text-gray-800">Recepção</h3>
-                                    <p className="text-gray-500 text-sm">Ambiente acolhedor para candidatos</p>
-                                </div>
-                            </div>
-                            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-                                <img 
-                                    src="https://talentosconsultoria.com.br/wp-content/uploads/2020/08/salas-de-entrevistas-talentos.jpg" 
-                                    alt="Salas de Entrevistas da Talentos Consultoria"
-                                    className="w-full h-48 object-cover"
-                                />
-                                <div className="p-4">
-                                    <h3 className="font-semibold text-gray-800">Salas de Entrevistas</h3>
-                                    <p className="text-gray-500 text-sm">Ambientes preparados para seleção</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* BENEFÍCIOS - CARROSSEL */}
+            <BeneficiosCarousel />
 
             {/* FAQ */}
-            <section className="py-20 bg-white">
+            <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto">
                         <AnimatedSection className="text-center mb-12">
@@ -506,11 +593,8 @@ const RecrutamentoPage: React.FC = () => {
                             </p>
                         </AnimatedSection>
                         <AnimatedSection delay={0.3}>
-                            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                            <div className="flex justify-center">
                                 <ConsultorButton variant="cta" />
-                                <a href="tel:+552131769500" className="text-white/80 hover:text-white transition-colors">
-                                    ou ligue: <span className="font-bold text-white">(21) 3176-9500</span>
-                                </a>
                             </div>
                         </AnimatedSection>
                     </div>
@@ -548,4 +632,3 @@ const RecrutamentoPage: React.FC = () => {
 };
 
 export default RecrutamentoPage;
-

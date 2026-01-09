@@ -263,74 +263,71 @@ const BeneficiosCarousel: React.FC = () => {
 
                 {/* Carousel Container */}
                 <div className="max-w-5xl mx-auto">
-                    <div className="relative">
-                        {/* Main Card */}
-                        <div 
-                            className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-8 md:p-12 min-h-[400px] flex flex-col justify-between transition-all duration-500 shadow-2xl`}
-                        >
-                            {/* Top Row */}
-                            <div className="flex items-center gap-4 mb-8">
-                                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white">
-                                    {slide.icon}
-                                </div>
-                                <div>
-                                    <span className="text-white/60 text-sm font-medium">Benefício</span>
-                                    <div className="text-white text-4xl font-black">{slide.numero}</div>
-                                </div>
+                    {/* Main Card - Altura fixa */}
+                    <div 
+                        className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-8 md:p-12 h-[380px] md:h-[320px] flex flex-col transition-colors duration-500 shadow-2xl`}
+                    >
+                        {/* Top Row */}
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="w-14 h-14 md:w-16 md:h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white">
+                                {slide.icon}
                             </div>
-
-                            {/* Content */}
-                            <div className="flex-grow">
-                                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3">
-                                    {slide.titulo}
-                                </h3>
-                                <p className="text-white/80 text-lg mb-4">
-                                    {slide.subtitulo}
-                                </p>
-                                <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl">
-                                    {slide.descricao}
-                                </p>
-                            </div>
-
-                            {/* Bottom Row - Navigation & Dots */}
-                            <div className="flex items-center justify-center gap-6 mt-8 pt-6 border-t border-white/20">
-                                {/* Prev Arrow */}
-                                <button 
-                                    onClick={prevSlide}
-                                    className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
-                                >
-                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                    </svg>
-                                </button>
-
-                                {/* Dots */}
-                                <div className="flex gap-2 items-center">
-                                    {carouselSlides.map((_, index) => (
-                                        <button
-                                            key={index}
-                                            onClick={() => goToSlide(index)}
-                                            className={`h-2 rounded-full transition-all duration-300 ${
-                                                index === currentSlide 
-                                                    ? 'w-8 bg-white' 
-                                                    : 'w-2 bg-white/40 hover:bg-white/60'
-                                            }`}
-                                        />
-                                    ))}
-                                </div>
-
-                                {/* Next Arrow */}
-                                <button 
-                                    onClick={nextSlide}
-                                    className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300"
-                                >
-                                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
+                            <div>
+                                <span className="text-white/60 text-sm font-medium">Benefício</span>
+                                <div className="text-white text-3xl md:text-4xl font-black">{slide.numero}</div>
                             </div>
                         </div>
 
+                        {/* Content */}
+                        <div className="flex-grow">
+                            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2">
+                                {slide.titulo}
+                            </h3>
+                            <p className="text-white/80 text-base md:text-lg mb-3">
+                                {slide.subtitulo}
+                            </p>
+                            <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-2xl">
+                                {slide.descricao}
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Navigation - Fixo abaixo do card */}
+                    <div className="flex items-center justify-center gap-6 mt-8">
+                        {/* Prev Arrow */}
+                        <button 
+                            onClick={prevSlide}
+                            className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-300 transition-all duration-300"
+                        >
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+
+                        {/* Dots */}
+                        <div className="flex gap-2 items-center">
+                            {carouselSlides.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => goToSlide(index)}
+                                    className={`h-2 rounded-full transition-all duration-300 ${
+                                        index === currentSlide 
+                                            ? 'w-8 bg-red-600' 
+                                            : 'w-2 bg-gray-300 hover:bg-gray-400'
+                                    }`}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Next Arrow */}
+                        <button 
+                            onClick={nextSlide}
+                            className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-300 transition-all duration-300"
+                        >
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
