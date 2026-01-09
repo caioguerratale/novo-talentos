@@ -59,7 +59,7 @@ const modulosDetalhados = [
             'Exames médicos personalizados para cada vaga',
             'Gestão sobre os resultados estatísticos',
         ],
-        imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/recrutamento-e-selecao-1.jpg',
+        imageUrl: '/Módulos RS/Recrutamento e Seleção.jpg',
     },
     {
         numero: 2,
@@ -74,7 +74,7 @@ const modulosDetalhados = [
             'Avaliação de eficácia dos treinamentos',
             'Gestão sobre os resultados estatísticos',
         ],
-        imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/treinamento-e-desenvolvimento-1.jpg',
+        imageUrl: '/Módulos RS/Integração e Treinamento.jpg',
     },
     {
         numero: 3,
@@ -91,7 +91,7 @@ const modulosDetalhados = [
             'Fluxo de promoção transparente',
             'Gestão sobre os resultados estatísticos',
         ],
-        imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/gestao-de-pessoas-1.jpg',
+        imageUrl: '/Módulos RS/Acompanhamento e Retenção.jpg',
     },
     {
         numero: 4,
@@ -108,7 +108,7 @@ const modulosDetalhados = [
             'Rotina para saneamento de dúvidas',
             'Gestão sobre os resultados estatísticos',
         ],
-        imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/cargos-e-salarios-1.jpg',
+        imageUrl: '/Módulos RS/Remuneração e Benefícios.jpeg',
     },
     {
         numero: 5,
@@ -124,7 +124,7 @@ const modulosDetalhados = [
             'Ações de valorização e integração da equipe',
             'Gestão sobre resultados estatísticos',
         ],
-        imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/pesquisa-de-clima-1.jpg',
+        imageUrl: '/Módulos RS/Motivacional.jpg',
     },
     {
         numero: 6,
@@ -139,7 +139,7 @@ const modulosDetalhados = [
             'Dimensionamento de equipe',
             'Gestão sobre os resultados estatísticos',
         ],
-        imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/terceirizacao-de-mao-de-obra-1.jpg',
+        imageUrl: '/Módulos RS/Controle de Jornada.jpg',
     },
     {
         numero: 7,
@@ -154,7 +154,7 @@ const modulosDetalhados = [
             'Ações corretivas e tratamento de anomalias',
             'Gestão sobre os resultados estatísticos',
         ],
-        imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/outplacement-1.jpg',
+        imageUrl: '/Módulos RS/Desligamento.jpg',
     },
 ];
 
