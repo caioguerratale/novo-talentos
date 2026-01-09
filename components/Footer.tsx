@@ -16,12 +16,18 @@ const FooterLink: React.FC<{ to: string, children: React.ReactNode }> = ({ to, c
     </li>
 );
 
-const ArticleLink: React.FC<{ href: string, children: React.ReactNode }> = ({ href, children }) => (
+const ArticleLink: React.FC<{ href: string, isInternal?: boolean, children: React.ReactNode }> = ({ href, isInternal, children }) => (
      <li className="flex">
         <span className="text-orange-500 mr-2">•</span>
-        <a href={href} className="text-gray-400 hover:text-white transition-colors duration-300">
-            {children}
-        </a>
+        {isInternal ? (
+            <Link to={href} className="text-gray-400 hover:text-white transition-colors duration-300">
+                {children}
+            </Link>
+        ) : (
+            <a href={href} className="text-gray-400 hover:text-white transition-colors duration-300">
+                {children}
+            </a>
+        )}
     </li>
 );
 
@@ -76,7 +82,7 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4 text-orange-500">Últimos Artigos</h3>
             <ul className="space-y-3">
                 {latestArticles.map(article => (
-                    <ArticleLink key={article.title} href={article.url}>{article.title}</ArticleLink>
+                    <ArticleLink key={article.title} href={article.url} isInternal={(article as any).isInternal}>{article.title}</ArticleLink>
                 ))}
             </ul>
           </div>

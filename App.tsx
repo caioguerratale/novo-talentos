@@ -14,6 +14,10 @@ import PesquisaClimaPage from './components/PesquisaClimaPage';
 import OutplacementPage from './components/OutplacementPage';
 import ProjetosCustomizadosPage from './components/ProjetosCustomizadosPage';
 import ConsultoriaRHPage from './components/ConsultoriaRHPage';
+import BlogPesquisaClimaPage from './components/BlogPesquisaClimaPage';
+import BlogGestaoTalentosPage from './components/BlogGestaoTalentosPage';
+import BlogTerceirizacaoPage from './components/BlogTerceirizacaoPage';
+import BlogPage from './components/BlogPage';
 import { services, aboutUsText, contactInfo, whatsappLink, clients, blogArticles, testimonials, historyTimeline } from './constants';
 import { Service } from './types';
 
@@ -393,24 +397,43 @@ const ServicesSlider: React.FC = () => {
 };
 
 // Blog Card for new layout
-const BlogGridCard: React.FC<{ article: typeof blogArticles[0] }> = ({ article }) => (
-    <a 
-        href={article.url}
-        className="group bg-gray-100 rounded-3xl overflow-hidden aspect-square flex items-end relative hover:shadow-lg transition-all duration-300"
-    >
-        <img 
-            src={article.imageUrl} 
-            alt={article.title} 
-            className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-        <div className="relative p-5 w-full">
-            <h3 className="text-white font-semibold text-sm leading-tight line-clamp-2">
-                {article.title}
-            </h3>
-        </div>
-    </a>
-);
+const BlogGridCard: React.FC<{ article: typeof blogArticles[0] }> = ({ article }) => {
+    const content = (
+        <>
+            <img 
+                src={article.imageUrl} 
+                alt={article.title} 
+                className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <div className="relative p-5 w-full">
+                <h3 className="text-white font-semibold text-sm leading-tight line-clamp-2">
+                    {article.title}
+                </h3>
+            </div>
+        </>
+    );
+
+    if ((article as any).isInternal) {
+        return (
+            <Link 
+                to={article.url}
+                className="group bg-gray-100 rounded-3xl overflow-hidden aspect-square flex items-end relative hover:shadow-lg transition-all duration-300"
+            >
+                {content}
+            </Link>
+        );
+    }
+
+    return (
+        <a 
+            href={article.url}
+            className="group bg-gray-100 rounded-3xl overflow-hidden aspect-square flex items-end relative hover:shadow-lg transition-all duration-300"
+        >
+            {content}
+        </a>
+    );
+};
 
 // Page Components
 const HomePage: React.FC = () => (
@@ -555,12 +578,12 @@ const HomePage: React.FC = () => (
                 </div>
                 <AnimatedSection animation="fade-up" delay={0.4}>
                     <div className="text-center mt-10">
-                        <a 
-                            href="#" 
+                        <Link 
+                            to="/blog" 
                             className="inline-block text-red-600 font-semibold hover:text-red-700 transition-colors duration-300"
                         >
                             Ver todos os artigos →
-                        </a>
+                        </Link>
                     </div>
                 </AnimatedSection>
                 <AnimatedSection animation="scale" delay={0.5}>
@@ -980,6 +1003,10 @@ const PageContainer = () => {
                     <Route path="/servicos/:slug" element={<ServiceDetailPage />} />
                     <Route path="/vagas" element={<JobsPage />} />
                     <Route path="/contato" element={<ContactPage />} />
+                    <Route path="/blog/pesquisa-de-clima-organizacional" element={<BlogPesquisaClimaPage />} />
+                    <Route path="/blog/gestao-de-talentos" element={<BlogGestaoTalentosPage />} />
+                    <Route path="/blog/terceirizacao-de-mao-de-obra" element={<BlogTerceirizacaoPage />} />
+                    <Route path="/blog" element={<BlogPage />} />
                 </Routes>
             </div>
         </main>

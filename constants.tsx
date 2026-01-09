@@ -346,19 +346,22 @@ export const blogArticles = [
         imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
         title: 'Pesquisa de clima organizacional: como transformar feedbacks em oportunidades',
         excerpt: 'Entenda como uma pesquisa de clima bem estruturada pode revelar insights valiosos e se tornar uma ferramenta estratégica para a gestão de pessoas.',
-        url: '#'
+        url: '/blog/pesquisa-de-clima-organizacional',
+        isInternal: true
     },
     {
         imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80',
         title: 'Gestão de talentos inteligente: como desenvolver times de alta performance',
         excerpt: 'Descubra as melhores práticas para identificar, desenvolver e reter talentos, construindo equipes que impulsionam os resultados da sua empresa.',
-        url: '#'
+        url: '/blog/gestao-de-talentos',
+        isInternal: true
     },
     {
         imageUrl: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80',
         title: 'Terceirização de mão de obra: agilidade operacional para sua empresa',
         excerpt: 'Saiba como a terceirização pode otimizar processos, reduzir custos e permitir que sua empresa foque no que realmente importa: seu core business.',
-        url: '#'
+        url: '/blog/terceirizacao-de-mao-de-obra',
+        isInternal: true
     },
 ];
 
@@ -373,9 +376,9 @@ export const jobLinks = [
 ];
 
 export const latestArticles = [
-    { title: "Pesquisa de clima organizacional: como transformar feedbacks em oportunidades", url: "#" },
-    { title: "Gestão de talentos inteligente: como desenvolver times de alta performance", url: "#" },
-    { title: "Terceirização de mão de obra: agilidade operacional para sua empresa", url: "#" },
+    { title: "Pesquisa de clima organizacional: como transformar feedbacks em oportunidades", url: "/blog/pesquisa-de-clima-organizacional", isInternal: true },
+    { title: "Gestão de talentos inteligente: como desenvolver times de alta performance", url: "/blog/gestao-de-talentos", isInternal: true },
+    { title: "Terceirização de mão de obra: agilidade operacional para sua empresa", url: "/blog/terceirizacao-de-mao-de-obra", isInternal: true },
     { title: "Recrutamento e seleção estratégico: como atrair os melhores talentos", url: "#" },
     { title: "O papel da liderança assertiva no ambiente de trabalho", url: "#" },
 ];
