@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ConsultorButton from './ConsultorButton';
 
 // Hook for scroll animations
@@ -304,20 +304,15 @@ const ModulosSlider: React.FC = () => {
 
                         {/* Features List */}
                         <ul className="space-y-2 mb-6">
-                            {activeModulo.itens.slice(0, 5).map((item, i) => (
+                            {activeModulo.itens.map((item, i) => (
                                 <li key={i} className="flex items-start gap-2 text-white/70">
                                     <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span className="text-sm">{item}</span>
-                        </li>
-                    ))}
-                            {activeModulo.itens.length > 5 && (
-                                <li className="text-white/50 text-sm pl-7">
-                                    + {activeModulo.itens.length - 5} itens incluídos
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span className="text-sm">{item}</span>
                                 </li>
-                            )}
-                </ul>
+                            ))}
+                        </ul>
                     </div>
 
                     {/* Right - Image */}
@@ -372,6 +367,10 @@ const faqItems = [
     {
         pergunta: 'Quanto tempo leva o processo de Estruturação?',
         resposta: 'O tempo varia conforme o tamanho da empresa e a complexidade dos processos. Realizamos um diagnóstico inicial para definir o escopo e cronograma personalizado para cada cliente.',
+    },
+    {
+        pergunta: 'Não tenho RH, mas gostaria de estruturar a área de RH na minha empresa. É possível?',
+        resposta: 'Sim, a Talentos Consultoria estrutura o RH da sua empresa do zero.',
     },
 ];
 
@@ -612,9 +611,9 @@ const EstruturacaoRHPage: React.FC = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                         {/* Dor 1 */}
                         <AnimatedSection delay={0.1}>
-                            <div className="bg-red-50 border-2 border-red-100 rounded-2xl p-6 h-full hover:border-red-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
@@ -650,9 +649,9 @@ const EstruturacaoRHPage: React.FC = () => {
 
                         {/* Dor 3 */}
                         <AnimatedSection delay={0.2}>
-                            <div className="bg-amber-50 border-2 border-amber-100 rounded-2xl p-6 h-full hover:border-amber-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                                     </svg>
                                 </div>
@@ -669,9 +668,9 @@ const EstruturacaoRHPage: React.FC = () => {
 
                         {/* Dor 4 */}
                         <AnimatedSection delay={0.25}>
-                            <div className="bg-blue-50 border-2 border-blue-100 rounded-2xl p-6 h-full hover:border-blue-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                     </svg>
                                 </div>
@@ -688,9 +687,9 @@ const EstruturacaoRHPage: React.FC = () => {
 
                         {/* Dor 5 */}
                         <AnimatedSection delay={0.3}>
-                            <div className="bg-purple-50 border-2 border-purple-100 rounded-2xl p-6 h-full hover:border-purple-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
@@ -707,9 +706,9 @@ const EstruturacaoRHPage: React.FC = () => {
 
                         {/* Dor 6 */}
                         <AnimatedSection delay={0.35}>
-                            <div className="bg-teal-50 border-2 border-teal-100 rounded-2xl p-6 h-full hover:border-teal-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                                     </svg>
                                 </div>
@@ -749,7 +748,7 @@ const EstruturacaoRHPage: React.FC = () => {
                                 <div 
                                     className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                                 >
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${modulo.cor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     <div className="relative p-6 text-center">
                                         <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{modulo.icon}</div>
                                         <h3 className="font-semibold text-gray-800 group-hover:text-white transition-colors duration-300 text-sm md:text-base">
@@ -768,7 +767,7 @@ const EstruturacaoRHPage: React.FC = () => {
                                 <div 
                                     className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                                 >
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${modulo.cor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     <div className="relative p-6 text-center">
                                         <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{modulo.icon}</div>
                                         <h3 className="font-semibold text-gray-800 group-hover:text-white transition-colors duration-300 text-sm md:text-base">
