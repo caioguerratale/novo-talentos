@@ -286,8 +286,22 @@ const ServicesSlider: React.FC = () => {
     const { setRef, isVisible } = useScrollAnimation();
 
     return (
-        <section id="servicos" className="py-8 bg-gray-900 min-h-[calc(100vh-80px)] flex flex-col justify-between">
-            <div ref={setRef} className="container mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col">
+        <section id="servicos" className="py-8 bg-gray-900 min-h-[calc(100vh-80px)] flex flex-col justify-between relative overflow-hidden">
+            {/* Background Image */}
+            {activeService.bgImage && (
+                <div 
+                    key={`bg-${activeService.id}`}
+                    className="absolute inset-0 animate-fade-in-content"
+                >
+                    <img 
+                        src={activeService.bgImage} 
+                        alt="" 
+                        className="w-full h-full object-cover opacity-[0.35]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-gray-900/30 via-transparent to-gray-900/50"></div>
+                </div>
+            )}
+            <div ref={setRef} className="container mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col relative z-10">
                 {/* Tabs Navigation - Scrollable on mobile */}
                 <div className={`overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 mb-6 border-b border-white/20 pb-3 scroll-animate ${isVisible ? 'animate-in' : ''}`}>
                     <div className="flex justify-start sm:justify-center gap-2 min-w-max sm:min-w-0 sm:flex-wrap">

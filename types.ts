@@ -6,4 +6,5 @@ export interface Service {
   longDescription: React.ReactNode;
   icon: React.ReactNode;
   imageUrl: string;
+  bgImage?: string;
 }

@@ -311,3 +311,4 @@ const BlogPesquisaClimaPage: React.FC = () => {
 
 export default BlogPesquisaClimaPage;
 
+

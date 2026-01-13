@@ -4,7 +4,7 @@ import { Service } from './types';
 // Icons (Heroicons)
 const BriefcaseIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM4 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 10.374 21c-2.331 0-4.512-.645-6.374-1.766Z" />
   </svg>
 );
 
@@ -90,6 +90,7 @@ export const services: Service[] = [
     ),
     icon: <BriefcaseIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/terceirizacao-de-mao-de-obra-1.jpg',
+    bgImage: `${import.meta.env.BASE_URL}nossa hist/consultores-da-talentos.jpg`,
   },
   {
     id: 2,
@@ -113,6 +114,7 @@ export const services: Service[] = [
     ),
     icon: <UserGroupIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/recrutamento-e-selecao-1.jpg',
+    bgImage: `${import.meta.env.BASE_URL}Módulos RS/Recrutamento e Seleção.jpg`,
   },
     {
     id: 3,
@@ -134,6 +136,7 @@ export const services: Service[] = [
     ),
     icon: <BuildingOfficeIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/estruturacao-do-rh-1.jpg',
+    bgImage: `${import.meta.env.BASE_URL}nossa hist/escritorio-talentos-consultoria-01.jpg`,
   },
    {
     id: 4,
@@ -155,6 +158,7 @@ export const services: Service[] = [
     ),
     icon: <DocumentTextIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/mapeamento-e-descricao-de-cargos-1.jpg',
+    bgImage: `${import.meta.env.BASE_URL}Módulos RS/Integração e Treinamento.jpg`,
   },
   {
     id: 5,
@@ -176,6 +180,7 @@ export const services: Service[] = [
     ),
     icon: <CurrencyDollarIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/cargos-e-salarios-1.jpg',
+    bgImage: `${import.meta.env.BASE_URL}Módulos RS/Remuneração e Benefícios.jpeg`,
   },
   {
     id: 6,
@@ -196,6 +201,7 @@ export const services: Service[] = [
     ),
     icon: <ChartBarIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/pesquisa-de-clima-organizacional-1.jpg',
+    bgImage: `${import.meta.env.BASE_URL}Módulos RS/Motivacional.jpg`,
   },
    {
     id: 7,
@@ -217,6 +223,7 @@ export const services: Service[] = [
     ),
     icon: <ArrowPathIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/outplacement-1.jpg',
+    bgImage: `${import.meta.env.BASE_URL}nossa hist/treinamentos-rh.jpg`,
   },
 ];
 
