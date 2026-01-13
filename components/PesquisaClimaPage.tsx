@@ -365,9 +365,9 @@ const PesquisaClimaPage: React.FC = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                         {/* Dor 1 */}
                         <AnimatedSection delay={0.1}>
-                            <div className="bg-red-50 border-2 border-red-100 rounded-2xl p-6 h-full hover:border-red-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
@@ -403,9 +403,9 @@ const PesquisaClimaPage: React.FC = () => {
 
                         {/* Dor 3 */}
                         <AnimatedSection delay={0.2}>
-                            <div className="bg-amber-50 border-2 border-amber-100 rounded-2xl p-6 h-full hover:border-amber-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                                     </svg>
                                 </div>
@@ -422,9 +422,9 @@ const PesquisaClimaPage: React.FC = () => {
 
                         {/* Dor 4 */}
                         <AnimatedSection delay={0.25}>
-                            <div className="bg-blue-50 border-2 border-blue-100 rounded-2xl p-6 h-full hover:border-blue-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                     </svg>
                                 </div>
@@ -441,9 +441,9 @@ const PesquisaClimaPage: React.FC = () => {
 
                         {/* Dor 5 */}
                         <AnimatedSection delay={0.3}>
-                            <div className="bg-purple-50 border-2 border-purple-100 rounded-2xl p-6 h-full hover:border-purple-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                                     </svg>
                                 </div>
@@ -460,9 +460,9 @@ const PesquisaClimaPage: React.FC = () => {
 
                         {/* Dor 6 */}
                         <AnimatedSection delay={0.35}>
-                            <div className="bg-teal-50 border-2 border-teal-100 rounded-2xl p-6 h-full hover:border-teal-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
@@ -495,17 +495,17 @@ const PesquisaClimaPage: React.FC = () => {
                         </p>
                     </AnimatedSection>
 
-                    <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                    <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto items-stretch">
                         {etapasProcesso.map((etapa, index) => (
-                            <AnimatedSection key={etapa.titulo} delay={0.1 * index}>
-                                <div className="relative">
-                                    <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 text-center h-full hover:-translate-y-2">
+                            <AnimatedSection key={etapa.titulo} delay={0.1 * index} className="h-full">
+                                <div className="relative h-full">
+                                    <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 text-center h-full min-h-[220px] hover:-translate-y-2 flex flex-col">
                                         <div className="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
                                             {etapa.icon}
                                         </div>
                                         <div className="text-red-600 font-bold text-sm mb-2">Etapa {index + 1}</div>
                                         <h3 className="font-bold text-gray-800 mb-2">{etapa.titulo}</h3>
-                                        <p className="text-gray-600 text-sm">{etapa.desc}</p>
+                                        <p className="text-gray-600 text-sm flex-grow">{etapa.desc}</p>
                                     </div>
                                     {index < etapasProcesso.length - 1 && (
                                         <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
@@ -542,7 +542,7 @@ const PesquisaClimaPage: React.FC = () => {
                                 <div 
                                     className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                                 >
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${dim.cor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     <div className="relative p-6 text-center">
                                         <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{dim.icon}</div>
                                         <h3 className="font-semibold text-gray-800 group-hover:text-white transition-colors duration-300 text-sm md:text-base">

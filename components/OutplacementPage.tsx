@@ -354,9 +354,9 @@ const OutplacementPage: React.FC = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                         {/* Dor 1 */}
                         <AnimatedSection delay={0.1}>
-                            <div className="bg-red-50 border-2 border-red-100 rounded-2xl p-6 h-full hover:border-red-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                     </svg>
                                 </div>
@@ -392,9 +392,9 @@ const OutplacementPage: React.FC = () => {
 
                         {/* Dor 3 */}
                         <AnimatedSection delay={0.2}>
-                            <div className="bg-amber-50 border-2 border-amber-100 rounded-2xl p-6 h-full hover:border-amber-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
                                     </svg>
                                 </div>
@@ -411,9 +411,9 @@ const OutplacementPage: React.FC = () => {
 
                         {/* Dor 4 */}
                         <AnimatedSection delay={0.25}>
-                            <div className="bg-blue-50 border-2 border-blue-100 rounded-2xl p-6 h-full hover:border-blue-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
@@ -430,9 +430,9 @@ const OutplacementPage: React.FC = () => {
 
                         {/* Dor 5 */}
                         <AnimatedSection delay={0.3}>
-                            <div className="bg-purple-50 border-2 border-purple-100 rounded-2xl p-6 h-full hover:border-purple-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                                     </svg>
                                 </div>
@@ -449,9 +449,9 @@ const OutplacementPage: React.FC = () => {
 
                         {/* Dor 6 */}
                         <AnimatedSection delay={0.35}>
-                            <div className="bg-teal-50 border-2 border-teal-100 rounded-2xl p-6 h-full hover:border-teal-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
@@ -490,14 +490,14 @@ const OutplacementPage: React.FC = () => {
                                 <div 
                                     className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                                 >
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${item.cor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     <div className="relative p-6 text-center">
                                         <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
                                         <h3 className="font-semibold text-gray-800 group-hover:text-white transition-colors duration-300 text-sm md:text-base">
                                             {item.titulo}
                                         </h3>
                                     </div>
-                                </div>
+                            </div>
                             </AnimatedSection>
                         ))}
                     </div>
@@ -519,6 +519,168 @@ const OutplacementPage: React.FC = () => {
             {/* BENEFÍCIOS - CARROSSEL */}
             <BeneficiosCarousel />
 
+            {/* ETAPAS DO PROJETO */}
+            <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <AnimatedSection className="text-center mb-16">
+                        <span className="inline-block bg-gray-800 text-white text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                            METODOLOGIA
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Etapas do Programa de Outplacement
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Conheça as fases do nosso programa de recolocação profissional
+                        </p>
+                    </AnimatedSection>
+
+                    <div className="max-w-5xl mx-auto">
+                        {/* Timeline horizontal para desktop */}
+                        <div className="hidden md:block relative">
+                            {/* Linha conectora */}
+                            <div className="absolute top-8 left-0 right-0 h-1 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded-full" />
+                            
+                            <div className="grid grid-cols-6 gap-4 relative">
+                                {/* Fase 1 */}
+                                <AnimatedSection delay={0.1} className="flex flex-col items-center">
+                                    <div className="w-16 h-16 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 mb-4">
+                                        <span className="text-xl font-black text-amber-500">01</span>
+                                    </div>
+                                    <h3 className="text-lg font-bold text-gray-900 text-center mb-2">Planejamento</h3>
+                                    <p className="text-gray-600 text-sm text-center leading-relaxed">Análise do perfil profissional e definição de objetivos.</p>
+                                </AnimatedSection>
+
+                                {/* Fase 2 */}
+                                <AnimatedSection delay={0.15} className="flex flex-col items-center">
+                                    <div className="w-16 h-16 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 mb-4">
+                                        <span className="text-xl font-black text-amber-500">02</span>
+                                    </div>
+                                    <h3 className="text-lg font-bold text-gray-900 text-center mb-2">Estratégia</h3>
+                                    <p className="text-gray-600 text-sm text-center leading-relaxed">Identificação de mercados-alvo e posicionamento.</p>
+                                </AnimatedSection>
+
+                                {/* Fase 3 */}
+                                <AnimatedSection delay={0.2} className="flex flex-col items-center">
+                                    <div className="w-16 h-16 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 mb-4">
+                                        <span className="text-xl font-black text-amber-500">03</span>
+                                    </div>
+                                    <h3 className="text-lg font-bold text-gray-900 text-center mb-2">Currículo</h3>
+                                    <p className="text-gray-600 text-sm text-center leading-relaxed">Elaboração de currículo e perfil no LinkedIn.</p>
+                                </AnimatedSection>
+
+                                {/* Fase 4 */}
+                                <AnimatedSection delay={0.25} className="flex flex-col items-center">
+                                    <div className="w-16 h-16 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 mb-4">
+                                        <span className="text-xl font-black text-amber-500">04</span>
+                                    </div>
+                                    <h3 className="text-lg font-bold text-gray-900 text-center mb-2">Capacitação</h3>
+                                    <p className="text-gray-600 text-sm text-center leading-relaxed">Treinamento para entrevistas e negociação.</p>
+                                </AnimatedSection>
+
+                                {/* Fase 5 */}
+                                <AnimatedSection delay={0.3} className="flex flex-col items-center">
+                                    <div className="w-16 h-16 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 mb-4">
+                                        <span className="text-xl font-black text-amber-500">05</span>
+                    </div>
+                                    <h3 className="text-lg font-bold text-gray-900 text-center mb-2">Divulgação</h3>
+                                    <p className="text-gray-600 text-sm text-center leading-relaxed">Networking ativo e acesso a oportunidades.</p>
+                                </AnimatedSection>
+
+                                {/* Fase 6 */}
+                                <AnimatedSection delay={0.35} className="flex flex-col items-center">
+                                    <div className="w-16 h-16 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg z-10 mb-4">
+                                        <span className="text-xl font-black text-amber-500">06</span>
+                                    </div>
+                                    <h3 className="text-lg font-bold text-gray-900 text-center mb-2">Acompanhamento</h3>
+                                    <p className="text-gray-600 text-sm text-center leading-relaxed">Suporte até a recolocação efetiva.</p>
+                                </AnimatedSection>
+                            </div>
+                        </div>
+
+                        {/* Layout vertical para mobile */}
+                        <div className="md:hidden space-y-6">
+                            {/* Fase 1 */}
+                            <AnimatedSection delay={0.1}>
+                                <div className="flex items-start gap-4">
+                                    <div className="w-14 h-14 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                                        <span className="text-lg font-black text-amber-500">01</span>
+                                    </div>
+                                    <div className="bg-white rounded-xl p-4 shadow-md border border-gray-100 flex-grow">
+                                        <h3 className="text-lg font-bold text-gray-900 mb-1">Planejamento</h3>
+                                        <p className="text-gray-600 text-sm">Análise do perfil profissional, definição de objetivos e planejamento da carreira.</p>
+                                    </div>
+                                </div>
+                            </AnimatedSection>
+
+                            {/* Fase 2 */}
+                            <AnimatedSection delay={0.15}>
+                                <div className="flex items-start gap-4">
+                                    <div className="w-14 h-14 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                                        <span className="text-lg font-black text-amber-500">02</span>
+                                    </div>
+                                    <div className="bg-white rounded-xl p-4 shadow-md border border-gray-100 flex-grow">
+                                        <h3 className="text-lg font-bold text-gray-900 mb-1">Estratégia</h3>
+                                        <p className="text-gray-600 text-sm">Definição de estratégias de busca, identificação de mercados-alvo e posicionamento.</p>
+                                    </div>
+                                </div>
+                            </AnimatedSection>
+
+                            {/* Fase 3 */}
+                            <AnimatedSection delay={0.2}>
+                                <div className="flex items-start gap-4">
+                                    <div className="w-14 h-14 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                                        <span className="text-lg font-black text-amber-500">03</span>
+                                    </div>
+                                    <div className="bg-white rounded-xl p-4 shadow-md border border-gray-100 flex-grow">
+                                        <h3 className="text-lg font-bold text-gray-900 mb-1">Currículo</h3>
+                                        <p className="text-gray-600 text-sm">Elaboração de currículo profissional e perfil em redes como LinkedIn.</p>
+                                    </div>
+                                </div>
+                            </AnimatedSection>
+
+                            {/* Fase 4 */}
+                            <AnimatedSection delay={0.25}>
+                                <div className="flex items-start gap-4">
+                                    <div className="w-14 h-14 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                                        <span className="text-lg font-black text-amber-500">04</span>
+                                    </div>
+                                    <div className="bg-white rounded-xl p-4 shadow-md border border-gray-100 flex-grow">
+                                        <h3 className="text-lg font-bold text-gray-900 mb-1">Capacitação</h3>
+                                        <p className="text-gray-600 text-sm">Treinamento para entrevistas, técnicas de negociação e desenvolvimento de competências.</p>
+                                    </div>
+                                </div>
+                            </AnimatedSection>
+
+                            {/* Fase 5 */}
+                            <AnimatedSection delay={0.3}>
+                                <div className="flex items-start gap-4">
+                                    <div className="w-14 h-14 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                                        <span className="text-lg font-black text-amber-500">05</span>
+                                    </div>
+                                    <div className="bg-white rounded-xl p-4 shadow-md border border-gray-100 flex-grow">
+                                        <h3 className="text-lg font-bold text-gray-900 mb-1">Divulgação</h3>
+                                        <p className="text-gray-600 text-sm">Divulgação do perfil no mercado, networking ativo e acesso a oportunidades.</p>
+                                    </div>
+                                </div>
+                            </AnimatedSection>
+
+                            {/* Fase 6 */}
+                            <AnimatedSection delay={0.35}>
+                                <div className="flex items-start gap-4">
+                                    <div className="w-14 h-14 bg-white border-4 border-amber-500 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                                        <span className="text-lg font-black text-amber-500">06</span>
+                                    </div>
+                                    <div className="bg-white rounded-xl p-4 shadow-md border border-gray-100 flex-grow">
+                                        <h3 className="text-lg font-bold text-gray-900 mb-1">Acompanhamento</h3>
+                                        <p className="text-gray-600 text-sm">Suporte contínuo durante todo o processo até a recolocação efetiva.</p>
+                                    </div>
+                            </div>
+                            </AnimatedSection>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* FAQ */}
             <section className="py-20 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -536,11 +698,11 @@ const OutplacementPage: React.FC = () => {
                         </AnimatedSection>
 
                         <AnimatedSection delay={0.2}>
-                            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                                {faqItems.map((item, index) => (
-                                    <FAQItem key={index} item={item} isOpen={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? null : index)} />
-                                ))}
-                            </div>
+                        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                            {faqItems.map((item, index) => (
+                                <FAQItem key={index} item={item} isOpen={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? null : index)} />
+                            ))}
+                        </div>
                         </AnimatedSection>
                     </div>
                 </div>
@@ -560,14 +722,14 @@ const OutplacementPage: React.FC = () => {
                             </h2>
                         </AnimatedSection>
                         <AnimatedSection delay={0.15}>
-                            <p className="text-xl text-white/80 mb-10 leading-relaxed">
-                                Ofereça um processo de demissão humanizado e cuide da imagem da sua empresa.
-                            </p>
+                        <p className="text-xl text-white/80 mb-10 leading-relaxed">
+                            Ofereça um processo de demissão humanizado e cuide da imagem da sua empresa.
+                        </p>
                         </AnimatedSection>
                         <AnimatedSection delay={0.3}>
                             <div className="flex justify-center">
-                                <ConsultorButton variant="cta" />
-                            </div>
+                            <ConsultorButton variant="cta" />
+                        </div>
                         </AnimatedSection>
                     </div>
                 </div>
@@ -591,11 +753,11 @@ const OutplacementPage: React.FC = () => {
                             onClick={scrollToServices}
                             className="inline-flex items-center gap-2 bg-red-600 text-white font-bold py-4 px-8 rounded-xl hover:bg-red-700 transition-all duration-300"
                         >
-                            Ver Todos os Serviços
+                        Ver Todos os Serviços
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
-                        </button>
+                    </button>
                     </AnimatedSection>
                 </div>
             </section>

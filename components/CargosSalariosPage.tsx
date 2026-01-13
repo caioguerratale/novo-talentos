@@ -356,9 +356,9 @@ const CargosSalariosPage: React.FC = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                         {/* Dor 1 */}
                         <AnimatedSection delay={0.1}>
-                            <div className="bg-red-50 border-2 border-red-100 rounded-2xl p-6 h-full hover:border-red-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
@@ -394,9 +394,9 @@ const CargosSalariosPage: React.FC = () => {
 
                         {/* Dor 3 */}
                         <AnimatedSection delay={0.2}>
-                            <div className="bg-amber-50 border-2 border-amber-100 rounded-2xl p-6 h-full hover:border-amber-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
@@ -413,9 +413,9 @@ const CargosSalariosPage: React.FC = () => {
 
                         {/* Dor 4 */}
                         <AnimatedSection delay={0.25}>
-                            <div className="bg-blue-50 border-2 border-blue-100 rounded-2xl p-6 h-full hover:border-blue-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
                                     </svg>
                                 </div>
@@ -432,9 +432,9 @@ const CargosSalariosPage: React.FC = () => {
 
                         {/* Dor 5 */}
                         <AnimatedSection delay={0.3}>
-                            <div className="bg-purple-50 border-2 border-purple-100 rounded-2xl p-6 h-full hover:border-purple-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                                     </svg>
                                 </div>
@@ -451,9 +451,9 @@ const CargosSalariosPage: React.FC = () => {
 
                         {/* Dor 6 */}
                         <AnimatedSection delay={0.35}>
-                            <div className="bg-teal-50 border-2 border-teal-100 rounded-2xl p-6 h-full hover:border-teal-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                                     </svg>
                                 </div>
@@ -492,7 +492,7 @@ const CargosSalariosPage: React.FC = () => {
                                 <div 
                                     className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                                 >
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${item.cor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     <div className="relative p-6 text-center">
                                         <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
                                         <h3 className="font-semibold text-gray-800 group-hover:text-white transition-colors duration-300 text-sm md:text-base">
@@ -520,6 +520,101 @@ const CargosSalariosPage: React.FC = () => {
 
             {/* BENEFÍCIOS - CARROSSEL */}
             <BeneficiosCarousel />
+
+            {/* ETAPAS DO PROJETO */}
+            <section className="py-20 bg-white">
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <AnimatedSection className="text-center mb-16">
+                        <span className="inline-block bg-orange-100 text-orange-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
+                            METODOLOGIA
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Etapas do Projeto
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Conheça as fases do nosso trabalho de estruturação de Cargos e Salários
+                        </p>
+                    </AnimatedSection>
+
+                    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        {/* Fase 1 */}
+                        <AnimatedSection delay={0.1}>
+                            <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl p-8 h-full text-white shadow-xl">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                                        <span className="text-2xl font-black">01</span>
+                                    </div>
+                                    <h3 className="text-2xl font-bold">Fase 1: Diagnóstico e Mapeamento</h3>
+                                </div>
+                                <ul className="space-y-3">
+                                    <li className="flex items-start gap-3">
+                                        <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span>Análise da estrutura organizacional atual</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span>Levantamento de todos os cargos existentes</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span>Entrevistas com gestores e colaboradores-chave</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span>Pesquisa salarial de mercado</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </AnimatedSection>
+
+                        {/* Fase 2 */}
+                        <AnimatedSection delay={0.2}>
+                            <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl p-8 h-full text-white shadow-xl">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                                        <span className="text-2xl font-black">02</span>
+                                    </div>
+                                    <h3 className="text-2xl font-bold">Fase 2: Estruturação e Implementação</h3>
+                                </div>
+                                <ul className="space-y-3">
+                                    <li className="flex items-start gap-3">
+                                        <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span>Descrição detalhada de cada cargo</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span>Avaliação e pontuação dos cargos</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span>Definição das faixas salariais</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <svg className="w-5 h-5 text-white mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span>Manual de políticas de remuneração</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </AnimatedSection>
+                    </div>
+                </div>
+            </section>
 
             {/* FAQ */}
             <section className="py-20 bg-gray-50">
