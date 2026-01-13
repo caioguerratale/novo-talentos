@@ -49,7 +49,7 @@ const carouselSlides = [
         titulo: 'Critérios de Contratação',
         subtitulo: 'Contrate com assertividade',
         descricao: 'Estabelece critérios claros e objetivos para contratação de funcionários, garantindo que os perfis estejam alinhados às necessidades do cargo.',
-        cor: 'from-red-600 to-red-800',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -61,7 +61,7 @@ const carouselSlides = [
         titulo: 'Planejamento Financeiro',
         subtitulo: 'Orçamento previsível',
         descricao: 'Facilita o planejamento financeiro com estrutura clara de cargos e salários, permitindo projeções mais precisas de custos com pessoal.',
-        cor: 'from-orange-500 to-amber-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -73,7 +73,7 @@ const carouselSlides = [
         titulo: 'Igualdade Salarial',
         subtitulo: 'Equidade entre colaboradores',
         descricao: 'Assegura igualdade de tratamento entre pessoas com cargos iguais, promovendo um ambiente de trabalho justo e transparente.',
-        cor: 'from-emerald-500 to-teal-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
@@ -85,7 +85,7 @@ const carouselSlides = [
         titulo: 'Redução de Turnover',
         subtitulo: 'Retenção de talentos',
         descricao: 'Reduz custos de turnover e absenteísmo através de contratações mais assertivas e colaboradores mais engajados com suas funções.',
-        cor: 'from-blue-500 to-indigo-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -97,7 +97,7 @@ const carouselSlides = [
         titulo: 'Clima Organizacional',
         subtitulo: 'Equipes mais produtivas',
         descricao: 'Melhora o clima organizacional e a produtividade das equipes com clareza sobre responsabilidades e expectativas de cada cargo.',
-        cor: 'from-purple-500 to-violet-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -109,7 +109,7 @@ const carouselSlides = [
         titulo: 'Desenvolvimento de Carreiras',
         subtitulo: 'Crescimento profissional',
         descricao: 'Promove o desenvolvimento de carreiras e motiva funcionários a investir em sua qualificação com planos claros de progressão.',
-        cor: 'from-rose-500 to-pink-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -519,17 +519,15 @@ const MapeamentoCargosPage: React.FC = () => {
                     </div>
 
                     <AnimatedSection delay={0.4} className="text-center mt-12">
-                        <a 
-                            href="https://wa.me/5521967155476"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <Link 
+                            to="/#servicos"
                             className="inline-flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-4 px-10 rounded-full hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                         >
-                            Fale com um Consultor
+                            Ver Todos os Serviços
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
-                        </a>
+                        </Link>
                     </AnimatedSection>
                 </div>
             </section>

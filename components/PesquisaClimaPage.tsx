@@ -53,7 +53,7 @@ const carouselSlides = [
         titulo: 'Diagnóstico Preciso',
         subtitulo: 'Dados concretos',
         descricao: 'Identifique o nível real de satisfação e engajamento dos seus colaboradores através de um diagnóstico baseado em dados concretos.',
-        cor: 'from-red-600 to-red-800',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -65,7 +65,7 @@ const carouselSlides = [
         titulo: 'Pontos de Melhoria',
         subtitulo: 'Identifique oportunidades',
         descricao: 'Mapeie os pontos fortes da sua gestão e identifique oportunidades de melhoria no ambiente de trabalho.',
-        cor: 'from-orange-500 to-amber-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
@@ -77,7 +77,7 @@ const carouselSlides = [
         titulo: 'Decisões Estratégicas',
         subtitulo: 'Baseadas em dados',
         descricao: 'Tome decisões estratégicas fundamentadas em dados reais sobre a percepção dos colaboradores.',
-        cor: 'from-emerald-500 to-teal-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -89,7 +89,7 @@ const carouselSlides = [
         titulo: 'Aumento do Engajamento',
         subtitulo: 'Equipes motivadas',
         descricao: 'Aumente o engajamento das equipes ao demonstrar que a empresa se preocupa com a opinião dos colaboradores.',
-        cor: 'from-blue-500 to-indigo-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -101,7 +101,7 @@ const carouselSlides = [
         titulo: 'Redução de Turnover',
         subtitulo: 'Retenção de talentos',
         descricao: 'Reduza a rotatividade e o absenteísmo ao identificar e resolver problemas antes que causem demissões.',
-        cor: 'from-purple-500 to-violet-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -113,7 +113,7 @@ const carouselSlides = [
         titulo: 'Produtividade',
         subtitulo: 'Resultados melhores',
         descricao: 'Melhore a produtividade geral da empresa com colaboradores mais satisfeitos e engajados.',
-        cor: 'from-rose-500 to-pink-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -555,17 +555,15 @@ const PesquisaClimaPage: React.FC = () => {
                     </div>
 
                     <AnimatedSection delay={0.4} className="text-center mt-12">
-                        <a 
-                            href="https://wa.me/5521967155476"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <Link 
+                            to="/#servicos"
                             className="inline-flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-4 px-10 rounded-full hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                         >
-                            Fale com um Consultor
+                            Ver Todos os Serviços
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
-                        </a>
+                        </Link>
                     </AnimatedSection>
                 </div>
             </section>

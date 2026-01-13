@@ -49,7 +49,7 @@ const carouselSlides = [
         titulo: 'Consultoria para Perfis',
         subtitulo: 'Definição estratégica de vagas',
         descricao: 'Trabalhamos junto com você para definir os perfis ideais, condições das ofertas e prazos de contratação, garantindo alinhamento com a cultura da empresa.',
-        cor: 'from-red-600 to-red-800',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -61,7 +61,7 @@ const carouselSlides = [
         titulo: 'Ampla Base de Currículos',
         subtitulo: 'Acesso aos melhores talentos',
         descricao: 'Utilizamos os melhores canais de divulgação e nossa ampla base de currículos para atrair candidatos qualificados para sua vaga.',
-        cor: 'from-orange-500 to-amber-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -73,7 +73,7 @@ const carouselSlides = [
         titulo: 'Processo Ágil',
         subtitulo: 'Velocidade sem perder qualidade',
         descricao: 'Nosso processo é otimizado para entregar candidatos qualificados no menor tempo possível, sem abrir mão da qualidade na seleção.',
-        cor: 'from-emerald-500 to-teal-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -85,7 +85,7 @@ const carouselSlides = [
         titulo: 'Metodologia Eficaz',
         subtitulo: 'Técnicas modernas de seleção',
         descricao: 'Aplicamos entrevistas por competências, dinâmicas de grupo e provas de conhecimento para garantir a melhor escolha para sua empresa.',
-        cor: 'from-blue-500 to-indigo-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
@@ -97,7 +97,7 @@ const carouselSlides = [
         titulo: 'Alta Satisfação',
         subtitulo: '99,78% de aprovação',
         descricao: 'Nosso índice de satisfação com as contratações é de 99,78%, resultado de um processo cuidadoso e alinhado às necessidades dos clientes.',
-        cor: 'from-purple-500 to-violet-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -109,7 +109,7 @@ const carouselSlides = [
         titulo: 'Relatório Completo',
         subtitulo: 'Transparência total',
         descricao: 'Ao final do processo, entregamos um relatório completo com dados importantes sobre o recrutamento realizado e feedback dos candidatos.',
-        cor: 'from-rose-500 to-pink-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -524,17 +524,15 @@ const RecrutamentoPage: React.FC = () => {
                     </div>
 
                     <AnimatedSection delay={0.4} className="text-center mt-12">
-                        <a 
-                            href="https://wa.me/5521967155476"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <Link 
+                            to="/#servicos"
                             className="inline-flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-4 px-10 rounded-full hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                         >
-                            Fale com um Consultor
+                            Ver Todos os Serviços
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
-                        </a>
+                        </Link>
                     </AnimatedSection>
                 </div>
             </section>

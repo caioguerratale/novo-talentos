@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ConsultorButton from './ConsultorButton';
 
 // Hook for scroll animations
@@ -43,7 +43,7 @@ const carouselSlides = [
         titulo: 'Imagem da Empresa',
         subtitulo: 'Reputação no mercado',
         descricao: 'Melhore a imagem da sua empresa no mercado ao demonstrar cuidado e responsabilidade com os profissionais desligados.',
-        cor: 'from-red-600 to-red-800',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -55,7 +55,7 @@ const carouselSlides = [
         titulo: 'Clima Organizacional',
         subtitulo: 'Equipe preservada',
         descricao: 'Preserve o clima entre os colaboradores remanescentes, evitando insegurança e desmotivação após demissões.',
-        cor: 'from-orange-500 to-amber-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -67,7 +67,7 @@ const carouselSlides = [
         titulo: 'Riscos Trabalhistas',
         subtitulo: 'Proteção jurídica',
         descricao: 'Reduza significativamente os riscos de processos trabalhistas com um processo de demissão humanizado e bem estruturado.',
-        cor: 'from-emerald-500 to-teal-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -79,7 +79,7 @@ const carouselSlides = [
         titulo: 'Recolocação Acelerada',
         subtitulo: 'Para o profissional',
         descricao: 'Acelere a recolocação do profissional no mercado com orientação especializada e suporte completo.',
-        cor: 'from-blue-500 to-indigo-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -91,7 +91,7 @@ const carouselSlides = [
         titulo: 'Crescimento Pessoal',
         subtitulo: 'Oportunidade de reflexão',
         descricao: 'Transforme a experiência da demissão em uma oportunidade de reflexão, crescimento e redirecionamento de carreira.',
-        cor: 'from-purple-500 to-violet-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -103,7 +103,7 @@ const carouselSlides = [
         titulo: 'Suporte Emocional',
         subtitulo: 'Humanização do processo',
         descricao: 'Ofereça suporte emocional durante todo o período de transição, humanizando o processo de demissão.',
-        cor: 'from-rose-500 to-pink-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -503,17 +503,15 @@ const OutplacementPage: React.FC = () => {
                     </div>
 
                     <AnimatedSection delay={0.4} className="text-center mt-12">
-                        <a 
-                            href="https://wa.me/5521967155476"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <Link 
+                            to="/#servicos"
                             className="inline-flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-4 px-10 rounded-full hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                         >
-                            Fale com um Consultor
+                            Ver Todos os Serviços
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
-                        </a>
+                        </Link>
                     </AnimatedSection>
                 </div>
             </section>

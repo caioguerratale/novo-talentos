@@ -145,7 +145,7 @@ const carouselSlides = [
         titulo: 'Recrutamento e Seleção',
         subtitulo: 'Encontramos os melhores profissionais',
         descricao: 'Nossa equipe especializada identifica e seleciona os profissionais mais qualificados para cada função, garantindo que sua empresa tenha acesso aos melhores talentos do mercado.',
-        cor: 'from-red-600 to-red-800',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -157,7 +157,7 @@ const carouselSlides = [
         titulo: 'Administração Completa',
         subtitulo: 'Cuidamos de toda a burocracia',
         descricao: 'Gerenciamos folha de pagamento, encargos, benefícios, férias, afastamentos e toda a documentação trabalhista. Você foca no seu negócio, nós cuidamos do resto.',
-        cor: 'from-orange-500 to-amber-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -169,7 +169,7 @@ const carouselSlides = [
         titulo: 'Cobertura Total',
         subtitulo: 'Sem interrupções no seu negócio',
         descricao: 'Garantimos cobertura completa de afastamentos, faltas, férias e licenças. Temos um banco de profissionais prontos para substituições imediatas quando necessário.',
-        cor: 'from-emerald-500 to-teal-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -181,7 +181,7 @@ const carouselSlides = [
         titulo: 'Sem Vínculo Empregatício',
         subtitulo: 'Segurança jurídica para sua empresa',
         descricao: 'O vínculo empregatício e todas as responsabilidades trabalhistas são da Talentos Consultoria. Sua empresa fica livre de riscos e passivos trabalhistas.',
-        cor: 'from-blue-500 to-indigo-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -190,22 +190,10 @@ const carouselSlides = [
     },
     {
         numero: '05',
-        titulo: 'Capacitação Contínua',
-        subtitulo: 'Profissionais sempre atualizados',
-        descricao: 'Investimos em treinamento e desenvolvimento dos profissionais terceirizados, garantindo que sua empresa sempre conte com uma equipe qualificada e atualizada.',
-        cor: 'from-purple-500 to-violet-600',
-        icon: (
-            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-        ),
-    },
-    {
-        numero: '06',
         titulo: 'Supervisão Especializada',
         subtitulo: 'Acompanhamento de perto',
         descricao: 'Nossa equipe de supervisão acompanha o desempenho dos profissionais, garantindo produtividade, qualidade e satisfação em todas as funções terceirizadas.',
-        cor: 'from-rose-500 to-pink-600',
+        cor: 'from-amber-600 to-orange-700',
         icon: (
             <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -452,13 +440,13 @@ const TerceirizacaoPage: React.FC = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                         {/* Dor 1 */}
                         <AnimatedSection delay={0.1}>
-                            <div className="bg-red-50 border-2 border-red-100 rounded-2xl p-6 h-full hover:border-red-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
-                                <h3 className="font-bold text-gray-900 mb-2">Perda de tempo com processos de RH</h3>
+                                <h3 className="font-bold text-gray-900 mb-2">Perda de tempo com processos de RH/DP</h3>
                                 <p className="text-gray-600 text-sm mb-4">"Gasto muito tempo administrando folha de pagamento, férias e questões trabalhistas."</p>
                                 <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -490,9 +478,9 @@ const TerceirizacaoPage: React.FC = () => {
 
                         {/* Dor 3 */}
                         <AnimatedSection delay={0.2}>
-                            <div className="bg-amber-50 border-2 border-amber-100 rounded-2xl p-6 h-full hover:border-amber-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                                     </svg>
                                 </div>
@@ -509,9 +497,9 @@ const TerceirizacaoPage: React.FC = () => {
 
                         {/* Dor 4 */}
                         <AnimatedSection delay={0.25}>
-                            <div className="bg-blue-50 border-2 border-blue-100 rounded-2xl p-6 h-full hover:border-blue-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                                     </svg>
                                 </div>
@@ -528,28 +516,28 @@ const TerceirizacaoPage: React.FC = () => {
 
                         {/* Dor 5 */}
                         <AnimatedSection delay={0.3}>
-                            <div className="bg-purple-50 border-2 border-purple-100 rounded-2xl p-6 h-full hover:border-purple-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                                     </svg>
                                 </div>
-                                <h3 className="font-bold text-gray-900 mb-2">Custos fixos muito altos</h3>
-                                <p className="text-gray-600 text-sm mb-4">"Minha folha de pagamento está pesada e não consigo reduzir."</p>
+                                <h3 className="font-bold text-gray-900 mb-2">Suporte estratégico na ampliação e gestão do quadro de colaboradores em períodos de demanda sazonal</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Nos períodos de alta demanda, enfrentamos desafios para ampliar o quadro de colaboradores de forma ágil e manter a gestão eficiente da equipe."</p>
                                 <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
-                                    Transforme custos fixos em variáveis
+                                    Contrate rápido, com eficiência e qualidade
                                 </div>
                             </div>
                         </AnimatedSection>
 
                         {/* Dor 6 */}
                         <AnimatedSection delay={0.35}>
-                            <div className="bg-teal-50 border-2 border-teal-100 rounded-2xl p-6 h-full hover:border-teal-300 transition-all duration-300">
-                                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
-                                    <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                                    <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                                     </svg>
                                 </div>
@@ -588,7 +576,7 @@ const TerceirizacaoPage: React.FC = () => {
                                 <div 
                                     className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                                 >
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${prof.cor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     <div className="relative p-6 text-center">
                                         <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{prof.icon}</div>
                                         <h3 className="font-semibold text-gray-800 group-hover:text-white transition-colors duration-300 text-sm md:text-base">
@@ -601,17 +589,15 @@ const TerceirizacaoPage: React.FC = () => {
                     </div>
 
                     <AnimatedSection delay={0.4} className="text-center mt-12">
-                        <a 
-                            href="https://wa.me/5521967155476"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <Link 
+                            to="/#servicos"
                             className="inline-flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-4 px-10 rounded-full hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                         >
-                            Fale com um Consultor
+                            Ver Todos os Serviços
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
-                        </a>
+                        </Link>
                     </AnimatedSection>
                 </div>
             </section>
