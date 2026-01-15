@@ -90,7 +90,7 @@ export const services: Service[] = [
     ),
     icon: <BriefcaseIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/terceirizacao-de-mao-de-obra-1.jpg',
-    bgImage: `${import.meta.env.BASE_URL}nossa hist/consultores-da-talentos.jpg`,
+    bgImage: `${import.meta.env.BASE_URL}Home/Terceirização de mao de obra.png`,
   },
   {
     id: 2,
@@ -114,7 +114,7 @@ export const services: Service[] = [
     ),
     icon: <UserGroupIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/recrutamento-e-selecao-1.jpg',
-    bgImage: `${import.meta.env.BASE_URL}Módulos RS/Recrutamento e Seleção.jpg`,
+    bgImage: `${import.meta.env.BASE_URL}Home/Recrutamento seleção.png`,
   },
     {
     id: 3,
@@ -136,7 +136,7 @@ export const services: Service[] = [
     ),
     icon: <BuildingOfficeIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/estruturacao-do-rh-1.jpg',
-    bgImage: `${import.meta.env.BASE_URL}nossa hist/escritorio-talentos-consultoria-01.jpg`,
+    bgImage: `${import.meta.env.BASE_URL}Home/Estruturação RH.png`,
   },
    {
     id: 4,
@@ -201,7 +201,7 @@ export const services: Service[] = [
     ),
     icon: <ChartBarIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/pesquisa-de-clima-organizacional-1.jpg',
-    bgImage: `${import.meta.env.BASE_URL}Módulos RS/Motivacional.jpg`,
+    bgImage: `${import.meta.env.BASE_URL}Home/Pesquisa de clima.png`,
   },
    {
     id: 7,
@@ -223,7 +223,7 @@ export const services: Service[] = [
     ),
     icon: <ArrowPathIcon className="w-10 h-10 text-orange-500" />,
     imageUrl: 'https://talentosconsultoria.com.br/wp-content/uploads/2020/08/outplacement-1.jpg',
-    bgImage: `${import.meta.env.BASE_URL}nossa hist/treinamentos-rh.jpg`,
+    bgImage: `${import.meta.env.BASE_URL}Home/Outplacement.png`,
   },
 ];
 
