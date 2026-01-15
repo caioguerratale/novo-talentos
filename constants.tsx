@@ -345,6 +345,12 @@ export const clients = [
     { name: 'Remax', logoUrl: resolveLogo('clientes-remax.jpg') },
     { name: 'Ultracargo', logoUrl: resolveLogo('clientes-ultracargo.jpg') },
     { name: 'Debora Aguiar', logoUrl: resolveLogo('deboraaguiar.jpg') },
+    { name: 'Baked', logoUrl: resolveLogo('baked.jpeg') },
+    { name: 'Ball', logoUrl: resolveLogo('Ball-1.png') },
+    { name: 'Fruto de Goiás', logoUrl: resolveLogo('Fruto de goias.png') },
+    { name: 'Microblau', logoUrl: resolveLogo('logotipo-microblau.jpg') },
+    { name: 'MRV', logoUrl: resolveLogo('MRV.jpg') },
+    { name: 'Technogym', logoUrl: resolveLogo('Technogym.png') },
 ];
 
 

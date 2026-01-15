@@ -203,76 +203,31 @@ const ClientCard: React.FC<{ client: typeof clients[0] }> = ({ client }) => (
     </div>
 );
 
-// Clients Carousel Component - Responsive
+// Clients Carousel Component - Continuous Infinite Scroll
 const ClientsCarousel: React.FC = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [visibleCount, setVisibleCount] = useState(4);
-    
-    // Adjust visible count based on screen size
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth < 640) {
-                setVisibleCount(2); // Mobile: 2 logos
-            } else if (window.innerWidth < 1024) {
-                setVisibleCount(3); // Tablet: 3 logos
-            } else {
-                setVisibleCount(4); // Desktop: 4 logos
-            }
-        };
-        
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-    
-    const maxIndex = Math.max(0, clients.length - visibleCount);
-    
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-        }, 3000);
-        return () => clearInterval(interval);
-    }, [maxIndex]);
-    
-    // Reset index if it becomes invalid after resize
-    useEffect(() => {
-        if (currentIndex > maxIndex) {
-            setCurrentIndex(0);
-        }
-    }, [maxIndex, currentIndex]);
+    // Duplicate clients for seamless infinite loop
+    const duplicatedClients = [...clients, ...clients];
 
     return (
         <div className="overflow-hidden">
             <div 
-                className="flex transition-transform duration-700 ease-in-out"
-                style={{ transform: `translateX(-${currentIndex * (100 / visibleCount)}%)` }}
+                className="flex animate-scroll-infinite"
+                style={{
+                    width: `${duplicatedClients.length * 180}px`,
+                }}
             >
-                {clients.map((client, index) => (
+                {duplicatedClients.map((client, index) => (
                     <div 
                         key={`${client.name}-${index}`}
-                        className={`flex items-center justify-center h-16 sm:h-20 lg:h-24 flex-shrink-0 px-2 sm:px-4 ${
-                            visibleCount === 2 ? 'w-1/2' : visibleCount === 3 ? 'w-1/3' : 'w-1/4'
-                        }`}
+                        className="flex items-center justify-center h-16 sm:h-20 lg:h-24 flex-shrink-0 px-4 sm:px-6"
+                        style={{ width: '180px' }}
                     >
                         <img 
                             src={client.logoUrl} 
                             alt={client.name} 
-                            className="max-w-full max-h-full object-contain hover:scale-105 transition-transform duration-300"
+                            className="max-w-full max-h-full object-contain"
                         />
                     </div>
-                ))}
-            </div>
-            {/* Pagination dots */}
-            <div className="flex items-center justify-center gap-2 mt-4 sm:mt-6">
-                {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-                    <button
-                        key={i}
-                        onClick={() => setCurrentIndex(i)}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                            i === currentIndex ? 'bg-gray-700' : 'bg-gray-300 hover:bg-gray-400'
-                        }`}
-                        aria-label={`Ir para posição ${i + 1}`}
-                    />
                 ))}
             </div>
         </div>

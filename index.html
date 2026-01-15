@@ -71,6 +71,18 @@
         animation: scroll 40s linear infinite;
       }
       
+      /* Infinite continuous scroll for clients carousel */
+      @keyframes scrollInfinite {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-scroll-infinite {
+        animation: scrollInfinite 30s linear infinite;
+      }
+      .animate-scroll-infinite:hover {
+        animation-play-state: paused;
+      }
+      
       /* Hero Animations */
       @keyframes fadeInUp {
         from { 
