@@ -369,3 +369,4 @@ const BlogGestaoTalentosPage: React.FC = () => {
 export default BlogGestaoTalentosPage;
 
 
+

@@ -322,69 +322,49 @@ const ServicesSlider: React.FC = () => {
                 </div>
 
                 {/* Content Area */}
-                <div className={`grid lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto flex-grow scroll-animate ${isVisible ? 'animate-in' : ''}`} style={{ transitionDelay: '0.2s' }}>
-                    {/* Left - Text Content */}
-                    <div key={activeService.id} className="order-2 lg:order-1 animate-fade-in-content">
-                        {/* Icon */}
-                        <div className="mb-4 text-white">
-                            {React.cloneElement(activeService.icon as React.ReactElement, { className: 'w-12 h-12' })}
-                        </div>
-
+                <div className={`flex items-center justify-center max-w-4xl mx-auto flex-grow scroll-animate ${isVisible ? 'animate-in' : ''}`} style={{ transitionDelay: '0.2s' }}>
+                    {/* Text Content */}
+                    <div key={activeService.id} className="animate-fade-in-content text-center">
                         {/* Title */}
-                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
                             {activeService.title}
                         </h2>
 
                         {/* Description */}
-                        <p className="text-white/80 text-base leading-relaxed mb-4">
+                        <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-6 max-w-2xl mx-auto">
                             {activeService.shortDescription}
                         </p>
 
                         {/* Features List */}
-                        <ul className="space-y-2 mb-4">
-                            <li className="flex items-start gap-2">
-                                <span className="w-2 h-2 bg-white rounded-full mt-1.5 flex-shrink-0"></span>
-                                <span className="text-white text-sm">Soluções personalizadas para sua empresa</span>
+                        <ul className="space-y-3 mb-6 inline-block text-left">
+                            <li className="flex items-start gap-3">
+                                <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></span>
+                                <span className="text-white text-base">Soluções personalizadas para sua empresa</span>
                             </li>
-                            <li className="flex items-start gap-2">
-                                <span className="w-2 h-2 bg-white rounded-full mt-1.5 flex-shrink-0"></span>
-                                <span className="text-white text-sm">Equipe especializada com mais de 20 anos de experiência</span>
+                            <li className="flex items-start gap-3">
+                                <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></span>
+                                <span className="text-white text-base">Equipe especializada com mais de 20 anos de experiência</span>
                             </li>
-                            <li className="flex items-start gap-2">
-                                <span className="w-2 h-2 bg-white rounded-full mt-1.5 flex-shrink-0"></span>
-                                <span className="text-white text-sm">Resultados comprovados em empresas de diversos segmentos</span>
+                            <li className="flex items-start gap-3">
+                                <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></span>
+                                <span className="text-white text-base">Resultados comprovados em empresas de diversos segmentos</span>
                             </li>
                         </ul>
 
                         {/* CTA Link */}
-                        <Link
-                            to={`/servicos/${activeService.slug}`}
-                            className="inline-flex items-center text-white italic underline underline-offset-4 hover:text-white/80 transition-all duration-300 text-sm"
-                        >
-                            Saiba Mais
-                            <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                        </Link>
-                    </div>
-
-                    {/* Right - Visual Element */}
-                    <div key={`circle-${activeService.id}`} className="order-1 lg:order-2 flex justify-center items-center py-4 lg:py-0 animate-fade-in-content">
-                        <div className="relative animate-float">
-                            {/* Main circle with icon */}
-                            <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 lg:w-56 lg:h-56 bg-orange-600 rounded-full flex items-center justify-center border-2 border-orange-400 shadow-2xl shadow-orange-500/30">
-                                <div className="text-white">
-                                    {React.cloneElement(activeService.icon as React.ReactElement, { className: 'w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28' })}
-                                </div>
-                            </div>
-                            
-                            {/* Decorative circles - Hidden on very small screens */}
-                            <div className="hidden sm:block absolute -top-2 -right-2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-orange-600 rounded-full border-2 border-orange-400 animate-pulse-slow"></div>
-                            <div className="hidden sm:block absolute -bottom-4 -left-4 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-orange-600 rounded-full border-2 border-orange-400 animate-pulse-slow" style={{animationDelay: '0.5s'}}></div>
-                            <div className="hidden md:block absolute top-1/2 -right-8 w-8 h-8 bg-orange-600 rounded-full border-2 border-orange-400 animate-pulse-slow" style={{animationDelay: '1s'}}></div>
-                            <div className="hidden md:block absolute -top-6 left-1/3 w-6 h-6 bg-orange-600 rounded-full border-2 border-orange-400 animate-pulse-slow" style={{animationDelay: '1.5s'}}></div>
+                        <div>
+                            <Link
+                                to={`/servicos/${activeService.slug}`}
+                                className="inline-flex items-center bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300"
+                            >
+                                Saiba Mais
+                                <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </Link>
                         </div>
                     </div>
+
                 </div>
 
                 {/* Dots indicator */}
