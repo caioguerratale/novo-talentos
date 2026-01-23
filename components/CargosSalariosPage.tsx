@@ -27,14 +27,48 @@ const ChevronDownIcon = ({ isOpen }: { isOpen: boolean }) => (
     </svg>
 );
 
+// Ícones SVG para as informações de acesso
+const acessoIcons = {
+    mapeamento: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+        </svg>
+    ),
+    diferenciais: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+        </svg>
+    ),
+    comparacao: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+        </svg>
+    ),
+    faixas: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    ),
+    beneficios: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+        </svg>
+    ),
+    remuneracao: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+        </svg>
+    ),
+};
+
 // O que você terá acesso (cards)
 const informacoesAcesso = [
-    { titulo: 'Mapeamento de Cargos e Salários', icon: '📋', cor: 'from-red-500 to-red-600' },
-    { titulo: 'Diferenciais como Empregadora', icon: '⭐', cor: 'from-amber-500 to-orange-600' },
-    { titulo: 'Comparação de Mercado', icon: '📊', cor: 'from-blue-500 to-indigo-600' },
-    { titulo: 'Faixas Salariais', icon: '💰', cor: 'from-emerald-500 to-teal-600' },
-    { titulo: 'Benefícios e Incentivos', icon: '🎁', cor: 'from-purple-500 to-violet-600' },
-    { titulo: 'Remuneração Variável', icon: '📈', cor: 'from-rose-500 to-pink-600' },
+    { titulo: 'Mapeamento de Cargos e Salários', icon: acessoIcons.mapeamento, cor: 'from-red-500 to-red-600' },
+    { titulo: 'Diferenciais como Empregadora', icon: acessoIcons.diferenciais, cor: 'from-amber-500 to-orange-600' },
+    { titulo: 'Comparação de Mercado', icon: acessoIcons.comparacao, cor: 'from-blue-500 to-indigo-600' },
+    { titulo: 'Faixas Salariais', icon: acessoIcons.faixas, cor: 'from-emerald-500 to-teal-600' },
+    { titulo: 'Benefícios e Incentivos', icon: acessoIcons.beneficios, cor: 'from-purple-500 to-violet-600' },
+    { titulo: 'Remuneração Variável', icon: acessoIcons.remuneracao, cor: 'from-rose-500 to-pink-600' },
 ];
 
 // Dados do carrossel de benefícios
@@ -176,14 +210,14 @@ const BeneficiosCarousel: React.FC = () => {
     const slide = carouselSlides[currentSlide];
 
     return (
-        <section className="py-20 bg-white relative overflow-hidden">
+        <section className="py-12 lg:py-20 bg-white relative overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Header */}
                 <div className="text-center mb-12">
                     <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
                         O QUE OFERECEMOS
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                         Benefícios da Consultoria
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -195,7 +229,7 @@ const BeneficiosCarousel: React.FC = () => {
                 <div className="max-w-5xl mx-auto">
                     {/* Main Card - Altura fixa */}
                     <div 
-                        className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-8 md:p-12 h-[380px] md:h-[320px] flex flex-col transition-colors duration-500 shadow-2xl`}
+                        className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-6 lg:p-8 xl:p-12 h-[350px] md:h-[300px] lg:h-[280px] flex flex-col transition-colors duration-500 shadow-2xl`}
                     >
                         {/* Top Row */}
                         <div className="flex items-center gap-4 mb-6">
@@ -301,7 +335,7 @@ const CargosSalariosPage: React.FC = () => {
                             Consultoria especializada
                         </span>
                         
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 animate-fade-in-up animation-delay-200">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight mb-6 animate-fade-in-up animation-delay-200">
                             Cargos e<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
                                 Salários
@@ -339,7 +373,7 @@ const CargosSalariosPage: React.FC = () => {
             </section>
 
             {/* DORES DOS CLIENTES */}
-            <section className="py-20 bg-white">
+            <section className="py-12 lg:py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
@@ -351,12 +385,12 @@ const CargosSalariosPage: React.FC = () => {
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Nossos clientes enfrentavam esses desafios antes de estruturar cargos e salários
                         </p>
-                    </AnimatedSection>
+                        </AnimatedSection>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto">
                         {/* Dor 1 */}
                         <AnimatedSection delay={0.1}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -375,7 +409,7 @@ const CargosSalariosPage: React.FC = () => {
 
                         {/* Dor 2 */}
                         <AnimatedSection delay={0.15}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -394,7 +428,7 @@ const CargosSalariosPage: React.FC = () => {
 
                         {/* Dor 3 */}
                         <AnimatedSection delay={0.2}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -413,7 +447,7 @@ const CargosSalariosPage: React.FC = () => {
 
                         {/* Dor 4 */}
                         <AnimatedSection delay={0.25}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
@@ -429,10 +463,10 @@ const CargosSalariosPage: React.FC = () => {
                                 </div>
                             </div>
                         </AnimatedSection>
-
+                        
                         {/* Dor 5 */}
                         <AnimatedSection delay={0.3}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -451,7 +485,7 @@ const CargosSalariosPage: React.FC = () => {
 
                         {/* Dor 6 */}
                         <AnimatedSection delay={0.35}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -462,7 +496,7 @@ const CargosSalariosPage: React.FC = () => {
                                 <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
+                                </svg>
                                     Pacotes competitivos
                                 </div>
                             </div>
@@ -472,7 +506,7 @@ const CargosSalariosPage: React.FC = () => {
             </section>
 
             {/* O QUE VOCÊ TERÁ ACESSO */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-12 lg:py-20 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
@@ -494,7 +528,7 @@ const CargosSalariosPage: React.FC = () => {
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     <div className="relative p-6 text-center">
-                                        <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+                                        <div className="mb-3 group-hover:scale-110 transition-transform duration-300 text-gray-600 group-hover:text-white flex justify-center">{item.icon}</div>
                                         <h3 className="font-semibold text-gray-800 group-hover:text-white transition-colors duration-300 text-sm md:text-base">
                                             {item.titulo}
                                         </h3>
@@ -522,7 +556,7 @@ const CargosSalariosPage: React.FC = () => {
             <BeneficiosCarousel />
 
             {/* ETAPAS DO PROJETO */}
-            <section className="py-20 bg-white">
+            <section className="py-12 lg:py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-orange-100 text-orange-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
@@ -610,14 +644,14 @@ const CargosSalariosPage: React.FC = () => {
                                         <span>Manual de políticas de remuneração</span>
                                     </li>
                                 </ul>
-                            </div>
-                        </AnimatedSection>
+                                </div>
+                            </AnimatedSection>
                     </div>
                 </div>
             </section>
 
             {/* FAQ */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-12 lg:py-20 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto">
                         <AnimatedSection className="text-center mb-12">

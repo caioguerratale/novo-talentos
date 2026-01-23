@@ -307,13 +307,13 @@ const ModulosSlider: React.FC = () => {
                             {activeModulo.itens.map((item, i) => (
                                 <li key={i} className="flex items-start gap-2 text-white/70">
                                     <svg className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span className="text-sm">{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span className="text-sm">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
 
                     {/* Right - Image */}
                     <div className="order-first lg:order-last">
@@ -421,14 +421,14 @@ const BeneficiosCarousel: React.FC = () => {
     const slide = carouselSlides[currentSlide];
 
     return (
-        <section className="py-20 bg-white relative overflow-hidden">
+        <section className="py-12 lg:py-20 bg-white relative overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Header */}
                 <div className="text-center mb-12">
                     <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
                         O QUE OFERECEMOS
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                         Benefícios da Estruturação
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -440,7 +440,7 @@ const BeneficiosCarousel: React.FC = () => {
                 <div className="max-w-5xl mx-auto">
                     {/* Main Card - Altura fixa */}
                     <div 
-                        className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-8 md:p-12 h-[380px] md:h-[320px] flex flex-col transition-colors duration-500 shadow-2xl`}
+                        className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-6 lg:p-8 xl:p-12 h-[350px] md:h-[300px] lg:h-[280px] flex flex-col transition-colors duration-500 shadow-2xl`}
                     >
                         {/* Top Row */}
                         <div className="flex items-center gap-4 mb-6">
@@ -552,7 +552,7 @@ const EstruturacaoRHPage: React.FC = () => {
                             Consultoria estratégica de RH
                         </span>
                         
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 animate-fade-in-up animation-delay-200">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight mb-6 animate-fade-in-up animation-delay-200">
                             Estruturação<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
                                 do RH
@@ -594,7 +594,7 @@ const EstruturacaoRHPage: React.FC = () => {
             </section>
 
             {/* DORES DOS CLIENTES */}
-            <section className="py-20 bg-white">
+            <section className="py-12 lg:py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
@@ -608,10 +608,10 @@ const EstruturacaoRHPage: React.FC = () => {
                         </p>
                     </AnimatedSection>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto">
                         {/* Dor 1 */}
                         <AnimatedSection delay={0.1}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -630,7 +630,7 @@ const EstruturacaoRHPage: React.FC = () => {
 
                         {/* Dor 2 */}
                         <AnimatedSection delay={0.15}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -649,7 +649,7 @@ const EstruturacaoRHPage: React.FC = () => {
 
                         {/* Dor 3 */}
                         <AnimatedSection delay={0.2}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -668,7 +668,7 @@ const EstruturacaoRHPage: React.FC = () => {
 
                         {/* Dor 4 */}
                         <AnimatedSection delay={0.25}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -687,7 +687,7 @@ const EstruturacaoRHPage: React.FC = () => {
 
                         {/* Dor 5 */}
                         <AnimatedSection delay={0.3}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -706,7 +706,7 @@ const EstruturacaoRHPage: React.FC = () => {
 
                         {/* Dor 6 */}
                         <AnimatedSection delay={0.35}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -727,7 +727,7 @@ const EstruturacaoRHPage: React.FC = () => {
             </section>
 
             {/* MÓDULOS */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-12 lg:py-20 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
@@ -800,7 +800,7 @@ const EstruturacaoRHPage: React.FC = () => {
             <ModulosSlider />
 
             {/* FAQ */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-12 lg:py-20 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto">
                         <AnimatedSection className="text-center mb-12">

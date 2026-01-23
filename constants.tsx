@@ -392,8 +392,8 @@ export const latestArticles = [
     { title: "Pesquisa de clima organizacional: como transformar feedbacks em oportunidades", url: "/blog/pesquisa-de-clima-organizacional", isInternal: true },
     { title: "Gestão de talentos inteligente: como desenvolver times de alta performance", url: "/blog/gestao-de-talentos", isInternal: true },
     { title: "Terceirização de mão de obra: agilidade operacional para sua empresa", url: "/blog/terceirizacao-de-mao-de-obra", isInternal: true },
-    { title: "Recrutamento e seleção estratégico: como atrair os melhores talentos", url: "#" },
-    { title: "O papel da liderança assertiva no ambiente de trabalho", url: "#" },
+    { title: "Recrutamento e seleção estratégico: como atrair os melhores talentos", url: "/blog/em-construcao", isInternal: true },
+    { title: "O papel da liderança assertiva no ambiente de trabalho", url: "/blog/em-construcao", isInternal: true },
 ];
 
 export const legalLinks = [

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // Fix: Aliased HashRouter to Router to prevent a potential name collision.
-import { HashRouter as Router, Routes, Route, Link, useParams, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useParams, useLocation, useNavigate } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -18,6 +18,7 @@ import BlogPesquisaClimaPage from './components/BlogPesquisaClimaPage';
 import BlogGestaoTalentosPage from './components/BlogGestaoTalentosPage';
 import BlogTerceirizacaoPage from './components/BlogTerceirizacaoPage';
 import BlogPage from './components/BlogPage';
+import BlogEmConstrucaoPage from './components/BlogEmConstrucaoPage';
 import { services, aboutUsText, contactInfo, whatsappLink, clients, blogArticles, testimonials, historyTimeline } from './constants';
 import { Service } from './types';
 
@@ -323,13 +324,13 @@ const ServicesSlider: React.FC = () => {
                 </div>
 
                 {/* Dots indicator */}
-                <div className="flex justify-center gap-2 mt-6">
+                <div className="flex justify-center items-center gap-2 mt-6">
                     {services.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => setActiveIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                activeIndex === index ? 'bg-white w-6' : 'bg-white/40 hover:bg-white/60'
+                            className={`h-2 rounded-full transition-all duration-300 flex-shrink-0 ${
+                                activeIndex === index ? 'bg-white w-6' : 'bg-white/40 hover:bg-white/60 w-2'
                             }`}
                             aria-label={`Ir para serviço ${index + 1}`}
                         />
@@ -555,7 +556,20 @@ const HomePage: React.FC = () => (
     </>
 );
 
-const AboutPage: React.FC = () => (
+const AboutPage: React.FC = () => {
+    const navigate = useNavigate();
+    
+    const scrollToServices = () => {
+        navigate('/');
+        setTimeout(() => {
+            const element = document.getElementById('servicos');
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100);
+    };
+    
+    return (
     <>
         <div className="bg-white py-16 sm:py-24">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -632,19 +646,23 @@ const AboutPage: React.FC = () => (
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-8 gap-y-12 items-center">
                     {clients.map(client => (
                         <div key={client.name} className="flex justify-center">
-                            <img src={client.logoUrl} alt={client.name} className="max-h-12 object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transform hover:scale-110 transition-all duration-300" />
+                            <img src={client.logoUrl} alt={client.name} className="max-h-12 object-contain transform hover:scale-110 transition-all duration-300" />
                         </div>
                     ))}
                 </div>
                  <div className="text-center mt-16">
-                     <Link to="/servicos" className="inline-block bg-red-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105">
+                     <button 
+                        onClick={scrollToServices}
+                        className="inline-block bg-red-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105"
+                    >
                         Conheça os nossos serviços
-                    </Link>
+                    </button>
                 </div>
             </div>
         </section>
     </>
-);
+    );
+};
 
 const ServicesListPage: React.FC = () => (
      <div className="bg-gray-50 py-16 sm:py-24">
@@ -955,6 +973,7 @@ const PageContainer = () => {
                     <Route path="/blog/pesquisa-de-clima-organizacional" element={<BlogPesquisaClimaPage />} />
                     <Route path="/blog/gestao-de-talentos" element={<BlogGestaoTalentosPage />} />
                     <Route path="/blog/terceirizacao-de-mao-de-obra" element={<BlogTerceirizacaoPage />} />
+                    <Route path="/blog/em-construcao" element={<BlogEmConstrucaoPage />} />
                     <Route path="/blog" element={<BlogPage />} />
                 </Routes>
             </div>

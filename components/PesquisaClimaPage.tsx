@@ -26,24 +26,92 @@ const ChevronDownIcon = ({ isOpen }: { isOpen: boolean }) => (
     </svg>
 );
 
+// Ícones SVG para etapas do processo
+const etapasIcons = {
+    planejamento: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+        </svg>
+    ),
+    aplicacao: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+        </svg>
+    ),
+    tabulacao: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+        </svg>
+    ),
+    resultados: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+        </svg>
+    ),
+};
+
 // Etapas do processo
 const etapasProcesso = [
-    { titulo: 'Planejamento', desc: 'Definição de objetivos e customização do questionário', icon: '📋' },
-    { titulo: 'Aplicação', desc: 'Aplicação da pesquisa online ou física com sigilo', icon: '📝' },
-    { titulo: 'Tabulação', desc: 'Análise estatística dos dados coletados', icon: '📊' },
-    { titulo: 'Resultados', desc: 'Apresentação dos resultados e planos de ação', icon: '📈' },
+    { titulo: 'Planejamento', desc: 'Definição de objetivos e customização do questionário', icon: etapasIcons.planejamento },
+    { titulo: 'Aplicação', desc: 'Aplicação da pesquisa online ou física com sigilo', icon: etapasIcons.aplicacao },
+    { titulo: 'Tabulação', desc: 'Análise estatística dos dados coletados', icon: etapasIcons.tabulacao },
+    { titulo: 'Resultados', desc: 'Apresentação dos resultados e planos de ação', icon: etapasIcons.resultados },
 ];
+
+// Ícones SVG para dimensões avaliadas
+const dimensoesIcons = {
+    lideranca: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+        </svg>
+    ),
+    comunicacao: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+        </svg>
+    ),
+    remuneracao: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    ),
+    desenvolvimento: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+        </svg>
+    ),
+    ambiente: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+        </svg>
+    ),
+    equipe: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+        </svg>
+    ),
+    reconhecimento: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" />
+        </svg>
+    ),
+    qualidadeVida: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z" />
+        </svg>
+    ),
+};
 
 // Dimensões avaliadas (cards)
 const dimensoesAvaliadas = [
-    { titulo: 'Liderança', icon: '👔', cor: 'from-red-500 to-red-600' },
-    { titulo: 'Comunicação', icon: '💬', cor: 'from-blue-500 to-indigo-600' },
-    { titulo: 'Remuneração', icon: '💰', cor: 'from-amber-500 to-orange-600' },
-    { titulo: 'Desenvolvimento', icon: '📚', cor: 'from-emerald-500 to-teal-600' },
-    { titulo: 'Ambiente de Trabalho', icon: '🏢', cor: 'from-purple-500 to-violet-600' },
-    { titulo: 'Trabalho em Equipe', icon: '🤝', cor: 'from-sky-500 to-blue-600' },
-    { titulo: 'Reconhecimento', icon: '🏆', cor: 'from-rose-500 to-pink-600' },
-    { titulo: 'Qualidade de Vida', icon: '⚖️', cor: 'from-teal-500 to-cyan-600' },
+    { titulo: 'Liderança', icon: dimensoesIcons.lideranca, cor: 'from-red-500 to-red-600' },
+    { titulo: 'Comunicação', icon: dimensoesIcons.comunicacao, cor: 'from-blue-500 to-indigo-600' },
+    { titulo: 'Remuneração', icon: dimensoesIcons.remuneracao, cor: 'from-amber-500 to-orange-600' },
+    { titulo: 'Desenvolvimento', icon: dimensoesIcons.desenvolvimento, cor: 'from-emerald-500 to-teal-600' },
+    { titulo: 'Ambiente de Trabalho', icon: dimensoesIcons.ambiente, cor: 'from-purple-500 to-violet-600' },
+    { titulo: 'Trabalho em Equipe', icon: dimensoesIcons.equipe, cor: 'from-sky-500 to-blue-600' },
+    { titulo: 'Reconhecimento', icon: dimensoesIcons.reconhecimento, cor: 'from-rose-500 to-pink-600' },
+    { titulo: 'Qualidade de Vida', icon: dimensoesIcons.qualidadeVida, cor: 'from-teal-500 to-cyan-600' },
 ];
 
 // Dados do carrossel de benefícios
@@ -185,14 +253,14 @@ const BeneficiosCarousel: React.FC = () => {
     const slide = carouselSlides[currentSlide];
 
     return (
-        <section className="py-20 bg-white relative overflow-hidden">
+        <section className="py-12 lg:py-20 bg-white relative overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Header */}
                 <div className="text-center mb-12">
                     <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
                         O QUE OFERECEMOS
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                         Benefícios da Pesquisa
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -204,7 +272,7 @@ const BeneficiosCarousel: React.FC = () => {
                 <div className="max-w-5xl mx-auto">
                     {/* Main Card - Altura fixa */}
                     <div 
-                        className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-8 md:p-12 h-[380px] md:h-[320px] flex flex-col transition-colors duration-500 shadow-2xl`}
+                        className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-6 lg:p-8 xl:p-12 h-[350px] md:h-[300px] lg:h-[280px] flex flex-col transition-colors duration-500 shadow-2xl`}
                     >
                         {/* Top Row */}
                         <div className="flex items-center gap-4 mb-6">
@@ -310,7 +378,7 @@ const PesquisaClimaPage: React.FC = () => {
                             Diagnóstico organizacional
                         </span>
                         
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 animate-fade-in-up animation-delay-200">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight mb-6 animate-fade-in-up animation-delay-200">
                             Pesquisa de Clima<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
                                 Organizacional
@@ -348,7 +416,7 @@ const PesquisaClimaPage: React.FC = () => {
             </section>
 
             {/* DORES DOS CLIENTES */}
-            <section className="py-20 bg-white">
+            <section className="py-12 lg:py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
@@ -362,10 +430,10 @@ const PesquisaClimaPage: React.FC = () => {
                         </p>
                     </AnimatedSection>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto">
                         {/* Dor 1 */}
                         <AnimatedSection delay={0.1}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -384,7 +452,7 @@ const PesquisaClimaPage: React.FC = () => {
 
                         {/* Dor 2 */}
                         <AnimatedSection delay={0.15}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -403,7 +471,7 @@ const PesquisaClimaPage: React.FC = () => {
 
                         {/* Dor 3 */}
                         <AnimatedSection delay={0.2}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -422,7 +490,7 @@ const PesquisaClimaPage: React.FC = () => {
 
                         {/* Dor 4 */}
                         <AnimatedSection delay={0.25}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -441,7 +509,7 @@ const PesquisaClimaPage: React.FC = () => {
 
                         {/* Dor 5 */}
                         <AnimatedSection delay={0.3}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -460,7 +528,7 @@ const PesquisaClimaPage: React.FC = () => {
 
                         {/* Dor 6 */}
                         <AnimatedSection delay={0.35}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -481,7 +549,7 @@ const PesquisaClimaPage: React.FC = () => {
             </section>
 
             {/* ETAPAS DO PROCESSO */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-12 lg:py-20 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
@@ -500,21 +568,21 @@ const PesquisaClimaPage: React.FC = () => {
                             <AnimatedSection key={etapa.titulo} delay={0.1 * index} className="h-full">
                                 <div className="relative h-full">
                                     <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 text-center h-full min-h-[220px] hover:-translate-y-2 flex flex-col">
-                                        <div className="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                                        <div className="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4 text-red-600">
                                             {etapa.icon}
                                         </div>
-                                        <div className="text-red-600 font-bold text-sm mb-2">Etapa {index + 1}</div>
-                                        <h3 className="font-bold text-gray-800 mb-2">{etapa.titulo}</h3>
+                                    <div className="text-red-600 font-bold text-sm mb-2">Etapa {index + 1}</div>
+                                    <h3 className="font-bold text-gray-800 mb-2">{etapa.titulo}</h3>
                                         <p className="text-gray-600 text-sm flex-grow">{etapa.desc}</p>
-                                    </div>
-                                    {index < etapasProcesso.length - 1 && (
+                                </div>
+                                {index < etapasProcesso.length - 1 && (
                                         <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
                                             <svg className="w-6 h-6 text-red-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                             </svg>
-                                        </div>
-                                    )}
-                                </div>
+                                    </div>
+                                )}
+                            </div>
                             </AnimatedSection>
                         ))}
                     </div>
@@ -522,7 +590,7 @@ const PesquisaClimaPage: React.FC = () => {
             </section>
 
             {/* DIMENSÕES AVALIADAS */}
-            <section className="py-20 bg-white">
+            <section className="py-12 lg:py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
@@ -544,14 +612,14 @@ const PesquisaClimaPage: React.FC = () => {
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     <div className="relative p-6 text-center">
-                                        <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{dim.icon}</div>
+                                        <div className="mb-3 group-hover:scale-110 transition-transform duration-300 text-gray-600 group-hover:text-white flex justify-center">{dim.icon}</div>
                                         <h3 className="font-semibold text-gray-800 group-hover:text-white transition-colors duration-300 text-sm md:text-base">
                                             {dim.titulo}
                                         </h3>
-                                    </div>
+                        </div>
                                 </div>
                             </AnimatedSection>
-                        ))}
+                            ))}
                     </div>
 
                     <AnimatedSection delay={0.4} className="text-center mt-12">
@@ -572,7 +640,7 @@ const PesquisaClimaPage: React.FC = () => {
             <BeneficiosCarousel />
 
             {/* FAQ */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-12 lg:py-20 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto">
                         <AnimatedSection className="text-center mb-12">
@@ -588,11 +656,11 @@ const PesquisaClimaPage: React.FC = () => {
                         </AnimatedSection>
 
                         <AnimatedSection delay={0.2}>
-                            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                                {faqItems.map((item, index) => (
-                                    <FAQItem key={index} item={item} isOpen={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? null : index)} />
-                                ))}
-                            </div>
+                        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                            {faqItems.map((item, index) => (
+                                <FAQItem key={index} item={item} isOpen={openFaq === index} onClick={() => setOpenFaq(openFaq === index ? null : index)} />
+                            ))}
+                        </div>
                         </AnimatedSection>
                     </div>
                 </div>
@@ -612,14 +680,14 @@ const PesquisaClimaPage: React.FC = () => {
                             </h2>
                         </AnimatedSection>
                         <AnimatedSection delay={0.15}>
-                            <p className="text-xl text-white/80 mb-10 leading-relaxed">
-                                Descubra o que seus colaboradores realmente pensam e tome decisões estratégicas baseadas em dados.
-                            </p>
+                        <p className="text-xl text-white/80 mb-10 leading-relaxed">
+                            Descubra o que seus colaboradores realmente pensam e tome decisões estratégicas baseadas em dados.
+                        </p>
                         </AnimatedSection>
                         <AnimatedSection delay={0.3}>
                             <div className="flex justify-center">
-                                <ConsultorButton variant="cta" />
-                            </div>
+                            <ConsultorButton variant="cta" />
+                        </div>
                         </AnimatedSection>
                     </div>
                 </div>
@@ -643,11 +711,11 @@ const PesquisaClimaPage: React.FC = () => {
                             onClick={scrollToServices}
                             className="inline-flex items-center gap-2 bg-red-600 text-white font-bold py-4 px-8 rounded-xl hover:bg-red-700 transition-all duration-300"
                         >
-                            Ver Todos os Serviços
+                        Ver Todos os Serviços
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
-                        </button>
+                    </button>
                     </AnimatedSection>
                 </div>
             </section>

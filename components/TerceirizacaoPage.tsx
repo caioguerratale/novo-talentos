@@ -66,15 +66,58 @@ const ChevronDownIcon = ({ isOpen }: { isOpen: boolean }) => (
 );
 
 // Dados dos profissionais terceirizados
+const profissionaisIcons = {
+    recepcionista: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
+        </svg>
+    ),
+    copeira: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+        </svg>
+    ),
+    logistica: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+        </svg>
+    ),
+    portaria: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
+        </svg>
+    ),
+    manutencao: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+        </svg>
+    ),
+    motoristas: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+        </svg>
+    ),
+    ti: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+        </svg>
+    ),
+    administrativos: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+        </svg>
+    ),
+};
+
 const profissionais = [
-    { nome: 'Recepcionista', icon: '👋', cor: 'from-rose-500 to-pink-600' },
-    { nome: 'Copeira', icon: '☕', cor: 'from-amber-500 to-orange-600' },
-    { nome: 'Logística', icon: '📦', cor: 'from-blue-500 to-indigo-600' },
-    { nome: 'Portaria', icon: '🚪', cor: 'from-slate-500 to-gray-600' },
-    { nome: 'Manutenção e Zeladoria', icon: '🔧', cor: 'from-emerald-500 to-teal-600' },
-    { nome: 'Motoristas', icon: '🚗', cor: 'from-red-500 to-rose-600' },
-    { nome: 'Profissionais de TI', icon: '💻', cor: 'from-indigo-500 to-purple-600' },
-    { nome: 'Administrativos', icon: '📋', cor: 'from-sky-500 to-blue-600' },
+    { nome: 'Recepcionista', icon: profissionaisIcons.recepcionista, cor: 'from-rose-500 to-pink-600' },
+    { nome: 'Copeira', icon: profissionaisIcons.copeira, cor: 'from-amber-500 to-orange-600' },
+    { nome: 'Logística', icon: profissionaisIcons.logistica, cor: 'from-blue-500 to-indigo-600' },
+    { nome: 'Portaria', icon: profissionaisIcons.portaria, cor: 'from-slate-500 to-gray-600' },
+    { nome: 'Manutenção e Zeladoria', icon: profissionaisIcons.manutencao, cor: 'from-emerald-500 to-teal-600' },
+    { nome: 'Motoristas', icon: profissionaisIcons.motoristas, cor: 'from-red-500 to-rose-600' },
+    { nome: 'Profissionais de TI', icon: profissionaisIcons.ti, cor: 'from-indigo-500 to-purple-600' },
+    { nome: 'Administrativos', icon: profissionaisIcons.administrativos, cor: 'from-sky-500 to-blue-600' },
 ];
 
 
@@ -234,14 +277,14 @@ const BeneficiosCarousel: React.FC = () => {
     const slide = carouselSlides[currentSlide];
 
     return (
-        <section className="py-20 bg-white relative overflow-hidden">
+        <section className="py-12 lg:py-20 bg-white relative overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Header */}
                 <div className="text-center mb-12">
                     <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
                         O QUE OFERECEMOS
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                         Benefícios da Terceirização
                     </h2>
                     <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -253,7 +296,7 @@ const BeneficiosCarousel: React.FC = () => {
                 <div className="max-w-5xl mx-auto">
                     {/* Main Card - Altura fixa */}
                     <div 
-                        className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-8 md:p-12 h-[380px] md:h-[320px] flex flex-col transition-colors duration-500 shadow-2xl`}
+                        className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-6 lg:p-8 xl:p-12 h-[350px] md:h-[300px] lg:h-[280px] flex flex-col transition-colors duration-500 shadow-2xl`}
                     >
                         {/* Top Row */}
                         <div className="flex items-center gap-4 mb-6">
@@ -381,7 +424,7 @@ const TerceirizacaoPage: React.FC = () => {
                             Solução completa em RH
                         </span>
                         
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 animate-fade-in-up animation-delay-200">
+                        <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white leading-tight mb-6 animate-fade-in-up animation-delay-200">
                             Terceirização de<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-400">
                                 Mão de Obra
@@ -423,7 +466,7 @@ const TerceirizacaoPage: React.FC = () => {
             </section>
 
             {/* DORES DOS CLIENTES */}
-            <section className="py-20 bg-white">
+            <section className="py-12 lg:py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
@@ -431,16 +474,16 @@ const TerceirizacaoPage: React.FC = () => {
                         </span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                             Você se identifica com algum desses problemas?
-                        </h2>
+                            </h2>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Nossos clientes enfrentavam esses desafios antes de terceirizar com a Talentos
                         </p>
-                    </AnimatedSection>
+                        </AnimatedSection>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 max-w-6xl mx-auto">
                         {/* Dor 1 */}
                         <AnimatedSection delay={0.1}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -459,7 +502,7 @@ const TerceirizacaoPage: React.FC = () => {
 
                         {/* Dor 2 */}
                         <AnimatedSection delay={0.15}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -478,7 +521,7 @@ const TerceirizacaoPage: React.FC = () => {
 
                         {/* Dor 3 */}
                         <AnimatedSection delay={0.2}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -497,7 +540,7 @@ const TerceirizacaoPage: React.FC = () => {
 
                         {/* Dor 4 */}
                         <AnimatedSection delay={0.25}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -513,29 +556,29 @@ const TerceirizacaoPage: React.FC = () => {
                                 </div>
                             </div>
                         </AnimatedSection>
-
+                        
                         {/* Dor 5 */}
                         <AnimatedSection delay={0.3}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                                     </svg>
                                 </div>
-                                <h3 className="font-bold text-gray-900 mb-2">Suporte estratégico na ampliação e gestão do quadro de colaboradores em períodos de demanda sazonal</h3>
-                                <p className="text-gray-600 text-sm mb-4">"Nos períodos de alta demanda, enfrentamos desafios para ampliar o quadro de colaboradores de forma ágil e manter a gestão eficiente da equipe."</p>
+                                <h3 className="font-bold text-gray-900 mb-2">Dificuldade para escalar a equipe</h3>
+                                <p className="text-gray-600 text-sm mb-4">"Quando a demanda aumenta, não consigo contratar com a agilidade que o negócio exige."</p>
                                 <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
-                                    Contrate rápido, com eficiência e qualidade
+                                    Contratações rápidas e gestão eficiente nos períodos certos
                                 </div>
                             </div>
                         </AnimatedSection>
 
                         {/* Dor 6 */}
                         <AnimatedSection delay={0.35}>
-                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-6 h-full hover:border-orange-300 transition-all duration-300">
+                            <div className="bg-orange-50 border-2 border-orange-100 rounded-2xl p-4 lg:p-6 h-full hover:border-orange-300 transition-all duration-300">
                                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
                                     <svg className="w-6 h-6 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -546,7 +589,7 @@ const TerceirizacaoPage: React.FC = () => {
                                 <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
+                                </svg>
                                     Foque no que importa, terceirize o resto
                                 </div>
                             </div>
@@ -556,7 +599,7 @@ const TerceirizacaoPage: React.FC = () => {
             </section>
 
             {/* PROFISSIONAIS QUE TERCEIRIZAMOS */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-12 lg:py-20 bg-gray-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
@@ -578,7 +621,7 @@ const TerceirizacaoPage: React.FC = () => {
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     <div className="relative p-6 text-center">
-                                        <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">{prof.icon}</div>
+                                        <div className="mb-3 group-hover:scale-110 transition-transform duration-300 text-gray-600 group-hover:text-white flex justify-center">{prof.icon}</div>
                                         <h3 className="font-semibold text-gray-800 group-hover:text-white transition-colors duration-300 text-sm md:text-base">
                                             {prof.nome}
                                         </h3>
@@ -598,7 +641,7 @@ const TerceirizacaoPage: React.FC = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
                         </Link>
-                    </AnimatedSection>
+                                </AnimatedSection>
                 </div>
             </section>
 
@@ -606,7 +649,7 @@ const TerceirizacaoPage: React.FC = () => {
             <BeneficiosCarousel />
 
             {/* MODALIDADES DE CONTRATO */}
-            <section className="py-20 bg-gray-900">
+            <section className="py-12 lg:py-20 bg-gray-900">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <AnimatedSection className="text-center mb-16">
                         <span className="inline-block bg-white/10 text-white/90 text-sm font-semibold px-4 py-2 rounded-full mb-4">
@@ -624,20 +667,20 @@ const TerceirizacaoPage: React.FC = () => {
                         {modalidades.map((modalidade, index) => (
                             <AnimatedSection key={modalidade.titulo} delay={0.15 * index} className="h-full">
                                 <div className={`${modalidade.cor} rounded-3xl p-8 h-full flex flex-col`}>
-                                    <h3 className="text-xl font-bold text-white mb-2">{modalidade.titulo}</h3>
+                                        <h3 className="text-xl font-bold text-white mb-2">{modalidade.titulo}</h3>
                                     <p className="text-white/70 text-sm mb-3">{modalidade.subtitulo}</p>
                                     <p className="text-white/80 text-sm leading-relaxed mb-5 min-h-[80px]">{modalidade.descricao}</p>
-                                    
+                                        
                                     <div className="space-y-2 flex-grow">
-                                        <p className="text-white/90 font-semibold text-sm">Principais indicações:</p>
-                                        {modalidade.indicacoes.map((indicacao, i) => (
-                                            <div key={i} className="flex items-start gap-2">
-                                                <svg className="w-4 h-4 text-white/60 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                                </svg>
-                                                <span className="text-white/80 text-sm">{indicacao}</span>
-                                            </div>
-                                        ))}
+                                            <p className="text-white/90 font-semibold text-sm">Principais indicações:</p>
+                                            {modalidade.indicacoes.map((indicacao, i) => (
+                                                <div key={i} className="flex items-start gap-2">
+                                                    <svg className="w-4 h-4 text-white/60 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                                    </svg>
+                                                    <span className="text-white/80 text-sm">{indicacao}</span>
+                                                </div>
+                                            ))}
                                     </div>
                                 </div>
                             </AnimatedSection>
@@ -647,7 +690,7 @@ const TerceirizacaoPage: React.FC = () => {
             </section>
 
             {/* FAQ */}
-            <section className="py-20 bg-white">
+            <section className="py-12 lg:py-20 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto">
                         <AnimatedSection className="text-center mb-12">
