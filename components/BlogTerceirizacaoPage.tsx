@@ -20,6 +20,56 @@ const AnimatedSection: React.FC<{ children: React.ReactNode; className?: string;
     return (<div ref={setRef} className={`scroll-animate ${isVisible ? 'animate-in' : ''} ${className}`} style={{ transitionDelay: `${delay}s` }}>{children}</div>);
 };
 
+// Ícones SVG para o blog
+const blogIcons = {
+    clipboard: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+        </svg>
+    ),
+    calendar: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+        </svg>
+    ),
+    clock: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    ),
+    bolt: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+        </svg>
+    ),
+    user: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+    ),
+    trendDown: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6L9 12.75l4.286-4.286a11.948 11.948 0 014.306 6.43l.776 2.898M22.5 6l-6.45 6.45" />
+        </svg>
+    ),
+    trendUp: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+        </svg>
+    ),
+    shield: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+        </svg>
+    ),
+    target: (
+        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+        </svg>
+    ),
+};
+
 const BlogTerceirizacaoPage: React.FC = () => {
     return (
         <div className="min-h-screen bg-white">
@@ -134,21 +184,21 @@ const BlogTerceirizacaoPage: React.FC = () => {
                                             titulo: 'Efetiva por tempo indeterminado',
                                             descricao: 'Modelo amplamente utilizado, conhecido principalmente pelo seu formato CLT, onde a mão de obra se estende por mais de seis meses.',
                                             cor: 'from-orange-500 to-orange-600',
-                                            icon: '📋',
+                                            icon: blogIcons.clipboard,
                                             indicacao: 'Ideal para posições permanentes'
                                         },
                                         {
                                             titulo: 'Efetiva por tempo determinado',
                                             descricao: 'Normalmente utilizada para projetos com mão de obra especializada, essa modalidade atende atividades com período de até dois anos, com previsibilidade de data para finalização.',
                                             cor: 'from-amber-500 to-amber-600',
-                                            icon: '📅',
+                                            icon: blogIcons.calendar,
                                             indicacao: 'Ideal para projetos específicos'
                                         },
                                         {
                                             titulo: 'Contrato temporário',
                                             descricao: 'Formato indicado para atender necessidade transitória de substituição de pessoal regular e permanente, ou acréscimo extraordinário de serviços.',
                                             cor: 'from-red-500 to-red-600',
-                                            icon: '⏱️',
+                                            icon: blogIcons.clock,
                                             indicacao: 'Ideal para demandas sazonais'
                                         }
                                     ].map((modalidade, index) => (
@@ -188,32 +238,32 @@ const BlogTerceirizacaoPage: React.FC = () => {
                                         {
                                             titulo: 'Ganho de agilidade operacional',
                                             descricao: 'Sua empresa resolve demandas específicas com rapidez e eficiência.',
-                                            icon: '⚡'
+                                            icon: blogIcons.bolt
                                         },
                                         {
                                             titulo: 'Profissionais experientes',
                                             descricao: 'Conte com profissionais prontos e qualificados para diferentes áreas.',
-                                            icon: '👨‍💼'
+                                            icon: blogIcons.user
                                         },
                                         {
                                             titulo: 'Redução de burocracia',
                                             descricao: 'O vínculo empregatício fica por conta da consultoria de RH da Talentos.',
-                                            icon: '📉'
+                                            icon: blogIcons.trendDown
                                         },
                                         {
                                             titulo: 'Aumento de produtividade',
                                             descricao: 'Seu time fixo fica livre da sobrecarga e melhora sua produtividade.',
-                                            icon: '📈'
+                                            icon: blogIcons.trendUp
                                         },
                                         {
                                             titulo: 'Segurança jurídica',
                                             descricao: 'Sua empresa estará legalmente amparada pelo suporte da consultoria.',
-                                            icon: '🛡️'
+                                            icon: blogIcons.shield
                                         },
                                         {
                                             titulo: 'Foco no core business',
                                             descricao: 'Concentre energia na atividade principal do seu negócio.',
-                                            icon: '🎯'
+                                            icon: blogIcons.target
                                         }
                                     ].map((beneficio, index) => (
                                         <div 

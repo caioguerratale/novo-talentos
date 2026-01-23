@@ -32,15 +32,54 @@ const ChevronDownIcon = ({ isOpen }: { isOpen: boolean }) => (
     </svg>
 );
 
+// Ícones SVG para os módulos
+const moduloIcons = {
+    recrutamento: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+        </svg>
+    ),
+    integracao: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+        </svg>
+    ),
+    acompanhamento: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+        </svg>
+    ),
+    remuneracao: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    ),
+    motivacional: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+        </svg>
+    ),
+    jornada: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    ),
+    desligamento: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+        </svg>
+    ),
+};
+
 // 7 Módulos da Estruturação (cards simples)
 const modulosSimples = [
-    { nome: 'Recrutamento e Seleção', icon: '🔍', cor: 'from-red-500 to-red-600' },
-    { nome: 'Integração e Treinamento', icon: '🎓', cor: 'from-blue-500 to-indigo-600' },
-    { nome: 'Acompanhamento e Retenção', icon: '📈', cor: 'from-emerald-500 to-teal-600' },
-    { nome: 'Remuneração e Benefícios', icon: '💰', cor: 'from-amber-500 to-orange-600' },
-    { nome: 'Motivacional', icon: '🌟', cor: 'from-purple-500 to-violet-600' },
-    { nome: 'Controle de Jornada', icon: '⏰', cor: 'from-sky-500 to-blue-600' },
-    { nome: 'Desligamento', icon: '📝', cor: 'from-rose-500 to-pink-600' },
+    { nome: 'Recrutamento e Seleção', icon: moduloIcons.recrutamento, cor: 'from-amber-500 to-orange-600' },
+    { nome: 'Integração e Treinamento', icon: moduloIcons.integracao, cor: 'from-amber-500 to-orange-600' },
+    { nome: 'Acompanhamento e Retenção', icon: moduloIcons.acompanhamento, cor: 'from-amber-500 to-orange-600' },
+    { nome: 'Remuneração e Benefícios', icon: moduloIcons.remuneracao, cor: 'from-amber-500 to-orange-600' },
+    { nome: 'Motivacional', icon: moduloIcons.motivacional, cor: 'from-amber-500 to-orange-600' },
+    { nome: 'Controle de Jornada', icon: moduloIcons.jornada, cor: 'from-amber-500 to-orange-600' },
+    { nome: 'Desligamento', icon: moduloIcons.desligamento, cor: 'from-amber-500 to-orange-600' },
 ];
 
 // 7 Módulos detalhados para o slider
@@ -48,7 +87,7 @@ const modulosDetalhados = [
     {
         numero: 1,
         titulo: 'Recrutamento e Seleção',
-        icon: '🔍',
+        icon: moduloIcons.recrutamento,
         descricao: 'Estruturamos todo o processo de atração e seleção de talentos, desde a definição de perfis até a gestão de resultados.',
         itens: [
             'Definição de perfil socioeconômico para cada cargo/função',
@@ -64,7 +103,7 @@ const modulosDetalhados = [
     {
         numero: 2,
         titulo: 'Integração e Treinamento',
-        icon: '🎓',
+        icon: moduloIcons.integracao,
         descricao: 'Desenvolvemos processos de integração e capacitação para garantir que novos colaboradores sejam produtivos rapidamente.',
         itens: [
             'Matriz de Habilidades',
@@ -79,7 +118,7 @@ const modulosDetalhados = [
     {
         numero: 3,
         titulo: 'Acompanhamento e Retenção',
-        icon: '📈',
+        icon: moduloIcons.acompanhamento,
         descricao: 'Implementamos práticas de acompanhamento contínuo e estratégias de retenção para manter os melhores talentos.',
         itens: [
             'Monitoramento do desempenho',
@@ -96,7 +135,7 @@ const modulosDetalhados = [
     {
         numero: 4,
         titulo: 'Remuneração e Benefícios',
-        icon: '💰',
+        icon: moduloIcons.remuneracao,
         descricao: 'Estruturamos políticas de remuneração competitivas e benefícios alinhados às expectativas do mercado.',
         itens: [
             'Monitoramento da pontualidade e correção do pagamento',
@@ -113,7 +152,7 @@ const modulosDetalhados = [
     {
         numero: 5,
         titulo: 'Motivacional',
-        icon: '🌟',
+        icon: moduloIcons.motivacional,
         descricao: 'Desenvolvemos programas de incentivo e reconhecimento para manter a equipe engajada e motivada.',
         itens: [
             'Programa de incentivos',
@@ -129,7 +168,7 @@ const modulosDetalhados = [
     {
         numero: 6,
         titulo: 'Controle de Jornada',
-        icon: '⏰',
+        icon: moduloIcons.jornada,
         descricao: 'Implementamos controles eficientes de jornada de trabalho para garantir conformidade e produtividade.',
         itens: [
             'Controle de ponto',
@@ -144,7 +183,7 @@ const modulosDetalhados = [
     {
         numero: 7,
         titulo: 'Desligamento',
-        icon: '📝',
+        icon: moduloIcons.desligamento,
         descricao: 'Estruturamos processos de desligamento humanizados e conformes com a legislação.',
         itens: [
             'Procedimento por modalidade',

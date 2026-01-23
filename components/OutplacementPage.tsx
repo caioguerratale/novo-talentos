@@ -26,14 +26,49 @@ const ChevronDownIcon = ({ isOpen }: { isOpen: boolean }) => (
     </svg>
 );
 
+// Ícones SVG para o programa
+const programaIcons = {
+    aconselhamento: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+        </svg>
+    ),
+    curriculo: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+        </svg>
+    ),
+    treinamento: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+        </svg>
+    ),
+    networking: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+        </svg>
+    ),
+    mapeamento: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
+        </svg>
+    ),
+    suporte: (
+        <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+        </svg>
+    ),
+};
+
 // O que o programa inclui (cards)
 const programaInclui = [
-    { titulo: 'Aconselhamento de Carreira', icon: '🎯', cor: 'from-red-500 to-red-600' },
-    { titulo: 'Currículo Profissional', icon: '📄', cor: 'from-blue-500 to-indigo-600' },
-    { titulo: 'Treinamento para Entrevistas', icon: '🎤', cor: 'from-amber-500 to-orange-600' },
-    { titulo: 'Networking', icon: '🤝', cor: 'from-emerald-500 to-teal-600' },
-    { titulo: 'Mapeamento de Mercado', icon: '🗺️', cor: 'from-purple-500 to-violet-600' },
-    { titulo: 'Suporte Emocional', icon: '💚', cor: 'from-rose-500 to-pink-600' },
+    { titulo: 'Aconselhamento de Carreira', icon: programaIcons.aconselhamento, cor: 'from-red-500 to-red-600' },
+    { titulo: 'Currículo Profissional', icon: programaIcons.curriculo, cor: 'from-blue-500 to-indigo-600' },
+    { titulo: 'Treinamento para Entrevistas', icon: programaIcons.treinamento, cor: 'from-amber-500 to-orange-600' },
+    { titulo: 'Networking', icon: programaIcons.networking, cor: 'from-emerald-500 to-teal-600' },
+    { titulo: 'Mapeamento de Mercado', icon: programaIcons.mapeamento, cor: 'from-purple-500 to-violet-600' },
+    { titulo: 'Suporte Emocional', icon: programaIcons.suporte, cor: 'from-rose-500 to-pink-600' },
 ];
 
 // Dados do carrossel de benefícios
