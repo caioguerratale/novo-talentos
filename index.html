@@ -40,9 +40,15 @@
       
       /* Better touch targets for mobile */
       @media (max-width: 640px) {
-        button, a {
+        button:not(.dot-indicator), a {
           min-height: 44px;
         }
+      }
+      
+      /* Dot indicators should maintain their small size */
+      .dot-indicator {
+        min-height: auto !important;
+        height: 8px !important;
       }
       
       /* Prevent horizontal scroll on body */

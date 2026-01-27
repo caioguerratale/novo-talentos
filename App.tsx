@@ -325,19 +325,15 @@ const ServicesSlider: React.FC = () => {
                 </div>
 
                 {/* Dots indicator */}
-                <div className="flex justify-center items-center gap-1.5 sm:gap-2 mt-6 px-4">
+                <div className="flex justify-center items-center gap-2 mt-6 px-4">
                     {services.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => setActiveIndex(index)}
-                            style={{ 
-                                width: activeIndex === index ? '20px' : '8px',
-                                height: '8px',
-                                minWidth: activeIndex === index ? '20px' : '8px',
-                                maxWidth: activeIndex === index ? '20px' : '8px'
-                            }}
-                            className={`rounded-full transition-all duration-300 flex-shrink-0 ${
-                                activeIndex === index ? 'bg-white' : 'bg-white/40 hover:bg-white/60'
+                            className={`dot-indicator rounded-full transition-all duration-300 flex-shrink-0 ${
+                                activeIndex === index 
+                                    ? 'w-5 bg-white' 
+                                    : 'w-2 bg-white/40 hover:bg-white/60'
                             }`}
                             aria-label={`Ir para serviço ${index + 1}`}
                         />
