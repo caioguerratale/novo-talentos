@@ -204,29 +204,30 @@ const ClientCard: React.FC<{ client: typeof clients[0] }> = ({ client }) => (
     </div>
 );
 
-// Clients Carousel Component - Continuous Infinite Scroll
+// Clients Carousel Component - Continuous Infinite Scroll (Full Width)
 const ClientsCarousel: React.FC = () => {
     // Duplicate clients for seamless infinite loop
     const duplicatedClients = [...clients, ...clients];
+    const itemWidth = 220; // Width of each logo container
 
     return (
-        <div className="overflow-hidden">
+        <div className="overflow-hidden py-4">
             <div 
                 className="flex animate-scroll-infinite"
                 style={{
-                    width: `${duplicatedClients.length * 180}px`,
+                    width: `${duplicatedClients.length * itemWidth}px`,
                 }}
             >
                 {duplicatedClients.map((client, index) => (
                     <div 
                         key={`${client.name}-${index}`}
-                        className="flex items-center justify-center h-16 sm:h-20 lg:h-24 flex-shrink-0 px-4 sm:px-6"
-                        style={{ width: '180px' }}
+                        className="flex items-center justify-center h-20 sm:h-24 lg:h-28 flex-shrink-0 px-6 sm:px-8"
+                        style={{ width: `${itemWidth}px` }}
                     >
                         <img 
                             src={client.logoUrl} 
                             alt={client.name} 
-                            className="max-w-full max-h-full object-contain"
+                            className="max-w-full max-h-full object-contain hover:scale-110 transition-transform duration-300"
                         />
                     </div>
                 ))}
@@ -451,20 +452,21 @@ const HomePage: React.FC = () => (
             </div>
         </section>
 
-        {/* Clientes Section - Carousel with rounded cards */}
-        <section className="py-16 bg-white clients-section">
+        {/* Clientes Section - Full-width Carousel */}
+        <section className="py-16 bg-white clients-section overflow-hidden">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <AnimatedSection animation="fade-up">
                     <div className="text-center mb-10">
                         <h3 className="text-2xl font-bold text-gray-800">Alguns Clientes</h3>
                     </div>
                 </AnimatedSection>
-                <AnimatedSection animation="scale" delay={0.2}>
-                    <div className="max-w-5xl mx-auto bg-white rounded-xl py-6 px-4 clients-logos-container">
-                        <ClientsCarousel />
-                    </div>
-                </AnimatedSection>
             </div>
+            {/* Full-width carousel - spans entire viewport */}
+            <AnimatedSection animation="scale" delay={0.2}>
+                <div className="w-screen relative left-1/2 -translate-x-1/2 clients-logos-container">
+                    <ClientsCarousel />
+                </div>
+            </AnimatedSection>
         </section>
 
         {/* Services Section - Slider */}
