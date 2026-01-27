@@ -481,10 +481,10 @@ const HomePage: React.FC = () => (
                         <p className="text-gray-600 max-w-2xl mx-auto">A satisfação dos nossos clientes é o nosso maior reconhecimento</p>
                     </div>
                 </AnimatedSection>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
                     {testimonials.map((testimonial, index) => (
                         <AnimatedSection key={index} animation="scale" delay={0.1 * (index + 1)}>
-                            <div className="bg-white rounded-2xl shadow-lg p-8 h-full flex flex-col relative">
+                            <div className="bg-white rounded-2xl shadow-lg p-6 h-full flex flex-col relative">
                                 {/* Quote icon */}
                                 <svg className="w-10 h-10 text-red-100 absolute top-6 right-6" fill="currentColor" viewBox="0 0 32 32">
                                     <path d="M9.33 8.21C7.58 9.96 6.67 12.15 6.67 14.67c0 4.14 3.36 7.5 7.5 7.5h.83v-5h-.83c-1.38 0-2.5-1.12-2.5-2.5 0-.69.28-1.32.73-1.77L15.67 4H9.33v4.21zM22.33 8.21C20.58 9.96 19.67 12.15 19.67 14.67c0 4.14 3.36 7.5 7.5 7.5h.83v-5h-.83c-1.38 0-2.5-1.12-2.5-2.5 0-.69.28-1.32.73-1.77L28.67 4H22.33v4.21z" />

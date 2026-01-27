@@ -323,6 +323,12 @@ export const testimonials = [
         name: "Márcio Ferreira",
         title: "Regional Operations Manager, Ambev",
         imageUrl: `${import.meta.env.BASE_URL}depoimento-marcio.png`,
+    },
+    {
+        quote: "Estou querendo contratar o serviço de recrutamento de novo. A equipe do RH foi muito assertiva.",
+        name: "Matheus Lopes",
+        title: "Sócio na Baked Panificadora",
+        imageUrl: `${import.meta.env.BASE_URL}Matheus.jpg`,
     }
 ];
 
