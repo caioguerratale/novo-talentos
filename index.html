@@ -269,6 +269,26 @@
         animation: pulseSlow 3s ease-in-out infinite;
       }
       
+      /* Loading bar animation */
+      @keyframes loadingBar {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.6; }
+      }
+      
+      .animate-loading-bar {
+        animation: loadingBar 2s ease-in-out infinite;
+      }
+      
+      /* Float animation */
+      @keyframes floatUpDown {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+      
+      .animate-float {
+        animation: floatUpDown 3s ease-in-out infinite;
+      }
+      
       /* Tema Invertido - Troca Vermelho <-> Branco */
       /* Fundos */
       .theme-inverted .bg-red-700,
