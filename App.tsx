@@ -640,7 +640,7 @@ const AboutPage: React.FC = () => {
 
         <section className="bg-gray-50 py-20 sm:py-28">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
+                <div className="text-center mb-12 max-w-3xl mx-auto">
                     <h2 className="text-3xl font-bold text-gray-800">O Que Nossos Clientes Dizem</h2>
                     <p className="text-gray-600 mt-2 max-w-2xl mx-auto">A satisfação dos nossos clientes é o nosso maior ativo e o que nos impulsiona a sermos melhores a cada dia.</p>
                 </div>
@@ -908,6 +908,106 @@ const JobsPage: React.FC = () => {
     );
 };
 
+const ContactPageRemodeled: React.FC = () => {
+    const [formData, setFormData] = useState({ name: '', company: '', corporateEmail: '', phone: '', message: '' });
+    const [status, setStatus] = useState('');
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const subject = encodeURIComponent(`Novo contato comercial - ${formData.company}`);
+        const body = encodeURIComponent(
+            [
+                `Nome: ${formData.name}`,
+                `Empresa: ${formData.company}`,
+                `E-mail corporativo: ${formData.corporateEmail}`,
+                `Telefone: ${formData.phone}`,
+                '',
+                'Breve descrição do caso:',
+                formData.message,
+            ].join('\n')
+        );
+
+        window.location.href = `mailto:comercial@talentosconsultoria.com.br?subject=${subject}&body=${body}`;
+        setStatus('Abrindo seu aplicativo de e-mail...');
+    };
+
+    return (
+        <div className="bg-gradient-to-b from-gray-50 to-white py-16 sm:py-24">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-12 max-w-3xl mx-auto">
+                    <span className="inline-flex items-center gap-2 bg-red-100 text-red-700 text-sm font-semibold px-4 py-2 rounded-full mb-5">
+                        Atendimento consultivo
+                    </span>
+                    <h1 className="text-4xl font-extrabold text-gray-900">Fale com a Talentos</h1>
+                    <p className="mt-4 text-lg text-gray-600">
+                        Envie os dados da sua empresa e um breve resumo do caso. Nossa equipe entra em contato para entender a demanda e orientar os pr?ximos passos.
+                    </p>
+                </div>
+                <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-8 xl:gap-10 items-stretch">
+                    <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-gray-100">
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div className="sm:col-span-2">
+                                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nome</label>
+                                    <input type="text" name="name" id="name" required value={formData.name} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
+                                </div>
+                                <div className="sm:col-span-2">
+                                    <label htmlFor="company" className="block text-sm font-medium text-gray-700">Empresa</label>
+                                    <input type="text" name="company" id="company" required value={formData.company} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
+                                </div>
+                                <div className="sm:col-span-2">
+                                    <label htmlFor="corporateEmail" className="block text-sm font-medium text-gray-700">E-mail corporativo</label>
+                                    <input type="email" name="corporateEmail" id="corporateEmail" required value={formData.corporateEmail} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
+                                </div>
+                                <div className="sm:col-span-2">
+                                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Telefone</label>
+                                    <input type="tel" name="phone" id="phone" required value={formData.phone} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
+                                </div>
+                                <div className="sm:col-span-2">
+                                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">Breve descri??o do caso</label>
+                                    <textarea name="message" id="message" rows={6} required value={formData.message} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500" placeholder="Explique rapidamente a necessidade da sua empresa, prazo, volume de vagas ou contexto do projeto."></textarea>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" className="w-full bg-red-600 text-white font-bold py-3.5 px-6 rounded-xl hover:bg-red-700 transition-all duration-300 transform hover:scale-[1.01]">
+                                    Enviar contato
+                                </button>
+                            </div>
+                            {status && <p className="text-center text-gray-600">{status}</p>}
+                        </form>
+                    </div>
+                    <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-gray-100 flex flex-col">
+                        <div className="mb-6">
+                            <h3 className="text-2xl font-bold text-gray-800">Onde estamos</h3>
+                            <p className="mt-2 text-gray-600">
+                                Atendimento presencial e consultivo no endere?o da Talentos Consultoria.
+                            </p>
+                        </div>
+                        <div className="space-y-4 text-gray-600 mb-6">
+                            <p className="flex items-start"><strong className="w-24 shrink-0">Endere?o:</strong><span className="whitespace-pre-line">{contactInfo.address}</span></p>
+                        </div>
+                        <div className="h-[320px] sm:h-[380px] lg:flex-grow min-h-[320px] bg-gray-200 rounded-2xl overflow-hidden border border-gray-100">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.188443729906!2d-43.18122942375836!3d-22.90642923788574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f5f3531fe9b%3A0x949c882e334a17de!2sAv.%20Rio%20Branco%2C%20133%20-%20Centro%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2020040-006!5e0!3m2!1spt-BR!2sbr!4v1687448378619!5m2!1spt-BR!2sbr" 
+                                width="100%" 
+                                height="100%" 
+                                style={{ border: 0 }} 
+                                allowFullScreen={true}
+                                loading="lazy" 
+                                referrerPolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const ContactPage: React.FC = () => {
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
     const [status, setStatus] = useState('');
@@ -918,14 +1018,20 @@ const ContactPage: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setStatus('Enviando...');
-        // Simulação de envio
-        setTimeout(() => {
-            console.log('Form data submitted:', formData);
-            setStatus('Mensagem enviada com sucesso!');
-            setFormData({ name: '', email: '', phone: '', message: '' });
-            setTimeout(() => setStatus(''), 3000);
-        }, 1000);
+        const subject = encodeURIComponent(`Novo contato comercial - ${formData.name}`);
+        const body = encodeURIComponent(
+            [
+                `Nome: ${formData.name}`,
+                `E-mail: ${formData.email}`,
+                `Telefone: ${formData.phone}`,
+                '',
+                'Mensagem:',
+                formData.message,
+            ].join('\n')
+        );
+
+        window.location.href = `mailto:comercial@talentosconsultoria.com.br?subject=${subject}&body=${body}`;
+        setStatus('Abrindo seu aplicativo de e-mail...');
     };
 
     return (
@@ -964,8 +1070,6 @@ const ContactPage: React.FC = () => {
                         <h3 className="text-2xl font-bold text-gray-800">Informações de Contato</h3>
                         <div className="space-y-4 text-gray-600">
                             <p className="flex items-start"><strong className="w-24">Endereço:</strong><span className="whitespace-pre-line">{contactInfo.address}</span></p>
-                            <p className="flex items-start"><strong className="w-24">Telefone:</strong><a href={`tel:${contactInfo.phone.replace(/\D/g, '')}`} className="text-red-600 hover:underline">{contactInfo.phone}</a></p>
-                            <p className="flex items-start"><strong className="w-24">E-mail:</strong><a href={`mailto:${contactInfo.email}`} className="text-red-600 hover:underline">{contactInfo.email}</a></p>
                         </div>
                         <div className="h-64 bg-gray-200 rounded-lg overflow-hidden">
                            <iframe 
@@ -997,6 +1101,7 @@ const PageContainer = () => {
                     <Route path="/servicos/:slug" element={<ServiceDetailPage />} />
                     <Route path="/vagas" element={<JobsPage />} />
                     <Route path="/contato" element={<ContactPage />} />
+                    <Route path="/contato-novo" element={<ContactPageRemodeled />} />
                     <Route path="/blog/pesquisa-de-clima-organizacional" element={<BlogPesquisaClimaPage />} />
                     <Route path="/blog/gestao-de-talentos" element={<BlogGestaoTalentosPage />} />
                     <Route path="/blog/terceirizacao-de-mao-de-obra" element={<BlogTerceirizacaoPage />} />

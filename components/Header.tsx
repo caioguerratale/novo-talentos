@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { whatsappLink } from '../constants';
 
 const NavItem: React.FC<{ to: string; children: React.ReactNode; onClick?: () => void }> = ({ to, children, onClick }) => (
   <NavLink
@@ -110,14 +109,12 @@ const Header: React.FC = () => {
           </div>
 
           {/* CTA Button - Right side */}
-          <a
-            href={whatsappLink}
-            target="_blank"
-            rel="noopener noreferrer"
+          <NavLink
+            to="/contato"
             className="hidden md:inline-flex items-center gap-2 bg-red-600 text-white font-semibold py-2 px-4 lg:px-5 rounded-full hover:bg-red-700 transition-all duration-300 transform hover:scale-105 shadow-md shrink-0 whitespace-nowrap"
           >
             Contrate a Talentos
-          </a>
+          </NavLink>
         </div>
         
         {/* Mobile Menu */}
@@ -141,14 +138,13 @@ const Header: React.FC = () => {
               Vagas de emprego
             </a>
 
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
+            <NavLink
+              to="/contato"
+              onClick={closeMenu}
               className="block py-2 px-3 bg-red-600 text-white font-semibold rounded text-center hover:bg-red-700 transition-colors duration-200 mt-2"
             >
               Contrate a Talentos
-            </a>
+            </NavLink>
           </div>
         </div>
       </nav>
