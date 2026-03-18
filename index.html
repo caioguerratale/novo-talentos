@@ -24,6 +24,12 @@
       .scrollbar-hide::-webkit-scrollbar {
         display: none;
       }
+
+      .scroll-touch {
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        touch-action: pan-x;
+      }
       
       /* Responsive container max-widths for large screens */
       @media (min-width: 1536px) {
@@ -54,6 +60,12 @@
       /* Prevent horizontal scroll on body */
       html, body {
         overflow-x: hidden;
+      }
+
+      @media (max-width: 1024px) {
+        .animate-scroll-infinite {
+          animation: none;
+        }
       }
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }

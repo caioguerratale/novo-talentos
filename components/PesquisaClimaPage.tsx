@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ConsultorButton from './ConsultorButton';
+import { useSwipeNavigation } from './useSwipeNavigation';
 
 // Hook for scroll animations
 const useScrollAnimation = () => {
@@ -251,6 +252,10 @@ const BeneficiosCarousel: React.FC = () => {
     };
 
     const slide = carouselSlides[currentSlide];
+    const swipeHandlers = useSwipeNavigation({
+        onSwipeLeft: nextSlide,
+        onSwipeRight: prevSlide,
+    });
 
     return (
         <section className="py-12 lg:py-20 bg-white relative overflow-hidden">
@@ -272,7 +277,8 @@ const BeneficiosCarousel: React.FC = () => {
                 <div className="max-w-5xl mx-auto">
                     {/* Main Card - Altura fixa */}
                     <div 
-                        className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-6 lg:p-8 xl:p-12 h-[350px] md:h-[300px] lg:h-[280px] flex flex-col transition-colors duration-500 shadow-2xl`}
+                        className={`bg-gradient-to-br ${slide.cor} rounded-3xl p-6 lg:p-8 xl:p-12 min-h-[380px] sm:min-h-[340px] md:h-[300px] lg:h-[280px] flex flex-col transition-colors duration-500 shadow-2xl`}
+                        {...swipeHandlers}
                     >
                         {/* Top Row */}
                         <div className="flex items-center gap-4 mb-6">
@@ -300,7 +306,7 @@ const BeneficiosCarousel: React.FC = () => {
                     </div>
 
                     {/* Navigation - Fixo abaixo do card */}
-                    <div className="flex items-center justify-center gap-6 mt-8">
+                    <div className="flex items-center justify-center gap-3 sm:gap-6 mt-8 flex-wrap">
                         {/* Prev Arrow */}
                         <button 
                             onClick={prevSlide}

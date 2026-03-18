@@ -19,6 +19,7 @@ import BlogGestaoTalentosPage from './components/BlogGestaoTalentosPage';
 import BlogTerceirizacaoPage from './components/BlogTerceirizacaoPage';
 import BlogPage from './components/BlogPage';
 import BlogEmConstrucaoPage from './components/BlogEmConstrucaoPage';
+import { useSwipeNavigation } from './components/useSwipeNavigation';
 import { services, aboutUsText, contactInfo, whatsappLink, clients, blogArticles, testimonials, historyTimeline } from './constants';
 import { Service } from './types';
 
@@ -211,26 +212,44 @@ const ClientsCarousel: React.FC = () => {
     const itemWidth = 220; // Width of each logo container
 
     return (
-        <div className="overflow-hidden py-4">
-            <div 
-                className="flex animate-scroll-infinite"
-                style={{
-                    width: `${duplicatedClients.length * itemWidth}px`,
-                }}
-            >
-                {duplicatedClients.map((client, index) => (
-                    <div 
-                        key={`${client.name}-${index}`}
-                        className="flex items-center justify-center h-20 sm:h-24 lg:h-28 flex-shrink-0 px-6 sm:px-8"
-                        style={{ width: `${itemWidth}px` }}
-                    >
-                        <img 
-                            src={client.logoUrl} 
-                            alt={client.name} 
-                            className="max-w-full max-h-full object-contain hover:scale-110 transition-transform duration-300"
-                        />
-                    </div>
-                ))}
+        <div className="py-4">
+            <div className="lg:hidden overflow-x-auto scrollbar-hide scroll-touch px-4">
+                <div className="flex gap-3 min-w-max">
+                    {clients.map((client) => (
+                        <div
+                            key={client.name}
+                            className="snap-start flex items-center justify-center h-20 w-40 rounded-2xl bg-gray-50 px-4 flex-shrink-0"
+                        >
+                            <img
+                                src={client.logoUrl}
+                                alt={client.name}
+                                className="max-w-full max-h-full object-contain"
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="hidden lg:block overflow-hidden">
+                <div 
+                    className="flex animate-scroll-infinite"
+                    style={{
+                        width: `${duplicatedClients.length * itemWidth}px`,
+                    }}
+                >
+                    {duplicatedClients.map((client, index) => (
+                        <div 
+                            key={`${client.name}-${index}`}
+                            className="flex items-center justify-center h-24 xl:h-28 flex-shrink-0 px-8"
+                            style={{ width: `${itemWidth}px` }}
+                        >
+                            <img 
+                                src={client.logoUrl} 
+                                alt={client.name} 
+                                className="max-w-full max-h-full object-contain hover:scale-110 transition-transform duration-300"
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
@@ -241,9 +260,13 @@ const ServicesSlider: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const activeService = services[activeIndex];
     const { setRef, isVisible } = useScrollAnimation();
+    const swipeHandlers = useSwipeNavigation({
+        onSwipeLeft: () => setActiveIndex((prev) => (prev + 1) % services.length),
+        onSwipeRight: () => setActiveIndex((prev) => (prev - 1 + services.length) % services.length),
+    });
 
     return (
-        <section id="servicos" className="py-8 bg-gray-900 min-h-[calc(100vh-80px)] flex flex-col justify-between relative overflow-hidden">
+        <section id="servicos" className="py-8 bg-gray-900 min-h-[calc(100vh-80px)] flex flex-col justify-between relative overflow-hidden" {...swipeHandlers}>
             {/* Background Image */}
             {activeService.bgImage && (
                 <div 
@@ -260,7 +283,7 @@ const ServicesSlider: React.FC = () => {
             )}
             <div ref={setRef} className="container mx-auto px-4 sm:px-6 lg:px-8 flex-grow flex flex-col relative z-10">
                 {/* Tabs Navigation - Scrollable on mobile */}
-                <div className={`overflow-x-auto scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0 mb-6 border-b border-white/20 pb-3 scroll-animate ${isVisible ? 'animate-in' : ''}`}>
+                <div className={`overflow-x-auto scrollbar-hide scroll-touch -mx-4 px-4 sm:mx-0 sm:px-0 mb-6 border-b border-white/20 pb-3 scroll-animate ${isVisible ? 'animate-in' : ''}`}>
                     <div className="flex justify-start sm:justify-center gap-2 min-w-max sm:min-w-0 sm:flex-wrap">
                         {services.map((service, index) => (
                             <button
@@ -459,7 +482,7 @@ const HomePage: React.FC = () => (
             </div>
             {/* Full-width carousel - spans entire viewport */}
             <AnimatedSection animation="scale" delay={0.2}>
-                <div className="w-screen relative left-1/2 -translate-x-1/2 clients-logos-container">
+                <div className="w-full clients-logos-container">
                     <ClientsCarousel />
                 </div>
             </AnimatedSection>

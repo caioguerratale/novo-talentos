@@ -67,8 +67,8 @@ const Header: React.FC = () => {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 relative">
-          <NavLink to="/" className="flex items-center transition-opacity duration-300 hover:opacity-75" onClick={scrollToTop}>
+        <div className="flex items-center justify-between gap-4 h-20">
+          <NavLink to="/" className="flex items-center transition-opacity duration-300 hover:opacity-75 shrink-0" onClick={scrollToTop}>
             <img src="https://talentosconsultoria.com.br/wp-content/uploads/2019/11/talentos-consultoria-logo.png" alt="Talentos Consultoria Logo" className="h-12" />
           </NavLink>
 
@@ -89,10 +89,10 @@ const Header: React.FC = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex md:items-center md:space-x-8 absolute left-1/2 transform -translate-x-1/2">
+          <div className="hidden md:flex md:flex-1 md:items-center md:justify-center md:space-x-6 lg:space-x-8 min-w-0">
             <button 
               onClick={scrollToServices}
-              className="text-gray-700 hover:text-red-700 transition-all duration-300 font-medium"
+              className="text-gray-700 hover:text-red-700 transition-all duration-300 font-medium whitespace-nowrap"
             >
               Para sua empresa
             </button>
@@ -103,7 +103,7 @@ const Header: React.FC = () => {
               href="https://talentosconsultoria.infojobs.com.br/empregos.aspx"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-700 hover:text-red-700 transition-all duration-300 font-medium"
+              className="text-gray-700 hover:text-red-700 transition-all duration-300 font-medium whitespace-nowrap"
             >
               Vagas de emprego
             </a>
@@ -114,7 +114,7 @@ const Header: React.FC = () => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 bg-red-600 text-white font-semibold py-2 px-5 rounded-full hover:bg-red-700 transition-all duration-300 transform hover:scale-105 shadow-md"
+            className="hidden md:inline-flex items-center gap-2 bg-red-600 text-white font-semibold py-2 px-4 lg:px-5 rounded-full hover:bg-red-700 transition-all duration-300 transform hover:scale-105 shadow-md shrink-0 whitespace-nowrap"
           >
             Contrate a Talentos
           </a>
