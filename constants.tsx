@@ -295,7 +295,7 @@ export const historyTimeline = [
     },
     {
         id: 6,
-        imageUrl: `${import.meta.env.BASE_URL}nossa hist/diretores-talentos-consultoria.jpg`,
+        imageUrl: `${import.meta.env.BASE_URL}nossa hist/Talentos Brasil.png`,
         imagePosition: 'right',
         content: (
             <>
@@ -359,6 +359,8 @@ export const clients = [
     { name: 'Microblau', logoUrl: resolveLogo('logotipo-microblau.jpg') },
     { name: 'MRV', logoUrl: resolveLogo('MRV.jpg') },
     { name: 'Technogym', logoUrl: resolveLogo('Technogym.png') },
+    { name: 'Cimento Tupi', logoUrl: resolveLogo('CIMENTO TUPI.png') },
+    { name: 'Viatris', logoUrl: resolveLogo('Viatris_Logo_Verti_RGB.png') },
 ];
 
 

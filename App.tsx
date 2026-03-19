@@ -415,7 +415,7 @@ const BlogGridCard: React.FC<{ article: typeof blogArticles[0] }> = ({ article }
 const HomePage: React.FC = () => (
     <>
         {/* Hero Section - Gradient Background - Full Screen */}
-        <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center bg-gradient-to-br from-red-800 via-red-900 to-gray-900 py-8 sm:py-12 overflow-hidden">
+        <section className="relative min-h-[calc(100vh-80px)] flex items-center justify-center bg-gradient-to-br from-red-800 via-red-900 to-gray-900 py-6 sm:py-8 overflow-hidden">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute -top-40 -right-40 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
@@ -427,19 +427,19 @@ const HomePage: React.FC = () => (
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                 <div className="max-w-4xl mx-auto">
                     {/* Tag */}
-                    <span className="inline-block bg-white/20 text-white uppercase tracking-widest text-[10px] sm:text-xs md:text-sm font-semibold py-2 px-4 sm:px-6 rounded-full mb-6 sm:mb-8 backdrop-blur-sm animate-fade-in-up">
+                    <span className="inline-block bg-white/20 text-white uppercase tracking-widest text-[10px] sm:text-xs md:text-sm font-semibold py-2 px-4 sm:px-6 rounded-full mb-4 sm:mb-6 backdrop-blur-sm animate-fade-in-up">
                         Consultoria de Alta Performance
                     </span>
                     
                     {/* Main Title */}
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight text-white mb-4 sm:mb-6 uppercase tracking-tight animate-fade-in-up animation-delay-200">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black leading-[0.95] text-white mb-3 sm:mb-4 uppercase tracking-tight animate-fade-in-up animation-delay-200 max-w-5xl mx-auto">
                         Transforme <span className="text-white">Pessoas</span>
                         <br />
                         em Resultados Reais.
                     </h1>
                     
                     {/* Subtitle */}
-                    <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 sm:mb-10 leading-relaxed max-w-2xl mx-auto px-2 animate-fade-in-up animation-delay-400">
+                    <p className="text-base sm:text-lg md:text-[1.35rem] text-white/80 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto px-2 animate-fade-in-up animation-delay-400">
                         Alinhamos cultura, liderança e gestão para construir times que não apenas trabalham, mas entregam lucro e crescimento para o seu negócio.
                     </p>
                     
@@ -464,7 +464,7 @@ const HomePage: React.FC = () => (
             </div>
             
             {/* Scroll indicator */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce z-20">
+            <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 animate-bounce z-20">
                 <svg className="w-6 h-6 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
