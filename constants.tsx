@@ -299,7 +299,9 @@ export const historyTimeline = [
         imagePosition: 'right',
         content: (
             <>
-                <p>Hoje em dia temos uma equipe experiente e comprometida, além de uma excelente estrutura, para atendermos bem clientes de <span className="text-red-600">diversos segmentos e diferentes portes</span>.</p>
+                <p>2024 foi o ano em que a Talentos Consultoria ultrapassou fronteiras e expandiu sua atuação para todo o Brasil.</p>
+                <p>Com uma trajetória sólida em gestão de pessoas e soluções estratégicas de RH, passamos a atender empresas em nível nacional, levando nossa expertise, agilidade e qualidade para negócios que desejam crescer com estrutura, assertividade e os melhores talentos.</p>
+                <p>Essa expansão representa mais do que alcance geográfico: representa a força de uma consultoria preparada para entender diferentes realidades, atuar de forma personalizada e entregar resultados que impulsionam empresas em todo o país. Porque, para a Talentos, crescer junto com nossos clientes sempre foi o principal objetivo.</p>
             </>
         ),
     },

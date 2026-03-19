@@ -500,7 +500,7 @@ const HomePage: React.FC = () => (
                         <p className="text-gray-600 max-w-2xl mx-auto">A satisfação dos nossos clientes é o nosso maior reconhecimento</p>
                     </div>
                 </AnimatedSection>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                     {testimonials.map((testimonial, index) => (
                         <AnimatedSection key={index} animation="scale" delay={0.1 * (index + 1)}>
                             <div className="bg-white rounded-2xl shadow-lg p-6 h-full flex flex-col relative">
@@ -519,7 +519,7 @@ const HomePage: React.FC = () => (
                                 </div>
                                 
                                 {/* Quote */}
-                                <blockquote className="text-gray-600 text-center italic mb-6 flex-grow leading-relaxed">
+                                <blockquote className="text-gray-600 text-center italic text-sm md:text-base mb-6 flex-grow leading-relaxed">
                                     "{testimonial.quote}"
                                 </blockquote>
                                 
@@ -644,7 +644,7 @@ const AboutPage: React.FC = () => {
                     <h2 className="text-3xl font-bold text-gray-800">O Que Nossos Clientes Dizem</h2>
                     <p className="text-gray-600 mt-2 max-w-2xl mx-auto">A satisfação dos nossos clientes é o nosso maior ativo e o que nos impulsiona a sermos melhores a cada dia.</p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                     {testimonials.map((testimonial, index) => (
                         <div key={index} className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center text-center">
                             <img src={testimonial.imageUrl} alt={testimonial.name} className="w-24 h-24 rounded-full mb-6 object-cover ring-4 ring-orange-200" />
@@ -660,6 +660,9 @@ const AboutPage: React.FC = () => {
                             </cite>
                         </div>
                     ))}
+                </div>
+                <div className="text-center mt-12">
+                    <ConsultorButton variant="red">Fale com o Consultor</ConsultorButton>
                 </div>
             </div>
         </section>
@@ -944,7 +947,7 @@ const ContactPageRemodeled: React.FC = () => {
                     </span>
                     <h1 className="text-4xl font-extrabold text-gray-900">Fale com a Talentos</h1>
                     <p className="mt-4 text-lg text-gray-600">
-                        Envie os dados da sua empresa e um breve resumo do caso. Nossa equipe entra em contato para entender a demanda e orientar os pr?ximos passos.
+                        Envie os dados da sua empresa e um breve resumo do caso. Nossa equipe entra em contato para entender a demanda e orientar os próximos passos.
                     </p>
                 </div>
                 <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-8 xl:gap-10 items-stretch">
@@ -968,7 +971,7 @@ const ContactPageRemodeled: React.FC = () => {
                                     <input type="tel" name="phone" id="phone" required value={formData.phone} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
                                 </div>
                                 <div className="sm:col-span-2">
-                                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">Breve descri??o do caso</label>
+                                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">Breve descrição do caso</label>
                                     <textarea name="message" id="message" rows={6} required value={formData.message} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500" placeholder="Explique rapidamente a necessidade da sua empresa, prazo, volume de vagas ou contexto do projeto."></textarea>
                                 </div>
                             </div>
@@ -984,11 +987,11 @@ const ContactPageRemodeled: React.FC = () => {
                         <div className="mb-6">
                             <h3 className="text-2xl font-bold text-gray-800">Onde estamos</h3>
                             <p className="mt-2 text-gray-600">
-                                Atendimento presencial e consultivo no endere?o da Talentos Consultoria.
+                                Atendimento presencial e consultivo no endereço da Talentos Consultoria.
                             </p>
                         </div>
                         <div className="space-y-4 text-gray-600 mb-6">
-                            <p className="flex items-start"><strong className="w-24 shrink-0">Endere?o:</strong><span className="whitespace-pre-line">{contactInfo.address}</span></p>
+                            <p className="flex items-start"><strong className="w-24 shrink-0">Endereço:</strong><span className="whitespace-pre-line">{contactInfo.address}</span></p>
                         </div>
                         <div className="h-[320px] sm:h-[380px] lg:flex-grow min-h-[320px] bg-gray-200 rounded-2xl overflow-hidden border border-gray-100">
                             <iframe 

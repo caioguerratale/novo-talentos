@@ -3,7 +3,7 @@ import React from 'react';
 const WHATSAPP_NUMBER = "5521967155476";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
-type ButtonVariant = 'hero' | 'dark' | 'light' | 'cta';
+type ButtonVariant = 'hero' | 'dark' | 'light' | 'cta' | 'red';
 
 interface ConsultorButtonProps {
     variant?: ButtonVariant;
@@ -24,6 +24,7 @@ const variantStyles: Record<ButtonVariant, string> = {
     
     // Para seções CTA (chamada para ação) - Responsivo
     cta: "inline-flex items-center justify-center gap-2 bg-white text-red-700 font-bold py-3 sm:py-4 px-8 sm:px-10 rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-sm sm:text-base",
+    red: "inline-flex items-center justify-center gap-2 bg-red-600 text-white font-bold py-3 sm:py-4 px-8 sm:px-10 rounded-xl hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-sm sm:text-base",
 };
 
 const ConsultorButton: React.FC<ConsultorButtonProps> = ({ 
@@ -52,4 +53,3 @@ const ConsultorButton: React.FC<ConsultorButtonProps> = ({
 };
 
 export default ConsultorButton;
-
