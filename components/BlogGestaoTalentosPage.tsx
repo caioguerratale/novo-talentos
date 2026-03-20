@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ConsultorButton from './ConsultorButton';
+import BlogRecommendationsSection from './BlogRecommendationsSection';
 
 // Hook for scroll animations
 const useScrollAnimation = () => {
@@ -79,10 +80,10 @@ const BlogGestaoTalentosPage: React.FC = () => {
     return (
         <div className="min-h-screen bg-white">
             {/* Hero Section */}
-            <section className="relative py-20 bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 overflow-hidden">
+            <section className="relative py-20 bg-gradient-to-br from-red-700 via-red-800 to-red-900 overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                     <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-400 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+                    <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-400 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
                 </div>
                 <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
 
@@ -132,7 +133,7 @@ const BlogGestaoTalentosPage: React.FC = () => {
                         <AnimatedSection delay={0.1}>
                             <div className="prose prose-lg max-w-none">
                                 <p className="text-xl text-gray-700 leading-relaxed mb-8">
-                                    Coordenar pessoas com estratégia é uma das formas mais inteligentes de impulsionar resultados. Com a <strong className="text-blue-600">gestão de talentos</strong>, sua empresa trabalha o desenvolvimento humano, extraindo o potencial máximo de cada colaborador.
+                                    Coordenar pessoas com estratégia é uma das formas mais inteligentes de impulsionar resultados. Com a <strong className="text-red-600">gestão de talentos</strong>, sua empresa trabalha o desenvolvimento humano, extraindo o potencial máximo de cada colaborador.
                                 </p>
                                 
                                 <p className="text-gray-600 leading-relaxed mb-8">
@@ -147,13 +148,13 @@ const BlogGestaoTalentosPage: React.FC = () => {
 
                         {/* O que é gestão de talentos */}
                         <AnimatedSection delay={0.15}>
-                            <div className="bg-blue-50 rounded-2xl p-8 mb-12">
+                            <div className="bg-red-50 rounded-2xl p-8 mb-12">
                                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                                     O que é gestão de talentos?
                                 </h2>
                                 
                                 <p className="text-gray-600 leading-relaxed mb-6">
-                                    A gestão de talentos é uma <strong className="text-blue-600">estratégia empresarial</strong> feita para atrair, desenvolver e reter profissionais qualificados para sua empresa. Com ela, você fortalece as habilidades do seu time, para que o engajamento e a produtividade aumentem, conquistando resultados ainda mais satisfatórios.
+                                    A gestão de talentos é uma <strong className="text-red-600">estratégia empresarial</strong> feita para atrair, desenvolver e reter profissionais qualificados para sua empresa. Com ela, você fortalece as habilidades do seu time, para que o engajamento e a produtividade aumentem, conquistando resultados ainda mais satisfatórios.
                                 </p>
                                 
                                 <p className="text-gray-600 leading-relaxed mb-6">
@@ -170,7 +171,7 @@ const BlogGestaoTalentosPage: React.FC = () => {
                                         { icon: blogIcons.trophy, text: 'Retenção' },
                                     ].map((item, index) => (
                                         <div key={index} className="bg-white rounded-xl p-4 text-center shadow-sm">
-                                            <div className="flex justify-center text-blue-600 mb-2">{item.icon}</div>
+                                            <div className="flex justify-center text-red-600 mb-2">{item.icon}</div>
                                             <span className="text-gray-700 text-sm font-medium">{item.text}</span>
                                         </div>
                                     ))}
@@ -198,13 +199,13 @@ const BlogGestaoTalentosPage: React.FC = () => {
                                         {
                                             titulo: 'Atração e retenção de talentos',
                                             descricao: 'Com uma cultura interna forte, sua empresa atrai, desenvolve e retém os melhores profissionais do mercado, fazendo com que a marca se torne atrativa para futuros talentos.',
-                                            cor: 'from-blue-500 to-indigo-600',
+                                            cor: 'from-red-500 to-red-600',
                                             icon: blogIcons.handshake
                                         },
                                         {
                                             titulo: 'Redução de turnover',
                                             descricao: 'Ao trabalhar a gestão do seu time, sua empresa diminui a rotatividade de pessoal, evitando perder talentos para a concorrência.',
-                                            cor: 'from-emerald-500 to-teal-600',
+                                            cor: 'from-orange-500 to-red-600',
                                             icon: blogIcons.trendUp
                                         },
                                         {
@@ -216,7 +217,7 @@ const BlogGestaoTalentosPage: React.FC = () => {
                                         {
                                             titulo: 'Melhora do clima organizacional',
                                             descricao: 'Um ambiente de trabalho com oportunidades de crescimento e atenção ao colaborador, se torna um espaço saudável, colaborativo e produtivo.',
-                                            cor: 'from-purple-500 to-violet-600',
+                                            cor: 'from-red-600 to-orange-600',
                                             icon: blogIcons.sparkle
                                         }
                                     ].map((beneficio, index) => (
@@ -241,7 +242,7 @@ const BlogGestaoTalentosPage: React.FC = () => {
 
                         {/* Incentivando novas lideranças */}
                         <AnimatedSection delay={0.25}>
-                            <div className="bg-gradient-to-br from-indigo-900 to-blue-900 rounded-2xl p-8 mb-12 text-white">
+                            <div className="bg-gradient-to-br from-red-700 to-orange-600 rounded-2xl p-8 mb-12 text-white">
                                 <h2 className="text-2xl md:text-3xl font-bold mb-6">
                                     Incentivando novas lideranças
                                 </h2>
@@ -342,13 +343,13 @@ const BlogGestaoTalentosPage: React.FC = () => {
                                             to={servico.link}
                                             className="flex items-center gap-4 bg-white rounded-xl p-4 hover:shadow-md transition-all duration-300 group"
                                         >
-                                            <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-600 transition-colors">
-                                                <svg className="w-5 h-5 text-blue-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center group-hover:bg-red-600 transition-colors">
+                                                <svg className="w-5 h-5 text-red-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                                 </svg>
                                             </div>
                                             <div>
-                                                <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{servico.titulo}</h3>
+                                                <h3 className="font-bold text-gray-900 group-hover:text-red-600 transition-colors">{servico.titulo}</h3>
                                                 <p className="text-gray-500 text-sm">{servico.descricao}</p>
                                             </div>
                                         </Link>
@@ -359,7 +360,7 @@ const BlogGestaoTalentosPage: React.FC = () => {
 
                         {/* CTA */}
                         <AnimatedSection delay={0.4}>
-                            <div className="bg-blue-600 rounded-2xl p-8 text-center text-white">
+                            <div className="bg-gradient-to-br from-red-600 to-orange-500 rounded-2xl p-8 text-center text-white">
                                 <h2 className="text-2xl font-bold mb-4">
                                     Invista nas pessoas e no futuro da sua empresa
                                 </h2>
@@ -373,56 +374,27 @@ const BlogGestaoTalentosPage: React.FC = () => {
                 </div>
             </article>
 
-            {/* Outros artigos */}
-            <section className="py-16 bg-gray-50">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                        Outros artigos que você pode gostar
-                    </h2>
-                    
-                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        <Link 
-                            to="/blog/pesquisa-de-clima-organizacional"
-                            className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300"
-                        >
-                            <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-red-600 transition-colors">
-                                <svg className="w-6 h-6 text-red-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                </svg>
-                            </div>
-                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">
-                                Pesquisa de clima organizacional
-                            </h3>
-                            <p className="text-gray-600 text-sm">
-                                Como transformar feedbacks em oportunidades de crescimento para sua empresa.
-                            </p>
-                        </Link>
-                        
-                        <Link 
-                            to="/servicos/recrutamento-e-selecao"
-                            className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300"
-                        >
-                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-600 transition-colors">
-                                <svg className="w-6 h-6 text-emerald-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
-                                Recrutamento e Seleção
-                            </h3>
-                            <p className="text-gray-600 text-sm">
-                                Encontre os melhores profissionais para sua empresa com nosso processo especializado.
-                            </p>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <BlogRecommendationsSection
+                items={[
+                    {
+                        title: 'Pesquisa de Clima Organizacional',
+                        description: 'Mapeie percepções da equipe e identifique oportunidades reais de melhoria no ambiente interno.',
+                        url: '/servicos/pesquisa-de-clima-organizacional',
+                        accent: 'red',
+                        icon: 'chart',
+                    },
+                    {
+                        title: 'Recrutamento e Seleção',
+                        description: 'Encontre profissionais mais aderentes à cultura e às metas da empresa com apoio especializado.',
+                        url: '/servicos/recrutamento-e-selecao',
+                        accent: 'orange',
+                        icon: 'search',
+                    },
+                ]}
+            />
         </div>
     );
 };
 
 export default BlogGestaoTalentosPage;
-
-
-
 

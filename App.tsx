@@ -17,6 +17,13 @@ import ConsultoriaRHPage from './components/ConsultoriaRHPage';
 import BlogPesquisaClimaPage from './components/BlogPesquisaClimaPage';
 import BlogGestaoTalentosPage from './components/BlogGestaoTalentosPage';
 import BlogTerceirizacaoPage from './components/BlogTerceirizacaoPage';
+import BlogRecrutamentoEstrategicoPage from './components/BlogRecrutamentoEstrategicoPage';
+import BlogLiderancaAssertivaPage from './components/BlogLiderancaAssertivaPage';
+import BlogConsultoriaRHBeneficiosPage from './components/BlogConsultoriaRHBeneficiosPage';
+import BlogSaudeMentalTrabalhoPage from './components/BlogSaudeMentalTrabalhoPage';
+import BlogTerceirizacaoSegurancaPage from './components/BlogTerceirizacaoSegurancaPage';
+import BlogRetencaoTalentosPage from './components/BlogRetencaoTalentosPage';
+import BlogHabilidades2025Page from './components/BlogHabilidades2025Page';
 import BlogPage from './components/BlogPage';
 import BlogEmConstrucaoPage from './components/BlogEmConstrucaoPage';
 import { useSwipeNavigation } from './components/useSwipeNavigation';
@@ -1108,6 +1115,13 @@ const PageContainer = () => {
                     <Route path="/blog/pesquisa-de-clima-organizacional" element={<BlogPesquisaClimaPage />} />
                     <Route path="/blog/gestao-de-talentos" element={<BlogGestaoTalentosPage />} />
                     <Route path="/blog/terceirizacao-de-mao-de-obra" element={<BlogTerceirizacaoPage />} />
+                    <Route path="/blog/recrutamento-e-selecao-estrategico" element={<BlogRecrutamentoEstrategicoPage />} />
+                    <Route path="/blog/lideranca-assertiva" element={<BlogLiderancaAssertivaPage />} />
+                    <Route path="/blog/consultoria-de-rh-beneficios" element={<BlogConsultoriaRHBeneficiosPage />} />
+                    <Route path="/blog/habilidades-profissionais-2025" element={<BlogHabilidades2025Page />} />
+                    <Route path="/blog/saude-mental-no-trabalho" element={<BlogSaudeMentalTrabalhoPage />} />
+                    <Route path="/blog/terceirizacao-de-mao-de-obra-com-seguranca" element={<BlogTerceirizacaoSegurancaPage />} />
+                    <Route path="/blog/como-reter-talentos" element={<BlogRetencaoTalentosPage />} />
                     <Route path="/blog/em-construcao" element={<BlogEmConstrucaoPage />} />
                     <Route path="/blog" element={<BlogPage />} />
                 </Routes>

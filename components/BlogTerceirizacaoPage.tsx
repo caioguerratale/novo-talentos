@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ConsultorButton from './ConsultorButton';
+import BlogRecommendationsSection from './BlogRecommendationsSection';
 
 // Hook for scroll animations
 const useScrollAnimation = () => {
@@ -335,56 +336,28 @@ const BlogTerceirizacaoPage: React.FC = () => {
                 </div>
             </article>
 
-            {/* Outros artigos */}
-            <section className="py-16 bg-gray-50">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                        Outros artigos que você pode gostar
-                    </h2>
-                    
-                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        <Link 
-                            to="/servicos/terceirizacao-de-mao-de-obra"
-                            className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300"
-                        >
-                            <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-600 transition-colors">
-                                <svg className="w-6 h-6 text-orange-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                </svg>
-                            </div>
-                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">
-                                Conheça nosso serviço de Terceirização
-                            </h3>
-                            <p className="text-gray-600 text-sm">
-                                Descubra como a Talentos pode ajudar sua empresa com terceirização de mão de obra.
-                            </p>
-                        </Link>
-                        
-                        <Link 
-                            to="/blog/gestao-de-talentos"
-                            className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300"
-                        >
-                            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
-                                <svg className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                                Gestão de talentos inteligente
-                            </h3>
-                            <p className="text-gray-600 text-sm">
-                                Como desenvolver times de alta performance na sua empresa.
-                            </p>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <BlogRecommendationsSection
+                items={[
+                    {
+                        title: 'Terceirização de Mão de Obra',
+                        description: 'Conte com suporte completo para contratação e administração de profissionais terceirizados.',
+                        url: '/servicos/terceirizacao-de-mao-de-obra',
+                        accent: 'orange',
+                        icon: 'briefcase',
+                    },
+                    {
+                        title: 'Recrutamento e Seleção',
+                        description: 'Preencha demandas estratégicas com profissionais mais aderentes ao perfil da sua operação.',
+                        url: '/servicos/recrutamento-e-selecao',
+                        accent: 'red',
+                        icon: 'search',
+                    },
+                ]}
+            />
         </div>
     );
 };
 
 export default BlogTerceirizacaoPage;
-
-
 
 

@@ -53,7 +53,7 @@ const blogArticles = [
         titulo: 'Recrutamento e seleção estratégico: como atrair os melhores talentos',
         resumo: 'Atrair os melhores talentos é mais do que divulgar vagas e selecionar currículos. As contratações assertivas iniciam antes mesmo das entrevistas, por meio de processos bem estruturados de recrutamento e seleção.',
         imageUrl: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80',
-        url: '/blog/em-construcao',
+        url: '/blog/recrutamento-e-selecao-estrategico',
         categoria: 'Recrutamento',
         cor: 'emerald'
     },
@@ -62,7 +62,7 @@ const blogArticles = [
         titulo: 'O papel da liderança assertiva no ambiente de trabalho',
         resumo: 'Em um cenário corporativo, cada vez mais dinâmico e competitivo, a liderança assertiva é aquela que se destaca pelo olhar curioso às tendências, pela cooperação entre equipe e humanização nos processos.',
         imageUrl: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80',
-        url: '/blog/em-construcao',
+        url: '/blog/lideranca-assertiva',
         categoria: 'Liderança',
         cor: 'purple'
     },
@@ -71,7 +71,7 @@ const blogArticles = [
         titulo: 'Consultoria de RH: conheça os principais benefícios para sua empresa',
         resumo: 'A busca por profissionais capacitados se torna ainda mais desafiadora com as mudanças no mercado de trabalho. Com aumento de exigência e expectativas no recrutamento, a gestão de recursos humanos passa a ser indispensável.',
         imageUrl: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80',
-        url: '/blog/em-construcao',
+        url: '/blog/consultoria-de-rh-beneficios',
         categoria: 'Consultoria RH',
         cor: 'indigo'
     },
@@ -80,7 +80,7 @@ const blogArticles = [
         titulo: 'As habilidades profissionais em alta para 2025',
         resumo: 'O mercado de trabalho irá se transformar nos próximos cinco anos, sendo a inteligência artificial uma das grandes responsáveis por essa evolução. Profissionais precisarão se adaptar às novas demandas.',
         imageUrl: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80',
-        url: '/blog/em-construcao',
+        url: '/blog/habilidades-profissionais-2025',
         categoria: 'Carreira',
         cor: 'cyan'
     },
@@ -89,7 +89,7 @@ const blogArticles = [
         titulo: 'Saúde mental no trabalho: como a consultoria de RH auxilia na prevenção de afastamentos',
         resumo: 'A saúde mental no trabalho tornou-se um dos principais desafios para as organizações. Em 2024, houve o crescimento de 68% nos casos de afastamentos por transtornos psicológicos.',
         imageUrl: 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800&q=80',
-        url: '/blog/em-construcao',
+        url: '/blog/saude-mental-no-trabalho',
         categoria: 'Saúde Mental',
         cor: 'teal'
     },
@@ -98,7 +98,7 @@ const blogArticles = [
         titulo: 'Terceirização de Mão de Obra: Dicas para Contratar com Segurança',
         resumo: 'Conheça os principais cuidados para contratar empresas de terceirização com segurança e proteger sua empresa de riscos trabalhistas e financeiros.',
         imageUrl: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
-        url: '/blog/em-construcao',
+        url: '/blog/terceirizacao-de-mao-de-obra-com-seguranca',
         categoria: 'Terceirização',
         cor: 'amber'
     },
@@ -107,7 +107,7 @@ const blogArticles = [
         titulo: 'Como Reter Talentos nas Empresas',
         resumo: 'Conheça estratégias inovadoras para reter talentos. Descubra como construir uma cultura organizacional sólida e evitar a rotatividade na sua empresa.',
         imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80',
-        url: '/blog/em-construcao',
+        url: '/blog/como-reter-talentos',
         categoria: 'Retenção',
         cor: 'rose'
     },
@@ -304,7 +304,4 @@ const BlogPage: React.FC = () => {
 };
 
 export default BlogPage;
-
-
-
 

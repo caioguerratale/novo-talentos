@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ConsultorButton from './ConsultorButton';
+import BlogRecommendationsSection from './BlogRecommendationsSection';
 
 // Hook for scroll animations
 const useScrollAnimation = () => {
@@ -180,17 +181,17 @@ const BlogPesquisaClimaPage: React.FC = () => {
                                         {
                                             titulo: 'Gestão de pessoas mais eficiente',
                                             descricao: 'Sua empresa descobre pontos que prejudicam a performance do time, permitindo que a gestão atue diretamente nessas questões, facilitando a tomada de decisões assertivas.',
-                                            cor: 'from-blue-500 to-indigo-600'
+                                            cor: 'from-red-500 to-orange-500'
                                         },
                                         {
                                             titulo: 'Desenvolvimento de lideranças humanizadas',
                                             descricao: 'O líder passa a compreender melhor sua equipe, desenvolvendo uma gestão mais próxima, empática e estratégica.',
-                                            cor: 'from-emerald-500 to-teal-600'
+                                            cor: 'from-orange-500 to-red-600'
                                         },
                                         {
                                             titulo: 'Fortalecimento de marca empregadora',
                                             descricao: 'Ambientes de trabalho saudáveis atraem e retém talentos, transformando sua empresa em um espaço desejado por profissionais qualificados.',
-                                            cor: 'from-purple-500 to-violet-600'
+                                            cor: 'from-red-600 to-orange-600'
                                         },
                                         {
                                             titulo: 'Redução do turnover',
@@ -200,7 +201,7 @@ const BlogPesquisaClimaPage: React.FC = () => {
                                         {
                                             titulo: 'Aumento da produtividade',
                                             descricao: 'Ao se sentirem parte do processo de evolução da empresa, seus colaboradores ficam motivados a entregarem os melhores resultados.',
-                                            cor: 'from-rose-500 to-pink-600'
+                                            cor: 'from-orange-500 to-red-500'
                                         }
                                     ].map((beneficio, index) => (
                                         <div 
@@ -261,50 +262,24 @@ const BlogPesquisaClimaPage: React.FC = () => {
                 </div>
             </article>
 
-            {/* Outros artigos */}
-            <section className="py-16 bg-gray-50">
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                        Outros artigos que você pode gostar
-                    </h2>
-                    
-                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        <Link 
-                            to="/servicos/pesquisa-de-clima-organizacional"
-                            className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300"
-                        >
-                            <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-red-600 transition-colors">
-                                <svg className="w-6 h-6 text-red-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                </svg>
-                            </div>
-                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">
-                                Conheça nosso serviço de Pesquisa de Clima
-                            </h3>
-                            <p className="text-gray-600 text-sm">
-                                Descubra como a Talentos pode ajudar sua empresa a implementar uma pesquisa de clima eficaz.
-                            </p>
-                        </Link>
-                        
-                        <Link 
-                            to="/servicos/estruturacao-do-rh"
-                            className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300"
-                        >
-                            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors">
-                                <svg className="w-6 h-6 text-blue-600 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                </svg>
-                            </div>
-                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                                Estruturação do RH
-                            </h3>
-                            <p className="text-gray-600 text-sm">
-                                Transforme seu departamento de RH em um parceiro estratégico para o negócio.
-                            </p>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <BlogRecommendationsSection
+                items={[
+                    {
+                        title: 'Pesquisa de Clima Organizacional',
+                        description: 'Implemente uma pesquisa estruturada para medir satisfação e transformar feedbacks em planos de ação.',
+                        url: '/servicos/pesquisa-de-clima-organizacional',
+                        accent: 'red',
+                        icon: 'chart',
+                    },
+                    {
+                        title: 'Estruturação do RH',
+                        description: 'Fortaleça processos e políticas para que o RH atue como parceiro estratégico do negócio.',
+                        url: '/servicos/estruturacao-do-rh',
+                        accent: 'orange',
+                        icon: 'building',
+                    },
+                ]}
+            />
         </div>
     );
 };
