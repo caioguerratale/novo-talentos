@@ -38,10 +38,7 @@ const ScrollToTop = () => {
   return null;
 };
 
-const CONTACT_FORM_ENDPOINT = 'https://formsubmit.co/comercial@talentosconsultoria.com.br';
-
-const buildContactRedirectUrl = (route: string) =>
-    `${window.location.origin}${import.meta.env.BASE_URL}#${route}?sent=1`;
+const CONTACT_FORM_ENDPOINT = 'https://formsubmit.co/ajax/comercial@talentosconsultoria.com.br';
 
 const PERSONAL_EMAIL_DOMAINS = new Set([
     'gmail.com',
@@ -50,17 +47,31 @@ const PERSONAL_EMAIL_DOMAINS = new Set([
     'live.com',
     'msn.com',
     'yahoo.com',
+    'yahoo.com.br',
+    'ymail.com',
     'icloud.com',
     'me.com',
+    'mac.com',
     'uol.com.br',
     'bol.com.br',
     'terra.com.br',
     'globo.com',
     'ig.com.br',
     'r7.com',
+    'zipmail.com.br',
+    'email.com',
+    'mail.com',
+    'gmx.com',
+    'gmx.net',
+    'fastmail.com',
     'proton.me',
     'protonmail.com',
     'aol.com',
+    'zoho.com',
+    'hey.com',
+    'qq.com',
+    '163.com',
+    '126.com',
 ]);
 
 const isCorporateEmail = (email: string) => {
@@ -82,6 +93,27 @@ const formatPhone = (value: string) => {
     if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
 
     return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7, 11)}`;
+};
+
+const submitContactForm = async (payload: Record<string, string>) => {
+    const response = await fetch(CONTACT_FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+        },
+        body: JSON.stringify({
+            ...payload,
+            _captcha: 'false',
+            _template: 'table',
+        }),
+    });
+
+    if (!response.ok) {
+        throw new Error('Falha ao enviar formulário');
+    }
+
+    return response.json();
 };
 
 // Hook for scroll animations
@@ -978,6 +1010,9 @@ const ContactPageRemodeled: React.FC = () => {
         }
     };
 
+    const [status, setStatus] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         if (!isCorporateEmail(formData.corporateEmail)) {
             e.preventDefault();
@@ -986,6 +1021,40 @@ const ContactPageRemodeled: React.FC = () => {
         }
 
         setEmailError('');
+    };
+
+    const handleAsyncSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if (!isCorporateEmail(formData.corporateEmail)) {
+            setEmailError('Use um e-mail corporativo da empresa. Endereços públicos não são aceitos.');
+            return;
+        }
+
+        setEmailError('');
+        setStatus('Enviando...');
+        setSuccessMessage('');
+
+        try {
+            await submitContactForm({
+                name: formData.name,
+                company: formData.company,
+                corporateEmail: formData.corporateEmail,
+                phone: sanitizePhone(formData.phone),
+                message: formData.message,
+                _subject: `Novo contato comercial - ${formData.company || formData.name || 'Talentos Consultoria'}`,
+                _replyto: formData.corporateEmail,
+                _autoresponse: 'Recebemos sua mensagem e o contato foi encaminhado para nossa equipe comercial. Em breve retornaremos pelos canais informados.',
+            });
+
+            setStatus('');
+            setSuccessMessage('Sua mensagem foi encaminhada com sucesso. Você também deve receber um e-mail de confirmação no endereço informado.');
+            setFormData({ name: '', company: '', corporateEmail: '', phone: '', message: '' });
+        } catch {
+            setStatus('');
+            setSuccessMessage('');
+            setEmailError('Não foi possível enviar agora. Tente novamente em instantes.');
+        }
     };
 
     return (
@@ -1000,19 +1069,15 @@ const ContactPageRemodeled: React.FC = () => {
                         Envie os dados da sua empresa e um breve resumo do caso. Nossa equipe entra em contato para entender a demanda e orientar os próximos passos.
                     </p>
                 </div>
-                {sent && (
+                {(successMessage || sent) && (
                     <div className="max-w-3xl mx-auto mb-8 rounded-2xl border border-green-200 bg-green-50 px-6 py-4 text-center text-green-800">
-                        Sua mensagem foi encaminhada com sucesso. Você também deve receber um e-mail de confirmação no endereço informado.
+                        {successMessage || 'Sua mensagem foi encaminhada com sucesso. Você também deve receber um e-mail de confirmação no endereço informado.'}
                     </div>
                 )}
                 <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-8 xl:gap-10 items-stretch">
                     <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-gray-100">
-                        <form action={CONTACT_FORM_ENDPOINT} method="POST" onSubmit={handleSubmit} className="space-y-6">
+                        <form onSubmit={handleAsyncSubmit} className="space-y-6">
                             <input type="hidden" name="_subject" value={`Novo contato comercial - ${formData.company || formData.name || 'Talentos Consultoria'}`} />
-                            <input type="hidden" name="_next" value={buildContactRedirectUrl('/contato-novo')} />
-                            <input type="hidden" name="_captcha" value="false" />
-                            <input type="hidden" name="_template" value="table" />
-                            <input type="hidden" name="_autoresponse" value="Recebemos sua mensagem e o contato foi encaminhado para nossa equipe comercial. Em breve retornaremos pelos canais informados." />
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <div className="sm:col-span-2">
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nome</label>
@@ -1027,7 +1092,6 @@ const ContactPageRemodeled: React.FC = () => {
                                     <input type="email" name="corporateEmail" id="corporateEmail" required value={formData.corporateEmail} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
                                     {emailError && <p className="mt-2 text-sm text-red-600">{emailError}</p>}
                                 </div>
-                                <input type="hidden" name="_replyto" value={formData.corporateEmail} />
                                 <div className="sm:col-span-2">
                                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Telefone</label>
                                     <input type="tel" name="phone" id="phone" required inputMode="numeric" maxLength={15} value={formData.phone} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
@@ -1038,8 +1102,8 @@ const ContactPageRemodeled: React.FC = () => {
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" className="w-full bg-red-600 text-white font-bold py-3.5 px-6 rounded-xl hover:bg-red-700 transition-all duration-300 transform hover:scale-[1.01]">
-                                    Enviar contato
+                                <button type="submit" disabled={status === 'Enviando...'} className="w-full bg-red-600 text-white font-bold py-3.5 px-6 rounded-xl hover:bg-red-700 transition-all duration-300 transform hover:scale-[1.01] disabled:bg-gray-400 disabled:cursor-not-allowed">
+                                    {status === 'Enviando...' ? 'Enviando...' : 'Enviar contato'}
                                 </button>
                             </div>
                         </form>
@@ -1076,6 +1140,8 @@ const ContactPage: React.FC = () => {
     const location = useLocation();
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
     const [emailError, setEmailError] = useState('');
+    const [status, setStatus] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
     const sent = new URLSearchParams(location.search).get('sent') === '1';
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -1096,6 +1162,39 @@ const ContactPage: React.FC = () => {
         setEmailError('');
     };
 
+    const handleAsyncSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if (!isCorporateEmail(formData.email)) {
+            setEmailError('Use um e-mail corporativo da empresa. Endereços públicos não são aceitos.');
+            return;
+        }
+
+        setEmailError('');
+        setStatus('Enviando...');
+        setSuccessMessage('');
+
+        try {
+            await submitContactForm({
+                name: formData.name,
+                email: formData.email,
+                phone: sanitizePhone(formData.phone),
+                message: formData.message,
+                _subject: `Novo contato comercial - ${formData.name || 'Talentos Consultoria'}`,
+                _replyto: formData.email,
+                _autoresponse: 'Recebemos sua mensagem e o contato foi encaminhado para nossa equipe. Em breve retornaremos pelos canais informados.',
+            });
+
+            setStatus('');
+            setSuccessMessage('Sua mensagem foi encaminhada com sucesso. Você também deve receber um e-mail de confirmação no endereço informado.');
+            setFormData({ name: '', email: '', phone: '', message: '' });
+        } catch {
+            setStatus('');
+            setSuccessMessage('');
+            setEmailError('Não foi possível enviar agora. Tente novamente em instantes.');
+        }
+    };
+
     return (
         <div className="bg-gray-50 py-16 sm:py-24">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -1103,18 +1202,14 @@ const ContactPage: React.FC = () => {
                     <h1 className="text-4xl font-extrabold text-gray-900">Fale Conosco</h1>
                     <p className="mt-4 text-lg text-gray-600">Tem alguma dúvida ou precisa de uma solução de RH? Entre em contato conosco.</p>
                 </div>
-                {sent && (
+                {(successMessage || sent) && (
                     <div className="max-w-3xl mx-auto mb-8 rounded-2xl border border-green-200 bg-green-50 px-6 py-4 text-center text-green-800">
-                        Sua mensagem foi encaminhada com sucesso. Você também deve receber um e-mail de confirmação no endereço informado.
+                        {successMessage || 'Sua mensagem foi encaminhada com sucesso. Você também deve receber um e-mail de confirmação no endereço informado.'}
                     </div>
                 )}
                 <div className="grid lg:grid-cols-2 gap-12 bg-white p-8 rounded-xl shadow-lg">
-                    <form action={CONTACT_FORM_ENDPOINT} method="POST" onSubmit={handleSubmit} className="space-y-6">
+                    <form onSubmit={handleAsyncSubmit} className="space-y-6">
                         <input type="hidden" name="_subject" value={`Novo contato comercial - ${formData.name || 'Talentos Consultoria'}`} />
-                        <input type="hidden" name="_next" value={buildContactRedirectUrl('/contato')} />
-                        <input type="hidden" name="_captcha" value="false" />
-                        <input type="hidden" name="_template" value="table" />
-                        <input type="hidden" name="_autoresponse" value="Recebemos sua mensagem e o contato foi encaminhado para nossa equipe. Em breve retornaremos pelos canais informados." />
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nome Completo</label>
                             <input type="text" name="name" id="name" required value={formData.name} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
@@ -1124,7 +1219,6 @@ const ContactPage: React.FC = () => {
                             <input type="email" name="email" id="email" required value={formData.email} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
                             {emailError && <p className="mt-2 text-sm text-red-600">{emailError}</p>}
                         </div>
-                        <input type="hidden" name="_replyto" value={formData.email} />
                         <div>
                             <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Telefone</label>
                             <input type="tel" name="phone" id="phone" inputMode="numeric" maxLength={15} value={formData.phone} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
@@ -1134,8 +1228,8 @@ const ContactPage: React.FC = () => {
                             <textarea name="message" id="message" rows={4} required value={formData.message} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"></textarea>
                         </div>
                         <div>
-                            <button type="submit" className="w-full bg-red-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105">
-                                Enviar Mensagem
+                            <button type="submit" disabled={status === 'Enviando...'} className="w-full bg-red-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105 disabled:bg-gray-400 disabled:cursor-not-allowed">
+                                {status === 'Enviando...' ? 'Enviando...' : 'Enviar Mensagem'}
                             </button>
                         </div>
                     </form>
