@@ -43,6 +43,47 @@ const CONTACT_FORM_ENDPOINT = 'https://formsubmit.co/comercial@talentosconsultor
 const buildContactRedirectUrl = (route: string) =>
     `${window.location.origin}${import.meta.env.BASE_URL}#${route}?sent=1`;
 
+const PERSONAL_EMAIL_DOMAINS = new Set([
+    'gmail.com',
+    'hotmail.com',
+    'outlook.com',
+    'live.com',
+    'msn.com',
+    'yahoo.com',
+    'icloud.com',
+    'me.com',
+    'uol.com.br',
+    'bol.com.br',
+    'terra.com.br',
+    'globo.com',
+    'ig.com.br',
+    'r7.com',
+    'proton.me',
+    'protonmail.com',
+    'aol.com',
+]);
+
+const isCorporateEmail = (email: string) => {
+    const normalized = email.trim().toLowerCase();
+    const parts = normalized.split('@');
+
+    if (parts.length !== 2) return false;
+
+    const domain = parts[1];
+    return domain.includes('.') && !PERSONAL_EMAIL_DOMAINS.has(domain);
+};
+
+const sanitizePhone = (value: string) => value.replace(/\D/g, '').slice(0, 11);
+
+const formatPhone = (value: string) => {
+    const digits = sanitizePhone(value);
+
+    if (digits.length <= 2) return digits;
+    if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7, 11)}`;
+};
+
 // Hook for scroll animations
 const useScrollAnimation = () => {
     const [ref, setRef] = useState<HTMLDivElement | null>(null);
@@ -926,10 +967,25 @@ const JobsPage: React.FC = () => {
 const ContactPageRemodeled: React.FC = () => {
     const location = useLocation();
     const [formData, setFormData] = useState({ name: '', company: '', corporateEmail: '', phone: '', message: '' });
+    const [emailError, setEmailError] = useState('');
     const sent = new URLSearchParams(location.search).get('sent') === '1';
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const nextValue = e.target.name === 'phone' ? formatPhone(e.target.value) : e.target.value;
+        setFormData({ ...formData, [e.target.name]: nextValue });
+        if (e.target.name === 'corporateEmail' && emailError) {
+            setEmailError('');
+        }
+    };
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        if (!isCorporateEmail(formData.corporateEmail)) {
+            e.preventDefault();
+            setEmailError('Use um e-mail corporativo da empresa. Endereços pessoais como Gmail, Hotmail e Outlook não são aceitos.');
+            return;
+        }
+
+        setEmailError('');
     };
 
     return (
@@ -951,7 +1007,7 @@ const ContactPageRemodeled: React.FC = () => {
                 )}
                 <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-8 xl:gap-10 items-stretch">
                     <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-gray-100">
-                        <form action={CONTACT_FORM_ENDPOINT} method="POST" className="space-y-6">
+                        <form action={CONTACT_FORM_ENDPOINT} method="POST" onSubmit={handleSubmit} className="space-y-6">
                             <input type="hidden" name="_subject" value={`Novo contato comercial - ${formData.company || formData.name || 'Talentos Consultoria'}`} />
                             <input type="hidden" name="_next" value={buildContactRedirectUrl('/contato-novo')} />
                             <input type="hidden" name="_captcha" value="false" />
@@ -969,11 +1025,12 @@ const ContactPageRemodeled: React.FC = () => {
                                 <div className="sm:col-span-2">
                                     <label htmlFor="corporateEmail" className="block text-sm font-medium text-gray-700">E-mail corporativo</label>
                                     <input type="email" name="corporateEmail" id="corporateEmail" required value={formData.corporateEmail} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
+                                    {emailError && <p className="mt-2 text-sm text-red-600">{emailError}</p>}
                                 </div>
                                 <input type="hidden" name="_replyto" value={formData.corporateEmail} />
                                 <div className="sm:col-span-2">
                                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Telefone</label>
-                                    <input type="tel" name="phone" id="phone" required value={formData.phone} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
+                                    <input type="tel" name="phone" id="phone" required inputMode="numeric" maxLength={15} value={formData.phone} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
                                 </div>
                                 <div className="sm:col-span-2">
                                     <label htmlFor="message" className="block text-sm font-medium text-gray-700">Breve descrição do caso</label>
@@ -1018,10 +1075,25 @@ const ContactPageRemodeled: React.FC = () => {
 const ContactPage: React.FC = () => {
     const location = useLocation();
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+    const [emailError, setEmailError] = useState('');
     const sent = new URLSearchParams(location.search).get('sent') === '1';
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const nextValue = e.target.name === 'phone' ? formatPhone(e.target.value) : e.target.value;
+        setFormData({ ...formData, [e.target.name]: nextValue });
+        if (e.target.name === 'email' && emailError) {
+            setEmailError('');
+        }
+    };
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        if (!isCorporateEmail(formData.email)) {
+            e.preventDefault();
+            setEmailError('Use um e-mail corporativo da empresa. Endereços pessoais como Gmail, Hotmail e Outlook não são aceitos.');
+            return;
+        }
+
+        setEmailError('');
     };
 
     return (
@@ -1037,7 +1109,7 @@ const ContactPage: React.FC = () => {
                     </div>
                 )}
                 <div className="grid lg:grid-cols-2 gap-12 bg-white p-8 rounded-xl shadow-lg">
-                    <form action={CONTACT_FORM_ENDPOINT} method="POST" className="space-y-6">
+                    <form action={CONTACT_FORM_ENDPOINT} method="POST" onSubmit={handleSubmit} className="space-y-6">
                         <input type="hidden" name="_subject" value={`Novo contato comercial - ${formData.name || 'Talentos Consultoria'}`} />
                         <input type="hidden" name="_next" value={buildContactRedirectUrl('/contato')} />
                         <input type="hidden" name="_captcha" value="false" />
@@ -1050,11 +1122,12 @@ const ContactPage: React.FC = () => {
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">E-mail</label>
                             <input type="email" name="email" id="email" required value={formData.email} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
+                            {emailError && <p className="mt-2 text-sm text-red-600">{emailError}</p>}
                         </div>
                         <input type="hidden" name="_replyto" value={formData.email} />
                         <div>
                             <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Telefone</label>
-                            <input type="tel" name="phone" id="phone" value={formData.phone} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
+                            <input type="tel" name="phone" id="phone" inputMode="numeric" maxLength={15} value={formData.phone} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
                         </div>
                         <div>
                             <label htmlFor="message" className="block text-sm font-medium text-gray-700">Mensagem</label>
