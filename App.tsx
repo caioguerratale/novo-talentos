@@ -38,6 +38,11 @@ const ScrollToTop = () => {
   return null;
 };
 
+const CONTACT_FORM_ENDPOINT = 'https://formsubmit.co/comercial@talentosconsultoria.com.br';
+
+const buildContactRedirectUrl = (route: string) =>
+    `${window.location.origin}${import.meta.env.BASE_URL}#${route}?sent=1`;
+
 // Hook for scroll animations
 const useScrollAnimation = () => {
     const [ref, setRef] = useState<HTMLDivElement | null>(null);
@@ -919,30 +924,12 @@ const JobsPage: React.FC = () => {
 };
 
 const ContactPageRemodeled: React.FC = () => {
+    const location = useLocation();
     const [formData, setFormData] = useState({ name: '', company: '', corporateEmail: '', phone: '', message: '' });
-    const [status, setStatus] = useState('');
+    const sent = new URLSearchParams(location.search).get('sent') === '1';
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const subject = encodeURIComponent(`Novo contato comercial - ${formData.company}`);
-        const body = encodeURIComponent(
-            [
-                `Nome: ${formData.name}`,
-                `Empresa: ${formData.company}`,
-                `E-mail corporativo: ${formData.corporateEmail}`,
-                `Telefone: ${formData.phone}`,
-                '',
-                'Breve descrição do caso:',
-                formData.message,
-            ].join('\n')
-        );
-
-        window.location.href = `mailto:comercial@talentosconsultoria.com.br?subject=${subject}&body=${body}`;
-        setStatus('Abrindo seu aplicativo de e-mail...');
     };
 
     return (
@@ -957,9 +944,19 @@ const ContactPageRemodeled: React.FC = () => {
                         Envie os dados da sua empresa e um breve resumo do caso. Nossa equipe entra em contato para entender a demanda e orientar os próximos passos.
                     </p>
                 </div>
+                {sent && (
+                    <div className="max-w-3xl mx-auto mb-8 rounded-2xl border border-green-200 bg-green-50 px-6 py-4 text-center text-green-800">
+                        Sua mensagem foi encaminhada com sucesso. Você também deve receber um e-mail de confirmação no endereço informado.
+                    </div>
+                )}
                 <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-8 xl:gap-10 items-stretch">
                     <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-gray-100">
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form action={CONTACT_FORM_ENDPOINT} method="POST" className="space-y-6">
+                            <input type="hidden" name="_subject" value={`Novo contato comercial - ${formData.company || formData.name || 'Talentos Consultoria'}`} />
+                            <input type="hidden" name="_next" value={buildContactRedirectUrl('/contato-novo')} />
+                            <input type="hidden" name="_captcha" value="false" />
+                            <input type="hidden" name="_template" value="table" />
+                            <input type="hidden" name="_autoresponse" value="Recebemos sua mensagem e o contato foi encaminhado para nossa equipe comercial. Em breve retornaremos pelos canais informados." />
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <div className="sm:col-span-2">
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nome</label>
@@ -973,6 +970,7 @@ const ContactPageRemodeled: React.FC = () => {
                                     <label htmlFor="corporateEmail" className="block text-sm font-medium text-gray-700">E-mail corporativo</label>
                                     <input type="email" name="corporateEmail" id="corporateEmail" required value={formData.corporateEmail} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
                                 </div>
+                                <input type="hidden" name="_replyto" value={formData.corporateEmail} />
                                 <div className="sm:col-span-2">
                                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Telefone</label>
                                     <input type="tel" name="phone" id="phone" required value={formData.phone} onChange={handleChange} className="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
@@ -987,7 +985,6 @@ const ContactPageRemodeled: React.FC = () => {
                                     Enviar contato
                                 </button>
                             </div>
-                            {status && <p className="text-center text-gray-600">{status}</p>}
                         </form>
                     </div>
                     <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-gray-100 flex flex-col">
@@ -1019,29 +1016,12 @@ const ContactPageRemodeled: React.FC = () => {
 };
 
 const ContactPage: React.FC = () => {
+    const location = useLocation();
     const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
-    const [status, setStatus] = useState('');
+    const sent = new URLSearchParams(location.search).get('sent') === '1';
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const subject = encodeURIComponent(`Novo contato comercial - ${formData.name}`);
-        const body = encodeURIComponent(
-            [
-                `Nome: ${formData.name}`,
-                `E-mail: ${formData.email}`,
-                `Telefone: ${formData.phone}`,
-                '',
-                'Mensagem:',
-                formData.message,
-            ].join('\n')
-        );
-
-        window.location.href = `mailto:comercial@talentosconsultoria.com.br?subject=${subject}&body=${body}`;
-        setStatus('Abrindo seu aplicativo de e-mail...');
     };
 
     return (
@@ -1051,8 +1031,18 @@ const ContactPage: React.FC = () => {
                     <h1 className="text-4xl font-extrabold text-gray-900">Fale Conosco</h1>
                     <p className="mt-4 text-lg text-gray-600">Tem alguma dúvida ou precisa de uma solução de RH? Entre em contato conosco.</p>
                 </div>
+                {sent && (
+                    <div className="max-w-3xl mx-auto mb-8 rounded-2xl border border-green-200 bg-green-50 px-6 py-4 text-center text-green-800">
+                        Sua mensagem foi encaminhada com sucesso. Você também deve receber um e-mail de confirmação no endereço informado.
+                    </div>
+                )}
                 <div className="grid lg:grid-cols-2 gap-12 bg-white p-8 rounded-xl shadow-lg">
-                    <form onSubmit={handleSubmit} className="space-y-6">
+                    <form action={CONTACT_FORM_ENDPOINT} method="POST" className="space-y-6">
+                        <input type="hidden" name="_subject" value={`Novo contato comercial - ${formData.name || 'Talentos Consultoria'}`} />
+                        <input type="hidden" name="_next" value={buildContactRedirectUrl('/contato')} />
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_template" value="table" />
+                        <input type="hidden" name="_autoresponse" value="Recebemos sua mensagem e o contato foi encaminhado para nossa equipe. Em breve retornaremos pelos canais informados." />
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nome Completo</label>
                             <input type="text" name="name" id="name" required value={formData.name} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
@@ -1061,6 +1051,7 @@ const ContactPage: React.FC = () => {
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">E-mail</label>
                             <input type="email" name="email" id="email" required value={formData.email} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
                         </div>
+                        <input type="hidden" name="_replyto" value={formData.email} />
                         <div>
                             <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Telefone</label>
                             <input type="tel" name="phone" id="phone" value={formData.phone} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500"/>
@@ -1074,7 +1065,6 @@ const ContactPage: React.FC = () => {
                                 Enviar Mensagem
                             </button>
                         </div>
-                        {status && <p className="text-center text-gray-600">{status}</p>}
                     </form>
                     <div className="space-y-8">
                         <h3 className="text-2xl font-bold text-gray-800">Informações de Contato</h3>
