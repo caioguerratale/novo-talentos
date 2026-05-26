@@ -67,6 +67,11 @@ export const services: Service[] = [
     slug: 'terceirizacao-de-mao-de-obra',
     title: 'Terceirização de Mão de Obra',
     shortDescription: 'Contratar profissionais terceirizados para as mais diversas áreas pode ser a solução ideal para empresas que precisam concentrar energia em seus core businesses. A Talentos Consultoria é parceira ideal para entender as suas necessidades e contratar a mão de obra do jeito que você precisa. Oferecemos as modalidades: Efetiva por tempo indeterminado, Efetiva por tempo determinado e Temporária.',
+    homepageHighlights: [
+      'Soluções personalizadas para sua empresa',
+      'Equipe especializada com mais de 20 anos de experiência',
+      'Resultados comprovados em empresas de diversos segmentos',
+    ],
     longDescription: (
       <div className="space-y-4 text-gray-700">
         <p>A terceirização de mão de obra permite que sua empresa foque em seu negócio principal, enquanto a Talentos Consultoria cuida de todas as rotinas de administração de pessoal, desde o recrutamento até o desligamento do profissional, seguindo as normas da CLT e exigências sindicais.</p>
@@ -96,19 +101,20 @@ export const services: Service[] = [
     id: 2,
     slug: 'recrutamento-e-selecao',
     title: 'Recrutamento e Seleção',
-    shortDescription: 'Contratar as pessoas certas é um dos principais pilares para o crescimento e sucesso de uma empresa. Desde 2011 no mercado, tendo realizado mais de 8.300 contratações, somos referência em consultoria de recrutamento e seleção no Brasil. Temos experiência em atendimento a diversos tipos de necessidades, de pequenas e grandes empresas, incluindo posições de liderança e cargos operacionais.',
+    shortDescription: 'Contratar as pessoas certas é um dos principais pilares para o crescimento e sucesso de uma empresa. Desde 2011 no mercado, tendo realizado mais de 8.300 contratações, somos referência em consultoria de recrutamento e seleção no Brasil. Temos experiência em atendimento a diversos tipos de necessidades, desde pequenas a grandes empresas, incluindo posições de liderança e cargos operacionais.',
+    homepageHighlights: [
+        'Processo conduzido por especialistas em RH.',
+        'Mais de 8.300 contratações realizadas.',
+        'Atendimento do operacional à liderança.',
+    ],
     longDescription: (
         <div className="space-y-4 text-gray-700">
             <p>Com um processo de recrutamento e seleção bem estruturado, identificamos e atraímos os profissionais mais qualificados e alinhados à cultura da sua organização. Utilizamos as mais modernas técnicas e ferramentas para garantir a melhor escolha.</p>
             <h3 className="text-xl font-semibold text-gray-800 pt-4">Nosso Processo:</h3>
             <ul className="list-disc list-inside space-y-2">
-                <li>Alinhamento de perfil da vaga com o gestor.</li>
-                <li>Divulgação estratégica em diversos canais.</li>
-                <li>Triagem de currículos e hunting ativo.</li>
-                <li>Entrevistas por competências e dinâmicas de grupo.</li>
-                <li>Aplicação de testes técnicos e comportamentais.</li>
-                <li>Verificação de referências profissionais.</li>
-                <li>Apresentação dos finalistas e suporte na decisão.</li>
+                <li>Processo conduzido por especialistas em RH.</li>
+                <li>Mais de 8.300 contratações realizadas.</li>
+                <li>Atendimento do operacional à liderança.</li>
             </ul>
         </div>
     ),
@@ -121,16 +127,19 @@ export const services: Service[] = [
     slug: 'estruturacao-do-rh',
     title: 'Estruturação do RH',
     shortDescription: 'Uma das vantagens de se contratar uma consultoria em Recursos Humanos é poder contar com uma visão profissional e imparcial sobre o RH da sua empresa. A Estruturação do RH é o serviço de consultoria da Talentos que analisa os processos e controles do seu RH, avaliando métricas de desempenho da equipe, apontando problemas e indicando soluções para melhorar a produtividade do setor.',
+    homepageHighlights: [
+        'Diagnóstico profissional e imparcial do RH.',
+        'Análise de processos, controles e indicadores.',
+        'Soluções para aumentar a produtividade da equipe.',
+    ],
     longDescription: (
         <div className="space-y-4 text-gray-700">
             <p>A Talentos Consultoria auxilia sua empresa na implantação ou reestruturação do departamento de Recursos Humanos, tornando-o um parceiro estratégico para o negócio. Desenvolvemos políticas, processos e ferramentas para uma gestão de pessoas eficiente e alinhada aos objetivos da organização.</p>
             <h3 className="text-xl font-semibold text-gray-800 pt-4">Etapas do Projeto:</h3>
             <ul className="list-disc list-inside space-y-2">
-                <li>Diagnóstico da situação atual do RH.</li>
-                <li>Definição de políticas de RH (recrutamento, treinamento, cargos e salários, etc.).</li>
-                <li>Desenvolvimento de manuais de normas e procedimentos.</li>
-                <li>Implementação de ferramentas de gestão (avaliação de desempenho, pesquisa de clima).</li>
-                <li>Treinamento da equipe interna para a condução dos novos processos.</li>
+                <li>Diagnóstico profissional e imparcial do RH.</li>
+                <li>Análise de processos, controles e indicadores.</li>
+                <li>Soluções para aumentar a produtividade da equipe.</li>
             </ul>
         </div>
     ),
@@ -143,16 +152,19 @@ export const services: Service[] = [
     slug: 'mapeamento-e-descricao-de-cargos',
     title: 'Mapeamento e Descrição de Cargos',
     shortDescription: 'O mapeamento de cargos é a descrição de cada posição de trabalho que existe na empresa, com as suas competências, habilidades requeridas, responsabilidades e salário correspondente. Ajuda as empresas a desenvolverem e contratarem pessoas, focando na melhor adequação dos perfis às exigências dos cargos. Como resultado, sua empresa terá melhor clima organizacional e equipes mais produtivas.',
+    homepageHighlights: [
+        'Clareza sobre responsabilidades e competências.',
+        'Melhor adequação entre perfil e cargo.',
+        'Equipes mais produtivas e organizadas.',
+    ],
     longDescription: (
          <div className="space-y-4 text-gray-700">
             <p>O mapeamento e a descrição de cargos são a base para diversos subsistemas de RH. Nosso trabalho consiste em identificar, analisar e registrar as atribuições, responsabilidades, requisitos e competências de cada cargo na estrutura organizacional, proporcionando clareza e alinhamento.</p>
             <h3 className="text-xl font-semibold text-gray-800 pt-4">Benefícios:</h3>
             <ul className="list-disc list-inside space-y-2">
-                <li>Facilita o recrutamento e seleção, focando nos requisitos certos.</li>
-                <li>Base para a estruturação de planos de cargos e salários.</li>
-                <li>Orienta programas de treinamento e desenvolvimento.</li>
-                <li>Serve como insumo para a avaliação de desempenho.</li>
-                <li>Define claramente as expectativas para os colaboradores.</li>
+                <li>Clareza sobre responsabilidades e competências.</li>
+                <li>Melhor adequação entre perfil e cargo.</li>
+                <li>Equipes mais produtivas e organizadas.</li>
             </ul>
         </div>
     ),
@@ -165,16 +177,19 @@ export const services: Service[] = [
     slug: 'cargos-e-salarios',
     title: 'Cargos e Salários',
     shortDescription: 'O plano de cargos e salários é um instrumento que estabelece as funções, qualificações necessárias e faixas salariais dentro de uma organização. Permite às empresas conhecerem seu posicionamento salarial atual em relação ao mercado e planejarem seu posicionamento ideal. Com ele, os gestores contam com mais critérios para definir a remuneração, traçar estratégias para atrair e manter profissionais qualificados.',
+    homepageHighlights: [
+        'Estruturação clara de funções e faixas salariais.',
+        'Comparação com o mercado e posicionamento salarial.',
+        'Estratégias para atrair e reter talentos qualificados.',
+    ],
     longDescription: (
         <div className="space-y-4 text-gray-700">
             <p>Desenvolvemos e implementamos Planos de Cargos e Salários que promovem a equidade interna e a competitividade externa. Uma política de remuneração bem definida é fundamental para atrair, reter e motivar talentos.</p>
             <h3 className="text-xl font-semibold text-gray-800 pt-4">Nossa Metodologia:</h3>
             <ul className="list-disc list-inside space-y-2">
-                <li>Descrição e avaliação dos cargos.</li>
-                <li>Pesquisa salarial de mercado.</li>
-                <li>Definição das faixas salariais.</li>
-                <li>Criação de políticas de remuneração e promoção.</li>
-                <li>Comunicação e implantação do plano.</li>
+                <li>Estruturação clara de funções e faixas salariais.</li>
+                <li>Comparação com o mercado e posicionamento salarial.</li>
+                <li>Estratégias para atrair e reter talentos qualificados.</li>
             </ul>
         </div>
     ),
@@ -187,15 +202,19 @@ export const services: Service[] = [
     slug: 'pesquisa-de-clima-organizacional',
     title: 'Pesquisa de Clima Organizacional',
     shortDescription: 'O engajamento e o clima organizacional são alguns dos fatores que mais impactam na satisfação e produtividade dos colaboradores de uma empresa. A maneira mais efetiva de se medir esses indicadores é através da pesquisa de clima organizacional. Por meio dessa pesquisa, é possível coletar dados concretos sobre a satisfação e o engajamento dos colaboradores e identificar os principais problemas de gestão.',
+    homepageHighlights: [
+        'Medição do engajamento e satisfação dos colaboradores.',
+        'Identificação dos principais problemas de gestão.',
+        'Dados concretos para melhorar clima e produtividade.',
+    ],
     longDescription: (
        <div className="space-y-4 text-gray-700">
             <p>A Pesquisa de Clima Organizacional é uma ferramenta estratégica para medir o nível de satisfação e engajamento dos colaboradores. Através de um diagnóstico preciso, identificamos pontos fortes e oportunidades de melhoria na gestão de pessoas e no ambiente de trabalho.</p>
             <h3 className="text-xl font-semibold text-gray-800 pt-4">Processo:</h3>
             <ul className="list-disc list-inside space-y-2">
-                <li>Customização do questionário conforme a realidade da empresa.</li>
-                <li>Aplicação da pesquisa (online ou física) com garantia de sigilo.</li>
-                <li>Tabulação e análise estatística dos dados.</li>
-                <li>Apresentação dos resultados e recomendações de planos de ação.</li>
+                <li>Medição do engajamento e satisfação dos colaboradores.</li>
+                <li>Identificação dos principais problemas de gestão.</li>
+                <li>Dados concretos para melhorar clima e produtividade.</li>
             </ul>
         </div>
     ),
@@ -204,20 +223,23 @@ export const services: Service[] = [
     bgImage: `${import.meta.env.BASE_URL}Home/Pesquisa de clima.png`,
   },
    {
-    id: 7,
+   id: 7,
     slug: 'outplacement',
     title: 'Outplacement',
     shortDescription: 'Outplacement é o programa de Recursos Humanos que objetiva amenizar o impacto das demissões e facilitar a transição de carreira dos profissionais desligados. Para o profissional, transforma a difícil experiência em oportunidade de reflexão e crescimento. Para a empresa, melhora a imagem no mercado, o clima entre colaboradores remanescentes e reduz riscos com processos trabalhistas.',
+    homepageHighlights: [
+        'Avaliação de cenários e níveis de intensidade.',
+        'Comparação entre estratégias fortes e fracas.',
+        'Apoio à tomada de decisão com base em dados.',
+    ],
     longDescription: (
         <div className="space-y-4 text-gray-700">
             <p>Oferecemos suporte a profissionais desligados da empresa, auxiliando em sua recolocação no mercado de trabalho. Este serviço humaniza o processo de demissão, preserva a imagem da empresa e oferece um direcionamento de carreira para o profissional.</p>
             <h3 className="text-xl font-semibold text-gray-800 pt-4">O Programa Inclui:</h3>
             <ul className="list-disc list-inside space-y-2">
-                <li>Aconselhamento e planejamento de carreira.</li>
-                <li>Elaboração de currículo e perfil em redes profissionais.</li>
-                <li>Treinamento para entrevistas e networking.</li>
-                <li>Mapeamento de oportunidades de mercado.</li>
-                <li>Suporte emocional durante a transição.</li>
+                <li>Avaliação de cenários e níveis de intensidade.</li>
+                <li>Comparação entre estratégias fortes e fracas.</li>
+                <li>Apoio à tomada de decisão com base em dados.</li>
             </ul>
         </div>
     ),

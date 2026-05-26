@@ -401,20 +401,16 @@ const ServicesSlider: React.FC = () => {
                         </p>
 
                         {/* Features List */}
-                        <ul className="space-y-3 mb-6 inline-block text-left">
-                            <li className="flex items-start gap-3">
-                                <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></span>
-                                <span className="text-white text-base">Soluções personalizadas para sua empresa</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></span>
-                                <span className="text-white text-base">Equipe especializada com mais de 20 anos de experiência</span>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></span>
-                                <span className="text-white text-base">Resultados comprovados em empresas de diversos segmentos</span>
-                            </li>
-                        </ul>
+                        {activeService.homepageHighlights && activeService.homepageHighlights.length > 0 && (
+                            <ul className="space-y-3 mb-6 inline-block text-left">
+                                {activeService.homepageHighlights.map((highlight) => (
+                                    <li key={highlight} className="flex items-start gap-3">
+                                        <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></span>
+                                        <span className="text-white text-base">{highlight}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
 
                         {/* CTA Link */}
                         <div>
@@ -525,8 +521,7 @@ const HomePage: React.FC = () => (
                     
                     {/* Subtitle */}
                     <p className="text-base sm:text-lg md:text-[1.35rem] text-white/80 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto px-2 animate-fade-in-up animation-delay-400">
-                        Alinhamos cultura, liderança e gestão para construir times que não apenas trabalham, mas entregam lucro e crescimento para o seu negócio.
-                    </p>
+                      Alinhamos cultura, liderança e gestão para construir times que entregam produtividade, crescimento e valor para o seu negócio.                    </p>
                     
                     {/* Buttons - Stack on mobile */}
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0 animate-fade-in-up animation-delay-600">

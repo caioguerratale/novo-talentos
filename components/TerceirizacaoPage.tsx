@@ -116,7 +116,6 @@ const profissionais = [
     { nome: 'Logística', icon: profissionaisIcons.logistica, cor: 'from-blue-500 to-indigo-600' },
     { nome: 'Portaria', icon: profissionaisIcons.portaria, cor: 'from-slate-500 to-gray-600' },
     { nome: 'Manutenção e Zeladoria', icon: profissionaisIcons.manutencao, cor: 'from-emerald-500 to-teal-600' },
-    { nome: 'Motoristas', icon: profissionaisIcons.motoristas, cor: 'from-red-500 to-rose-600' },
     { nome: 'Profissionais de TI', icon: profissionaisIcons.ti, cor: 'from-indigo-500 to-purple-600' },
     { nome: 'Administrativos', icon: profissionaisIcons.administrativos, cor: 'from-sky-500 to-blue-600' },
 ];
@@ -539,7 +538,7 @@ const TerceirizacaoPage: React.FC = () => {
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
-                                    Vínculo e responsabilidade são nossos
+                                    Fazemos a gestão de colaborador de ponta a ponta
                                 </div>
                             </div>
                         </AnimatedSection>
@@ -619,14 +618,18 @@ const TerceirizacaoPage: React.FC = () => {
                         </p>
                     </AnimatedSection>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+                    <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-5xl mx-auto">
                         {profissionais.map((prof, index) => (
-                            <AnimatedSection key={prof.nome} delay={0.05 * index}>
+                            <AnimatedSection
+                                key={prof.nome}
+                                delay={0.05 * index}
+                                className="w-[calc(50%-0.5rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] max-w-[220px]"
+                            >
                                 <div 
-                                    className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                                    className="group relative h-full overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                    <div className="relative p-6 text-center">
+                                    <div className="relative flex h-full flex-col justify-center p-6 text-center min-h-[112px]">
                                         <div className="mb-3 group-hover:scale-110 transition-transform duration-300 text-gray-600 group-hover:text-white flex justify-center">{prof.icon}</div>
                                         <h3 className="font-semibold text-gray-800 group-hover:text-white transition-colors duration-300 text-sm md:text-base">
                                             {prof.nome}

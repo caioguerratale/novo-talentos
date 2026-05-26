@@ -3,6 +3,7 @@ export interface Service {
   slug: string;
   title: string;
   shortDescription: string;
+  homepageHighlights?: string[];
   longDescription: React.ReactNode;
   icon: React.ReactNode;
   imageUrl: string;

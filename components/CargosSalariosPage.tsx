@@ -441,7 +441,7 @@ const CargosSalariosPage: React.FC = () => {
                                     </svg>
                                 </div>
                                 <h3 className="font-bold text-gray-900 mb-2">Não conhecemos o mercado</h3>
-                                <p className="text-gray-600 text-sm mb-4">"Não sabemos quanto nossos concorrentes estão pagando."</p>
+                                <p className="text-gray-600 text-sm mb-4">"Não sabemos o que o nosso segmento está pagando."</p>
                                 <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
